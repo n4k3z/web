@@ -8,6 +8,16 @@ body {
     text-align: left;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+img, video {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
 }
 
 .theme-toggle {
@@ -196,12 +206,12 @@ h1, h2, h3, h4, h5, h6 {
 .slider {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 480px; /* Altura aumentada */
     overflow: hidden;
     margin: 20px 0;
     display: flex;
     justify-content: flex-start;
-    background-color: transparent; /* Fondo transparente */
+    background-color: transparent;
 }
 
 .slides {
@@ -212,24 +222,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slides img {
-    height: 400px;
-    width: 100%; /* Ocupa el 100% del contenedor para evitar que se amontonen de 2 en 2 */
+    height: 480px; /* Altura aumentada */
+    width: 100%;
     min-width: 100%;
     max-width: 100%;
     object-fit: contain;
     margin: 0 auto;
     display: block;
     flex-shrink: 0;
-    user-select: none;
-    -webkit-user-select: none;
-    pointer-events: auto;
+    cursor: pointer;
 }
 
 /* Videos independientes en bucle */
 video {
     display: block;
     margin: 20px auto;
-    height: 400px;
+    height: 480px; /* Altura aumentada */
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -246,8 +254,8 @@ video {
     text-align: center;
     display: flex;
     justify-content: center;
-    height: 400px;
-    background-color: transparent; /* Fondo transparente sin franjas oscuras */
+    height: 480px; /* Altura aumentada */
+    background-color: transparent;
 }
 
 .video-slider {
@@ -267,7 +275,7 @@ video {
 }
 
 /* ==========================================
-   POP-UP (MODAL) PROTEGIDO PARA IMÁGENES
+   POP-UP (MODAL) PROTEGIDO Y NAVEGABLE
    ========================================== */
 .image-modal {
     display: none;
@@ -280,7 +288,7 @@ video {
     background-color: rgba(0, 0, 0, 0.85);
     justify-content: center;
     align-items: center;
-    cursor: zoom-out;
+    cursor: default; /* Ratón normal, sin lupa */
 }
 
 .image-modal img {
@@ -289,8 +297,7 @@ video {
     object-fit: contain;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     border-radius: 4px;
-    user-select: none;
-    -webkit-user-select: none;
+    cursor: default; /* Ratón normal en la imagen ampliada */
 }
 
 .image-modal-close {
@@ -301,6 +308,35 @@ video {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 10000;
+}
+
+/* Botones de navegación internos del Pop-up */
+.modal-prev, .modal-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 15px 20px;
+    font-size: 24px;
+    z-index: 10000;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.modal-prev:hover, .modal-next:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-prev {
+    left: 30px;
+}
+
+.modal-next {
+    right: 30px;
 }
 
 .fade-in {
@@ -448,7 +484,7 @@ body.light-theme footer {
     }
 
     .video-slider-container, .slider, video {
-        height: 250px;
+        height: 300px;
     }
 
     .main-nav a:hover {

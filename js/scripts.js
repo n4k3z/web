@@ -5,6 +5,15 @@ window.addEventListener("load", function () {
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll(".main-nav a");
 
+    // Bloqueo global estricto de Clic Derecho y arrastre en toda la página
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    });
+
+    document.addEventListener("dragstart", function (e) {
+        e.preventDefault();
+    });
+
     // Aplicar tema guardado al cargar
     if (currentTheme === "light") {
         document.body.classList.add("light-theme");
@@ -59,63 +68,103 @@ window.addEventListener("load", function () {
         });
     });
 
-    // Abrir todos los enlaces externos (que empiecen por http/https) en una pestaña nueva
+    // Abrir todos los enlaces externos en una pestaña nueva
     document.querySelectorAll('a[href^="http"]').forEach(function (link) {
         link.setAttribute("target", "_blank");
         link.setAttribute("rel", "noopener noreferrer");
     });
 
     // ==========================================
-    // SLIDER DE IMÁGENES + POP-UP + PROTECCIÓN ESC
+    // SISTEMA DE POP-UP GLOBAL PARA AMBOS SLIDERS
     // ==========================================
-    
-    // Crear contenedor Modal en el DOM dinámicamente
     const modal = document.createElement("div");
     modal.className = "image-modal";
-    modal.innerHTML = '<span class="image-modal-close">&times;</span><img class="image-modal-content" alt="Ampliada">';
+    modal.innerHTML = `
+        <span class="image-modal-close">&times;</span>
+        <button class="modal-prev">&#10094;</button>
+        <img class="image-modal-content" alt="Ampliada">
+        <button class="modal-next">&#10095;</button>
+    `;
     document.body.appendChild(modal);
 
     const modalImg = modal.querySelector(".image-modal-content");
     const modalClose = modal.querySelector(".image-modal-close");
+    const modalPrevBtn = modal.querySelector(".modal-prev");
+    const modalNextBtn = modal.querySelector(".modal-next");
 
-    // Proteger también la imagen ampliada del pop-up contra clic derecho
-    modalImg.addEventListener("contextmenu", (e) => e.preventDefault());
+    let activeImageCollection = [];
+    let activeModalIndex = 0;
+
+    function updateModalImage() {
+        if (activeImageCollection.length > 0) {
+            modalImg.src = activeImageCollection[activeModalIndex].src;
+        }
+    }
+
+    function openModal(imagesArray, startIndex) {
+        activeImageCollection = imagesArray;
+        activeModalIndex = startIndex;
+        updateModalImage();
+        modal.style.display = "flex";
+    }
 
     function closeModal() {
         modal.style.display = "none";
     }
 
     modalClose.addEventListener("click", closeModal);
+    
+    // Cerrar si se hace clic fuera de la imagen y de los botones
     modal.addEventListener("click", (e) => {
-        if (e.target !== modalImg) {
+        if (e.target === modal) {
             closeModal();
         }
     });
 
-    // Añadir evento para cerrar con la tecla Escape (ESC)
+    modalPrevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (activeImageCollection.length > 0) {
+            activeModalIndex = (activeModalIndex === 0) ? activeImageCollection.length - 1 : activeModalIndex - 1;
+            updateModalImage();
+        }
+    });
+
+    modalNextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (activeImageCollection.length > 0) {
+            activeModalIndex = (activeModalIndex === activeImageCollection.length - 1) ? 0 : activeModalIndex + 1;
+            updateModalImage();
+        }
+    });
+
+    // Control por teclado (Escape para cerrar, Flechas para cambiar en el popup)
     window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.style.display === "flex") {
-            closeModal();
+        if (modal.style.display === "flex") {
+            if (e.key === "Escape") {
+                closeModal();
+            } else if (e.key === "ArrowLeft") {
+                modalPrevBtn.click();
+            } else if (e.key === "ArrowRight") {
+                modalNextBtn.click();
+            }
         }
     });
 
+    // ==========================================
+    // CONFIGURACIÓN DE SLIDERS DE IMÁGENES
+    // ==========================================
     const sliders = document.querySelectorAll(".slider");
     sliders.forEach((slider) => {
         let currentIndex = 0;
         const slides = slider.querySelector(".slides");
         if (!slides) return;
         
-        const images = slides.querySelectorAll("img");
+        const images = Array.from(slides.querySelectorAll("img"));
         const totalSlides = images.length;
 
-        images.forEach(img => {
-            // Protección contra clic derecho en miniatura
-            img.addEventListener("contextmenu", (e) => e.preventDefault());
-
-            // Abrir pop-up al hacer clic
+        images.forEach((img, idx) => {
             img.addEventListener("click", () => {
-                modal.style.display = "flex";
-                modalImg.src = img.src;
+                openModal(images, idx);
             });
         });
 
