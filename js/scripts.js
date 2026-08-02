@@ -7,20 +7,24 @@ window.addEventListener("load", function () {
 
     if (currentTheme === "light") {
         document.body.classList.add("light-theme");
-        themeIcon.src = "images/moon.svg";
+        if (themeIcon) themeIcon.src = "images/moon.svg";
     }
 
-    themeToggleBtn.addEventListener("click", function () {
-        document.body.classList.toggle("light-theme");
-        const theme = document.body.classList.contains("light-theme") ? "light" : "dark";
-        localStorage.setItem("theme", theme);
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", function () {
+            document.body.classList.toggle("light-theme");
+            const theme = document.body.classList.contains("light-theme") ? "light" : "dark";
+            localStorage.setItem("theme", theme);
 
-        if (theme === "light") {
-            themeIcon.src = "images/moon.svg";
-        } else {
-            themeIcon.src = "images/sun.svg";
-        }
-    });
+            if (themeIcon) {
+                if (theme === "light") {
+                    themeIcon.src = "images/moon.svg";
+                } else {
+                    themeIcon.src = "images/sun.svg";
+                }
+            }
+        });
+    }
 
     // Guardar la posición de desplazamiento antes de cambiar de idioma
     document.querySelectorAll('.language-switch').forEach(link => {
@@ -58,18 +62,12 @@ window.addEventListener("load", function () {
         });
     });
 
-    const links = document.querySelectorAll("a:not(.main-nav a)");
-
-    links.forEach(function (link) {
-        link.setAttribute("target", "_blank");
-        link.setAttribute("rel", "noopener noreferrer");
-    });
-
-    // LÓGICA DE SLIDER DINÁMICA BASADA EN PORCENTAJES (100%)
+    // SLIDER DE IMÁGENES
     const sliders = document.querySelectorAll(".slider");
     sliders.forEach((slider) => {
         let currentIndex = 0;
         const slides = slider.querySelector(".slides");
+        if (!slides) return;
         const totalSlides = slides.children.length;
 
         function updateSlidePosition() {
@@ -137,7 +135,9 @@ window.addEventListener("load", function () {
 
     // Resaltado de sección activa en el menú
     function onScroll() {
-        let scrollPos = window.scrollY + document.querySelector('.main-nav').offsetHeight;
+        const nav = document.querySelector('.main-nav');
+        if (!nav) return;
+        let scrollPos = window.scrollY + nav.offsetHeight;
 
         sections.forEach((section) => {
             if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
