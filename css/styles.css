@@ -288,7 +288,7 @@ video {
     background-color: rgba(0, 0, 0, 0.85);
     justify-content: center;
     align-items: center;
-    cursor: default; /* Ratón normal, sin lupa */
+    cursor: default;
 }
 
 .image-modal img {
@@ -297,7 +297,7 @@ video {
     object-fit: contain;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     border-radius: 4px;
-    cursor: default; /* Ratón normal en la imagen ampliada */
+    cursor: default;
 }
 
 .image-modal-close {
@@ -311,7 +311,6 @@ video {
     z-index: 10000;
 }
 
-/* Botones de navegación internos del Pop-up */
 .modal-prev, .modal-next {
     position: absolute;
     top: 50%;
@@ -484,7 +483,18 @@ body.light-theme footer {
     }
 
     .video-slider-container, .slider, video {
-        height: 300px;
+        height: 250px; /* Altura ajustada para móviles para que no se corten las imágenes */
+    }
+
+    /* Solución para que las imágenes se adapten correctamente en móviles */
+    .slider .slides img {
+        height: 250px;
+    }
+
+    /* Reducción del tamaño de las flechas de navegación de los sliders en móviles */
+    .prev, .next {
+        padding: 6px 10px;
+        font-size: 14px;
     }
 
     .main-nav a:hover {
