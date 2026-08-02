@@ -191,19 +191,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================
-   UNIFICACIÓN DE TAMAÑOS DE TODOS LOS VISORES
+   SLIDER DE IMÁGENES (TRANSPARENTE Y 1 A 1)
    ========================================== */
-
-/* 1. Sliders de imágenes (Slider 1 y Slider 2) */
 .slider {
     position: relative;
     width: 100%;
-    height: 400px; /* Altura unificada fija */
+    height: 400px;
     overflow: hidden;
     margin: 20px 0;
     display: flex;
     justify-content: flex-start;
-    background-color: #1a1a1a; /* Fondo estético por si la imagen es más estrecha */
+    background-color: transparent; /* Fondo transparente */
 }
 
 .slides {
@@ -214,8 +212,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slides img {
-    height: 400px; /* Altura idéntica al visor */
-    width: auto;   /* Ancho automático según proporción */
+    height: 400px;
+    width: 100%; /* Ocupa el 100% del contenedor para evitar que se amontonen de 2 en 2 */
+    min-width: 100%;
     max-width: 100%;
     object-fit: contain;
     margin: 0 auto;
@@ -223,21 +222,23 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
     user-select: none;
     -webkit-user-select: none;
-    pointer-events: auto; /* Permite el clic para el pop-up pero previene arrastre nativo */
+    pointer-events: auto;
 }
 
-/* 2. Videos independientes en bucle */
+/* Videos independientes en bucle */
 video {
     display: block;
     margin: 20px auto;
-    height: 400px; /* Altura unificada idéntica a los visores de imágenes */
+    height: 400px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
-    background-color: #1a1a1a;
+    background-color: transparent;
 }
 
-/* 3. Visor de video con flechas (antiguo slider de promos) */
+/* ==========================================
+   SLIDER DE VÍDEOS (SIN FRANJAS, TRANSPARENTE)
+   ========================================== */
 .video-slider-container {
     position: relative;
     width: 100%;
@@ -245,8 +246,8 @@ video {
     text-align: center;
     display: flex;
     justify-content: center;
-    height: 400px; /* Altura unificada idéntica */
-    background-color: #1a1a1a;
+    height: 400px;
+    background-color: transparent; /* Fondo transparente sin franjas oscuras */
 }
 
 .video-slider {
@@ -255,16 +256,18 @@ video {
     align-items: center;
     width: 100%;
     height: 100%;
+    background-color: transparent;
 }
 
 .video-slider video {
     height: 100% !important;
     width: auto !important;
     margin: 0 auto;
+    background-color: transparent;
 }
 
 /* ==========================================
-   POP-UP (MODAL) PARA IMÁGENES AMPLIADAS
+   POP-UP (MODAL) PROTEGIDO PARA IMÁGENES
    ========================================== */
 .image-modal {
     display: none;
@@ -445,7 +448,7 @@ body.light-theme footer {
     }
 
     .video-slider-container, .slider, video {
-        height: 250px; /* Altura adaptada para móviles */
+        height: 250px;
     }
 
     .main-nav a:hover {

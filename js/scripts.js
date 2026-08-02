@@ -66,7 +66,7 @@ window.addEventListener("load", function () {
     });
 
     // ==========================================
-    // SLIDER DE IMÁGENES + POP-UP + PROTECCIÓN
+    // SLIDER DE IMÁGENES + POP-UP + PROTECCIÓN ESC
     // ==========================================
     
     // Crear contenedor Modal en el DOM dinámicamente
@@ -78,12 +78,24 @@ window.addEventListener("load", function () {
     const modalImg = modal.querySelector(".image-modal-content");
     const modalClose = modal.querySelector(".image-modal-close");
 
-    modalClose.addEventListener("click", () => {
+    // Proteger también la imagen ampliada del pop-up contra clic derecho
+    modalImg.addEventListener("contextmenu", (e) => e.preventDefault());
+
+    function closeModal() {
         modal.style.display = "none";
-    });
+    }
+
+    modalClose.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => {
         if (e.target !== modalImg) {
-            modal.style.display = "none";
+            closeModal();
+        }
+    });
+
+    // Añadir evento para cerrar con la tecla Escape (ESC)
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+            closeModal();
         }
     });
 
@@ -97,10 +109,10 @@ window.addEventListener("load", function () {
         const totalSlides = images.length;
 
         images.forEach(img => {
-            // Protección contra clic derecho
+            // Protección contra clic derecho en miniatura
             img.addEventListener("contextmenu", (e) => e.preventDefault());
 
-            // Abrir pop-up al hacer clic (solo si no se está arrastrando el slider)
+            // Abrir pop-up al hacer clic
             img.addEventListener("click", () => {
                 modal.style.display = "flex";
                 modalImg.src = img.src;
