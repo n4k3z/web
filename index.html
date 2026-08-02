@@ -18,16 +18,16 @@
     </header>
     <nav class="main-nav">
         <ul>
-            <div class="menu-items">
-                <li><a href="#aboutme">Sobre mí</a></li>
-                <li><a href="#experience-profesional">Profesional</a></li>
-                <li><a href="#experience">Personal</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#Softwares">Softwares</a></li>
-                <li><a href="#education">Educación</a></li>
-                <li><a href="#nota-al-pie">Nota</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </div>
+            <li class="menu-items">
+                <a href="#aboutme">Sobre mí</a>
+                <a href="#experience-profesional">Profesional</a>
+                <a href="#experience">Personal</a>
+                <a href="#skills">Habilidades</a>
+                <a href="#Softwares">Softwares</a>
+                <a href="#education">Educación</a>
+                <a href="#nota-al-pie">Nota</a>
+                <a href="#contact">Contacto</a>
+            </li>
             <li class="right-align">
                 <a href="index_en.html" class="language-switch" data-lang="en">
                     <img src="images/uk.svg" alt="English Flag" class="icon">
@@ -36,7 +36,6 @@
                     <img id="theme-icon" src="images/sun.svg" alt="Sun Icon" class="icon">
                 </button>
             </li>            
-            </div>
         </ul>
     </nav>    
     <div class="container">
@@ -51,7 +50,7 @@
                 <h2>Experiencia Profesional</h2>
                 <p>Comencé en el sector del packaging como modelador, envase a envase fui ampliando la biblioteca y conociendo más sobre las semejanzas de los modelos que más tarde me serviría para parametrizar.</p>
                 <div class="slider slider1">
-                    <button class="prev" onclick="prevSlide(1)">&#10094;</button>
+                    <button class="prev">&#10094;</button>
                     <div class="slides">
                         <img src="images/slider1/image01.png" alt="Imagen 1">
                         <img src="images/slider1/image02.png" alt="Imagen 2">
@@ -65,7 +64,7 @@
                         <img src="images/slider1/image10.png" alt="Imagen 10">
                         <img src="images/slider1/image11.png" alt="Imagen 11">
                     </div>
-                    <button class="next" onclick="nextSlide(1)">&#10095;</button>
+                    <button class="next">&#10095;</button>
                 </div>                      
                 <h3>Biblioteca personalizada</h3>
                 <p>Esta ampliación de la biblioteca permitió reutilizar los modelos reduciendo el tiempo de diseño. Implementé sistemas de organización, facilitando la búsqueda y selección de componentes para su incorporación en nuevos diseños. Actualmente tengo a disposición una biblioteca de gran tamaño que cubre todos los sectores, con medidas y referencias físicas que cubren un porcentaje alto de todos los envases de la industria.</p>
@@ -105,7 +104,7 @@
             </section>
             <section id="experience">
                 <h2>Experiencia Personal</h2>
-                <p>Como mencioné al principio, mi experiencia personal está estrechamente ligada a la profesional. Ejemplo de esto es mi estudio del modelado paramétrico con Geometry Nodes,  que dada su dificultad no sabía cómo aprender esta herramienta ni cómo aplicarla en el trabajo. Por ello, busqué un proyecto personal en el que pudiera aplicar este aprendizaje y motivarme.</p>
+                <p>Como mencioné al principio, mi experiencia personal está estrechamente ligada a la profesional. Ejemplo de esto es mi estudio del modelado paramétrico con Geometry Nodes, que dada su dificultad no sabía cómo aprender esta herramienta ni cómo aplicarla en el trabajo. Por ello, busqué un proyecto personal en el que pudiera aplicar este aprendizaje y motivarme.</p>
                 <h3>Ciudades paramétricas</h3>
                 <p>En ese momento, estaba recreando mi pueblo de la infancia a escala, utilizando Unreal Engine para poder recorrerlo. Esto me llevó a preguntarme cómo generar poblaciones de forma masiva sin tener que colocar cada modelo individualmente, y Geometry Nodes era la solución perfecta. Tras un año de aprendizaje, comencé a dominarlo y pude desarrollar el principio de un generador de ciudades procedurales, esta vez implementándolo en el motor de Godot. Este proyecto me permitió explorar más a fondo esta herramienta y, una vez que tuve la primera idea de cómo aplicarla en mi trabajo, no dejaron de surgir nuevas ideas para aprovechar Geometry Nodes en todos los aspectos.</p>
                 <video width="90%" autoplay loop muted>
@@ -115,13 +114,13 @@
                 <h3>Assets</h3>
                 <p>Mi interés por el desarrollo de videojuegos y el mundo del 3D en general me mantiene siempre activo. Es por eso que de vez en cuando también me dedico al modelado orgánico, ya sea creando personajes para animarlos y moverlos en motores de videojuegos, o modelando assets para entornos, renders y, en menor medida, para impresión.</p>
                 <div class="slider slider2">
-                    <button class="prev additional-prev" onclick="prevSlide(2)">&#10094;</button>
+                    <button class="prev additional-prev">&#10094;</button>
                     <div class="slides">
                         <img src="images/slider2/image01.jpg" alt="Imagen 1">
                         <img src="images/slider2/image02.jpg" alt="Imagen 2">
                         <img src="images/slider2/image03.jpg" alt="Imagen 3">
                     </div>
-                    <button class="next additional-next" onclick="nextSlide(2)">&#10095;</button>
+                    <button class="next additional-next">&#10095;</button>
                 </div>
                 <h3>Motores de videojuegos</h3>
                 <p>Además del modelado, mi otra pasión son los motores de videojuegos. No tanto por los videojuegos en sí, sino por la interactividad que ofrecen. Mi primer contacto fue con Unity en la demo del <a href="https://nakez.itch.io/cryptophasia">TFG</a>, pero eso fue hace bastante tiempo y no refleja mi conocimiento actual. He pasado más tiempo en Unreal sin un proyecto aparente, donde a través de blueprints pude dar vida a personajes y entornos. Sin embargo, cuando comencé a trabajar con Geometry Nodes, descubrí Godot y, al igual que con Blender, me enamoré de su potencial. Actualmente, es donde desarrollo mis proyectos. Aunque mis nociones de programación son básicas, he podido crear todos los scripts necesarios con la ayuda de ChatGPT, al igual que desarrollé el addon de exportación y esta <a href="https://github.com/nk3z/">pagina</a>.</p>
@@ -145,49 +144,49 @@
                 <p><strong>Iluminación y cámara:</strong> Por mi experiencia trabajando con cámaras y mis estudios audiovisuales, tengo un amplio conocimiento sobre iluminación y encuadres que aplico al entorno 3D.</p>
                 <p><strong>Render:</strong> Optimizar los tiempos y ajustar los renders para maximizar la calidad en el menor tiempo posible es otra área que he estudiado a fondo.</p>
                 <p><strong>Animación:</strong> Aunque comencé haciendo animaciones, hoy en día es la parte que menos me interesa.</p>                
-                <section id="Softwares">
-                    <section id="Softwares">
-                        <h2>Softwares</h2>
-                        <div class="software-group">
-                            <div class="software-stars">
-                                <span class="stars">★★★</span>
-                                <ul class="softwares-logos">
-                                    <li><img src="images/sofwares/blenderlogo.png" alt="Blender Logo"></li>
-                                    <li><img src="images/sofwares/godotlogo.png" alt="Godot Logo"></li>
-                                    <li><img src="images/sofwares/kritalogo.png" alt="Krita Logo"></li>
-                                    <li><img src="images/sofwares/inkscapelogo.png" alt="Inkscape Logo"></li>
-                                    <li><img src="images/sofwares/gimplogo.png" alt="Gimp Logo"></li>
-                                </ul>
-                            </div>
-                            <div class="software-stars">
-                                <span class="stars">★★</span>
-                                <ul class="softwares-logos">
-                                    <li><img src="images/sofwares/uelogo.png" alt="Unreal Engine Logo"></li>
-                                    <li><img src="images/sofwares/splogo.svg" alt="Substance Painter Logo"></li>
-                                    <li><img src="images/sofwares/unitylogo.png" alt="Unity Logo"></li>
-                                    <li><img src="images/sofwares/zbrushlogo.png" alt="ZBrush Logo"></li>
-                                    <li><img src="images/sofwares/mayalogo.png" alt="Maya Logo"></li>
-                                    <li><img src="images/sofwares/armorpaintlogo.png" alt="Armorpaint Logo"></li>
-                                </ul>
-                            </div>
-                            <div class="software-stars">
-                                <span class="stars">★</span>
-                                <ul class="softwares-logos">
-                                    <li><img src="images/sofwares/3dslogo.webp" alt="3ds Max Logo"></li>
-                                    <li><img src="images/sofwares/pslogo.png" alt="Adobe Photoshop Logo"></li>
-                                    <li><img src="images/sofwares/aelogo.png" alt="After Effects Logo"></li>
-                                    <li><img src="images/sofwares/ailogo.png" alt="Adobe Illustrator Logo"></li>
-                                    <li><img src="images/sofwares/davincilogo.png" alt="DaVinci Resolve Logo"></li>
-                                    <li><img src="images/sofwares/fcpxlogo.png" alt="Final Cut Pro X Logo"></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>                    
+            </section>
+            <section id="Softwares">
+                <h2>Softwares</h2>
+                <div class="software-group">
+                    <div class="software-stars">
+                        <span class="stars">★★★</span>
+                        <ul class="softwares-logos">
+                            <li><img src="images/sofwares/blenderlogo.png" alt="Blender Logo"></li>
+                            <li><img src="images/sofwares/godotlogo.png" alt="Godot Logo"></li>
+                            <li><img src="images/sofwares/kritalogo.png" alt="Krita Logo"></li>
+                            <li><img src="images/sofwares/inkscapelogo.png" alt="Inkscape Logo"></li>
+                            <li><img src="images/sofwares/gimplogo.png" alt="Gimp Logo"></li>
+                        </ul>
+                    </div>
+                    <div class="software-stars">
+                        <span class="stars">★★</span>
+                        <ul class="softwares-logos">
+                            <li><img src="images/sofwares/uelogo.png" alt="Unreal Engine Logo"></li>
+                            <li><img src="images/sofwares/splogo.svg" alt="Substance Painter Logo"></li>
+                            <li><img src="images/sofwares/unitylogo.png" alt="Unity Logo"></li>
+                            <li><img src="images/sofwares/zbrushlogo.png" alt="ZBrush Logo"></li>
+                            <li><img src="images/sofwares/mayalogo.png" alt="Maya Logo"></li>
+                            <li><img src="images/sofwares/armorpaintlogo.png" alt="Armorpaint Logo"></li>
+                        </ul>
+                    </div>
+                    <div class="software-stars">
+                        <span class="stars">★</span>
+                        <ul class="softwares-logos">
+                            <li><img src="images/sofwares/3dslogo.webp" alt="3ds Max Logo"></li>
+                            <li><img src="images/sofwares/pslogo.png" alt="Adobe Photoshop Logo"></li>
+                            <li><img src="images/sofwares/aelogo.png" alt="After Effects Logo"></li>
+                            <li><img src="images/sofwares/ailogo.png" alt="Adobe Illustrator Logo"></li>
+                            <li><img src="images/sofwares/davincilogo.png" alt="DaVinci Resolve Logo"></li>
+                            <li><img src="images/sofwares/fcpxlogo.png" alt="Final Cut Pro X Logo"></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>                    
             <section id="education">
                 <h2>Educación</h2>
                 <div>
                     <img src="images/upflogo.webp" alt="UPF Logo">
-                    <br>Grado en Comunicación Audiovisual, Interactivos 2014 - 2018</br>
+                    <p>Grado en Comunicación Audiovisual, Interactivos 2014 - 2018</p>
                 </div>
             </section>
             <section id="nota-al-pie">

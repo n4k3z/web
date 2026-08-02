@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Guardar la posición de desplazamiento antes de cambiar de idioma
     document.querySelectorAll('.language-switch').forEach(link => {
-        link.addEventListener('click', function (e) {
+        link.addEventListener('click', function () {
             const scrollPosition = window.scrollY;
             localStorage.setItem('scrollPosition', scrollPosition);
         });
@@ -44,14 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
-                const headerOffset = document.querySelector('.main-nav').offsetHeight;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                if (targetElement) {
+                    const headerOffset = document.querySelector('.main-nav').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
@@ -63,67 +65,77 @@ document.addEventListener("DOMContentLoaded", function () {
         link.setAttribute("rel", "noopener noreferrer");
     });
 
+    // LÓGICA DE SLIDER DINÁMICA BASADA EN PORCENTAJES (100%)
     const sliders = document.querySelectorAll(".slider");
     sliders.forEach((slider) => {
         let currentIndex = 0;
         const slides = slider.querySelector(".slides");
+        const totalSlides = slides.children.length;
+
+        function updateSlidePosition() {
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
 
         function prevSlide() {
-            currentIndex = currentIndex === 0 ? slides.children.length - 1 : currentIndex - 1;
+            currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
             updateSlidePosition();
         }
 
         function nextSlide() {
-            currentIndex = currentIndex === slides.children.length - 1 ? 0 : currentIndex + 1;
+            currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
             updateSlidePosition();
         }
 
-        function updateSlidePosition() {
-            const slideWidth = slides.children[0].clientWidth;
-            slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-        }
+        const prevBtn = slider.querySelector(".prev");
+        const nextBtn = slider.querySelector(".next");
 
-        slider.querySelector(".prev").addEventListener("click", prevSlide);
-        slider.querySelector(".next").addEventListener("click", nextSlide);
+        if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+        if (nextBtn) nextBtn.addEventListener("click", nextSlide);
     });
 
+    // SLIDER DE VÍDEOS
     const videoPlayer = document.getElementById("videoPlayer5");
-    const videoSources = [
-        "videos/promo01.webm",
-        "videos/promo02.webm",
-        "videos/promo03.webm",
-        "videos/promo04.webm",
-        "videos/promo05.webm",
-    ];
-    let currentVideoIndex = 0;
+    if (videoPlayer) {
+        const videoSources = [
+            "videos/promo01.webm",
+            "videos/promo02.webm",
+            "videos/promo03.webm",
+            "videos/promo04.webm",
+            "videos/promo05.webm",
+        ];
+        let currentVideoIndex = 0;
 
-    function changeVideo(index) {
-        videoPlayer.classList.add("fade-out");
+        function changeVideo(index) {
+            videoPlayer.classList.add("fade-out");
 
-        setTimeout(() => {
-            currentVideoIndex = index;
-            videoPlayer.src = videoSources[currentVideoIndex];
-            videoPlayer.load();
-            videoPlayer.play();
-            videoPlayer.classList.remove("fade-out");
-            videoPlayer.classList.add("fade-in");
-        }, 500);
+            setTimeout(() => {
+                currentVideoIndex = index;
+                videoPlayer.src = videoSources[currentVideoIndex];
+                videoPlayer.load();
+                videoPlayer.play();
+                videoPlayer.classList.remove("fade-out");
+                videoPlayer.classList.add("fade-in");
+            }, 500);
+        }
+
+        function prevVideoSlide() {
+            const newIndex = currentVideoIndex === 0 ? videoSources.length - 1 : currentVideoIndex - 1;
+            changeVideo(newIndex);
+        }
+
+        function nextVideoSlide() {
+            const newIndex = currentVideoIndex === videoSources.length - 1 ? 0 : currentVideoIndex + 1;
+            changeVideo(newIndex);
+        }
+
+        const prevVidBtn = document.querySelector(".video-slider-container .prev");
+        const nextVidBtn = document.querySelector(".video-slider-container .next");
+
+        if (prevVidBtn) prevVidBtn.addEventListener("click", prevVideoSlide);
+        if (nextVidBtn) nextVidBtn.addEventListener("click", nextVideoSlide);
     }
 
-    function prevVideoSlide() {
-        const newIndex = currentVideoIndex === 0 ? videoSources.length - 1 : currentVideoIndex - 1;
-        changeVideo(newIndex);
-    }
-
-    function nextVideoSlide() {
-        const newIndex = currentVideoIndex === videoSources.length - 1 ? 0 : currentVideoIndex + 1;
-        changeVideo(newIndex);
-    }
-
-    document.querySelector(".video-slider-container .prev").addEventListener("click", prevVideoSlide);
-    document.querySelector(".video-slider-container .next").addEventListener("click", nextVideoSlide);
-
-    // Highlighting active section in menu
+    // Resaltado de sección activa en el menú
     function onScroll() {
         let scrollPos = window.scrollY + document.querySelector('.main-nav').offsetHeight;
 
@@ -140,5 +152,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener('scroll', onScroll);
-    onScroll(); // Call onScroll to set the initial state
+    onScroll();
 });

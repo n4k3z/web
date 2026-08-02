@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>n4k3z</title>
+    <title>Alvaro Perez Portfolio</title>
+    <meta name="description" content="My portfolio as a 3D modeler and producer">
+    <meta property="og:title" content="Álvaro Pérez Portfolio">
+    <meta property="og:description" content="My portfolio as a 3D modeler and producer">
+    <meta property="og:image" content="images/icon.png">
+    <meta property="og:url" content="https://nk3z.github.io/web/index_en.html">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
     <header class="header">
@@ -12,25 +18,24 @@
     </header>
     <nav class="main-nav">
         <ul>
-            <div class="menu-items">
-                <li><a href="#aboutme">About Me</a></li>
-                <li><a href="#experience-profesional">Professional</a></li>
-                <li><a href="#experience">Personal</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#Softwares">Softwares</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#nota-al-pie">Note</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </div>
+            <li class="menu-items">
+                <a href="#aboutme">About Me</a>
+                <a href="#experience-profesional">Professional</a>
+                <a href="#experience">Personal</a>
+                <a href="#skills">Skills</a>
+                <a href="#Softwares">Softwares</a>
+                <a href="#education">Education</a>
+                <a href="#nota-al-pie">Note</a>
+                <a href="#contact">Contact</a>
+            </li>
             <li class="right-align">
-                <a href="index.html" id="language-toggle" class="language-switch">
-                    <img id="language-icon" src="images/spain.svg" alt="Language Icon" class="icon">
+                <a href="index.html" id="language-toggle" class="language-switch" data-lang="es">
+                    <img id="language-icon" src="images/spain.svg" alt="Spanish Flag" class="icon">
                 </a>
                 <button id="theme-toggle" class="theme-toggle">
                     <img id="theme-icon" src="images/sun.svg" alt="Theme Icon" class="icon">
                 </button>
             </li>                      
-            </div>
         </ul>
     </nav>    
     <div class="container">
@@ -45,21 +50,21 @@
                 <h2>Professional Experience</h2>
                 <p>I started in the packaging sector as a modeler, container by container I expanded the library and learned more about the similarities of the models that would later serve me to parameterize.</p>
                 <div class="slider slider1">
-                    <button class="prev" onclick="prevSlide(1)">&#10094;</button>
+                    <button class="prev">&#10094;</button>
                     <div class="slides">
-                        <img src="images/slider1/image01.png" alt="Imagen 1">
-                        <img src="images/slider1/image02.png" alt="Imagen 2">
-                        <img src="images/slider1/image03.png" alt="Imagen 3">
-                        <img src="images/slider1/image04.png" alt="Imagen 4">
-                        <img src="images/slider1/image05.png" alt="Imagen 5">
-                        <img src="images/slider1/image06.png" alt="Imagen 6">
-                        <img src="images/slider1/image07.png" alt="Imagen 7">
-                        <img src="images/slider1/image08.png" alt="Imagen 8">
-                        <img src="images/slider1/image09.png" alt="Imagen 9">
-                        <img src="images/slider1/image10.png" alt="Imagen 10">
-                        <img src="images/slider1/image11.png" alt="Imagen 11">
+                        <img src="images/slider1/image01.png" alt="Image 1">
+                        <img src="images/slider1/image02.png" alt="Image 2">
+                        <img src="images/slider1/image03.png" alt="Image 3">
+                        <img src="images/slider1/image04.png" alt="Image 4">
+                        <img src="images/slider1/image05.png" alt="Image 5">
+                        <img src="images/slider1/image06.png" alt="Image 6">
+                        <img src="images/slider1/image07.png" alt="Image 7">
+                        <img src="images/slider1/image08.png" alt="Image 8">
+                        <img src="images/slider1/image09.png" alt="Image 9">
+                        <img src="images/slider1/image10.png" alt="Image 10">
+                        <img src="images/slider1/image11.png" alt="Image 11">
                     </div>
-                    <button class="next" onclick="nextSlide(1)">&#10095;</button>
+                    <button class="next">&#10095;</button>
                 </div>                      
                 <h3>Custom Library</h3>
                 <p>This expansion of the library allowed the reuse of models, reducing design time. I implemented organization systems, facilitating the search and selection of components for incorporation into new designs. I currently have a large library available that covers all sectors, with measurements and physical references that cover a high percentage of all industry containers.</p>
@@ -109,13 +114,13 @@
                 <h3>Assets</h3>
                 <p>My interest in video game development and the 3D world, in general, keeps me always active. That's why from time to time I also dedicate myself to organic modeling, either creating characters to animate and move them in game engines or modeling assets for environments, renders, and, to a lesser extent, for printing.</p>
                 <div class="slider slider2">
-                    <button class="prev additional-prev" onclick="prevSlide(2)">&#10094;</button>
+                    <button class="prev additional-prev">&#10094;</button>
                     <div class="slides">
                         <img src="images/slider2/image01.jpg" alt="Image 1">
                         <img src="images/slider2/image02.jpg" alt="Image 2">
                         <img src="images/slider2/image03.jpg" alt="Image 3">
                     </div>
-                    <button class="next additional-next" onclick="nextSlide(2)">&#10095;</button>
+                    <button class="next additional-next">&#10095;</button>
                 </div>
                 <h3>Game Engines</h3>
                 <p>In addition to modeling, my other passion is game engines. Not so much for the games themselves, but for the interactivity they offer. My first contact was with Unity in the demo of the <a href="https://nakez.itch.io/cryptophasia">TFG</a>, but that was a long time ago and does not reflect my current knowledge. I have spent more time in Unreal without an apparent project, where through blueprints I was able to bring characters and environments to life. However, when I started working with Geometry Nodes, I discovered Godot and, like Blender, I fell in love with its potential. Currently, it is where I develop my projects. Although my programming knowledge is basic, I have been able to create all the necessary scripts with the help of ChatGPT, just as I developed the export addon and this <a href="https://github.com/nk3z/">page</a>.</p>
@@ -139,49 +144,49 @@
                 <p><strong>Lighting and Camera:</strong> Due to my experience working with cameras and my audiovisual studies, I have extensive knowledge of lighting and framing that I apply to the 3D environment.</p>
                 <p><strong>Rendering:</strong> Optimizing render times and adjusting renders to maximize quality in the shortest possible time is another area I have studied in depth.</p>
                 <p><strong>Animation:</strong> Although I started doing animations, today it is the part that interests me the least.</p>                
-                <section id="Softwares">
-                    <section id="Softwares">
-                        <h2>Softwares</h2>
-                        <div class="software-group">
-                            <div class="software-stars">
-                                <span class="stars">★★★</span>
-                                <ul class="softwares-logos">
-                                    <li><img src="images/sofwares/blenderlogo.png" alt="Blender Logo"></li>
-                                    <li><img src="images/sofwares/godotlogo.png" alt="Godot Logo"></li>
-                                    <li><img src="images/sofwares/kritalogo.png" alt="Krita Logo"></li>
-                                    <li><img src="images/sofwares/inkscapelogo.png" alt="Inkscape Logo"></li>
-                                    <li><img src="images/sofwares/gimplogo.png" alt="Gimp Logo"></li>
-                                </ul>
-                            </div>
-                            <div class="software-stars">
-                                <span class="stars">★★</span>
-                                <ul class="softwares-logos">
-                                    <li><img src="images/sofwares/uelogo.png" alt="Unreal Engine Logo"></li>
-                                    <li><img src="images/sofwares/splogo.svg" alt="Substance Painter Logo"></li>
-                                    <li><img src="images/sofwares/unitylogo.png" alt="Unity Logo"></li>
-                                    <li><img src="images/sofwares/zbrushlogo.png" alt="ZBrush Logo"></li>
-                                    <li><img src="images/sofwares/mayalogo.png" alt="Maya Logo"></li>
-                                    <li><img src="images/sofwares/armorpaintlogo.png" alt="Armorpaint Logo"></li>
-                                </ul>
-                            </div>
-                            <div class="software-stars">
-                                <span class="stars">★</span>
-                                <ul class="softwares-logos">
-                                    <li><img src="images/sofwares/3dslogo.webp" alt="3ds Max Logo"></li>
-                                    <li><img src="images/sofwares/pslogo.png" alt="Adobe Photoshop Logo"></li>
-                                    <li><img src="images/sofwares/aelogo.png" alt="After Effects Logo"></li>
-                                    <li><img src="images/sofwares/ailogo.png" alt="Adobe Illustrator Logo"></li>
-                                    <li><img src="images/sofwares/davincilogo.png" alt="DaVinci Resolve Logo"></li>
-                                    <li><img src="images/sofwares/fcpxlogo.png" alt="Final Cut Pro X Logo"></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>                    
+            </section>
+            <section id="Softwares">
+                <h2>Softwares</h2>
+                <div class="software-group">
+                    <div class="software-stars">
+                        <span class="stars">★★★</span>
+                        <ul class="softwares-logos">
+                            <li><img src="images/sofwares/blenderlogo.png" alt="Blender Logo"></li>
+                            <li><img src="images/sofwares/godotlogo.png" alt="Godot Logo"></li>
+                            <li><img src="images/sofwares/kritalogo.png" alt="Krita Logo"></li>
+                            <li><img src="images/sofwares/inkscapelogo.png" alt="Inkscape Logo"></li>
+                            <li><img src="images/sofwares/gimplogo.png" alt="Gimp Logo"></li>
+                        </ul>
+                    </div>
+                    <div class="software-stars">
+                        <span class="stars">★★</span>
+                        <ul class="softwares-logos">
+                            <li><img src="images/sofwares/uelogo.png" alt="Unreal Engine Logo"></li>
+                            <li><img src="images/sofwares/splogo.svg" alt="Substance Painter Logo"></li>
+                            <li><img src="images/sofwares/unitylogo.png" alt="Unity Logo"></li>
+                            <li><img src="images/sofwares/zbrushlogo.png" alt="ZBrush Logo"></li>
+                            <li><img src="images/sofwares/mayalogo.png" alt="Maya Logo"></li>
+                            <li><img src="images/sofwares/armorpaintlogo.png" alt="Armorpaint Logo"></li>
+                        </ul>
+                    </div>
+                    <div class="software-stars">
+                        <span class="stars">★</span>
+                        <ul class="softwares-logos">
+                            <li><img src="images/sofwares/3dslogo.webp" alt="3ds Max Logo"></li>
+                            <li><img src="images/sofwares/pslogo.png" alt="Adobe Photoshop Logo"></li>
+                            <li><img src="images/sofwares/aelogo.png" alt="After Effects Logo"></li>
+                            <li><img src="images/sofwares/ailogo.png" alt="Adobe Illustrator Logo"></li>
+                            <li><img src="images/sofwares/davincilogo.png" alt="DaVinci Resolve Logo"></li>
+                            <li><img src="images/sofwares/fcpxlogo.png" alt="Final Cut Pro X Logo"></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>                    
             <section id="education">
                 <h2>Education</h2>
                 <div>
                     <img src="images/upflogo.webp" alt="UPF Logo">
-                    <br>Bachelor's Degree in Audiovisual Communication, Interactive Media 2014 - 2018</br>
+                    <p>Bachelor's Degree in Audiovisual Communication, Interactive Media 2014 - 2018</p>
                 </div>
             </section>
             <section id="nota-al-pie">

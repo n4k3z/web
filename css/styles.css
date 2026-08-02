@@ -23,12 +23,12 @@ body {
 .icon {
     width: 24px;
     height: 24px;
-    vertical-align: middle; /* Añadido para centrar verticalmente */
+    vertical-align: middle;
 }
 
 /* Mostrar iconos según el tema */
 body.light-theme #theme-icon {
-    content: url('images/moon.svg');
+    content: url('../images/moon.svg');
 }
 
 /* Tema claro */
@@ -85,13 +85,13 @@ body.light-theme footer {
 
 .main-nav {
     background-color: #333;
-    padding: 0; /* Ajuste del padding */
+    padding: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    width: 100%; /* Asegura que el nav ocupe el ancho completo */
+    width: 100%;
     box-sizing: border-box;
-    margin: 0; /* Ajuste del margen */
+    margin: 0;
 }
 
 .main-nav ul {
@@ -99,39 +99,39 @@ body.light-theme footer {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: space-between; /* Espacio entre los elementos del menú */
+    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%; /* Asegura que el ul ocupe el ancho completo */
+    width: 100%;
     box-sizing: border-box;
 }
 
 .main-nav ul li {
-    margin: 2px; /* Reducido de 5px a 2px */
+    margin: 2px;
 }
 
 .main-nav ul .menu-items {
     display: flex;
-    justify-content: center; /* Centra los elementos del menú */
+    justify-content: center;
     flex-grow: 1;
-    flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan en líneas múltiples si es necesario */
+    flex-wrap: wrap;
 }
 
 .main-nav ul .right-align {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Empuja los elementos a la derecha */
+    margin-left: auto;
 }
 
 .right-align a, .right-align button {
-    margin-left: 5px; /* Reducido de 10px a 5px */
+    margin-left: 5px;
 }
 
 .main-nav a {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px; /* Reducido de 10px 10px a 5px 10px */
+    padding: 5px 10px;
     display: inline-block;
     position: relative;
 }
@@ -143,17 +143,17 @@ body.light-theme footer {
 .main-nav a:visited,
 .main-nav a:focus,
 .main-nav a:active {
-    color: #ffffff; /* Cambiado a blanco cuando se selecciona */
+    color: #ffffff;
 }
 
 .main-nav a.active {
-    color: #85ABED !important; /* Color azul para la sección activa */
+    color: #85ABED !important;
 }
 
 .theme-toggle {
-    margin-left: 5px; /* Reducido de 10px a 5px */
+    margin-left: 5px;
     display: flex;
-    align-items: center; /* Añadido para centrar verticalmente */
+    align-items: center;
 }
 
 a {
@@ -191,6 +191,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+/* SLIDER CORREGIDO */
 .slider {
     position: relative;
     width: 100%;
@@ -198,18 +199,20 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     margin: 20px 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .slides {
     display: flex;
-    width: auto;
+    width: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .slides img {
+    width: 100%;
     max-width: 100%;
     height: auto;
+    flex-shrink: 0; /* Evita que las imágenes se compriman */
 }
 
 .video-slider-container {
@@ -219,7 +222,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     display: flex;
     justify-content: center;
-    height: 300px; /* Ajusta esto a la altura de tus videos */
+    height: 300px;
 }
 
 .video-slider {
@@ -240,7 +243,7 @@ video {
 
 .fade-out {
     opacity: 0;
-    transition: opacity 0.5s ease-out.
+    transition: opacity 0.5s ease-out; /* Punto corregido */
 }
 
 .prev, .next {
@@ -338,45 +341,45 @@ body.light-theme .footer {
 
 @media (max-width: 768px) {
     .main-nav ul {
-        flex-direction: row; /* Asegura que los elementos del menú se mantengan en una fila en móviles */
-        align-items: center; /* Centra los elementos del menú en móviles */
-        flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan en líneas múltiples si es necesario */
-        width: 100%; /* Asegura que el menú ocupe todo el ancho del contenedor en móviles */
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
     }
     
     .main-nav ul li {
-        margin: 2px; /* Reducido el margen entre los elementos del menú en móviles */
-        text-align: center; /* Centra el texto de cada elemento */
+        margin: 2px;
+        text-align: center;
     }
 
     .main-nav ul .menu-items {
         display: flex;
         justify-content: center;
-        flex-wrap: wrap; /* Permite que los elementos del menú se envuelvan en móviles */
-        width: 100%; /* Asegura que los elementos del menú ocupen todo el ancho del contenedor en móviles */
+        flex-wrap: wrap;
+        width: 100%;
     }
     
     .right-align {
         flex-direction: row;
         align-items: center;
         margin-left: auto;
-        width: auto; /* Ajusta la anchura de los elementos de la derecha en móviles */
+        width: auto;
     }
     
     .right-align a, .right-align button {
-        margin: 5px; /* Ajusta el margen entre los elementos de la derecha en móviles */
+        margin: 5px;
     }
 
     .main-nav {
-        padding: 5px 0; /* Ajusta el padding para que ocupe menos espacio en móviles */
+        padding: 5px 0;
     }
 
     .container {
-        padding: 10px; /* Reduce el padding en móviles */
+        padding: 10px;
     }
 
     .video-slider-container {
-        height: auto; /* Ajusta la altura de los videos en móviles */
+        height: auto;
     }
 
     video {
@@ -384,7 +387,6 @@ body.light-theme .footer {
         height: auto;
     }
 
-    /* Desactivar efecto hover para móviles */
     .main-nav a:hover {
         color: inherit !important;
     }
