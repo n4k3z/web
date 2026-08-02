@@ -62,24 +62,36 @@ window.addEventListener("load", function () {
         });
     });
 
-    // SLIDER DE IMÁGENES
+    // Enlaces externos abren en nueva pestaña
+    const links = document.querySelectorAll("a:not(.main-nav a)");
+    links.forEach(function (link) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+    });
+
+    // SLIDER DE IMÁGENES CORREGIDO
     const sliders = document.querySelectorAll(".slider");
     sliders.forEach((slider) => {
         let currentIndex = 0;
         const slides = slider.querySelector(".slides");
         if (!slides) return;
-        const totalSlides = slides.children.length;
+        
+        // CORRECCIÓN: Contar únicamente las etiquetas <img> en lugar de todos los elementos hijo
+        const images = slides.querySelectorAll("img");
+        const totalSlides = images.length;
 
         function updateSlidePosition() {
             slides.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
         function prevSlide() {
+            if (totalSlides === 0) return;
             currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
             updateSlidePosition();
         }
 
         function nextSlide() {
+            if (totalSlides === 0) return;
             currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
             updateSlidePosition();
         }
