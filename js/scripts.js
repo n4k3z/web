@@ -65,16 +65,47 @@ window.addEventListener("load", function () {
         link.setAttribute("rel", "noopener noreferrer");
     });
 
-    // SLIDER DE IMÁGENES
+    // ==========================================
+    // SLIDER DE IMÁGENES + POP-UP + PROTECCIÓN
+    // ==========================================
+    
+    // Crear contenedor Modal en el DOM dinámicamente
+    const modal = document.createElement("div");
+    modal.className = "image-modal";
+    modal.innerHTML = '<span class="image-modal-close">&times;</span><img class="image-modal-content" alt="Ampliada">';
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector(".image-modal-content");
+    const modalClose = modal.querySelector(".image-modal-close");
+
+    modalClose.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+    modal.addEventListener("click", (e) => {
+        if (e.target !== modalImg) {
+            modal.style.display = "none";
+        }
+    });
+
     const sliders = document.querySelectorAll(".slider");
     sliders.forEach((slider) => {
         let currentIndex = 0;
         const slides = slider.querySelector(".slides");
         if (!slides) return;
         
-        // Contar únicamente las etiquetas <img> en lugar de todos los nodos hijo
         const images = slides.querySelectorAll("img");
         const totalSlides = images.length;
+
+        images.forEach(img => {
+            // Protección contra clic derecho
+            img.addEventListener("contextmenu", (e) => e.preventDefault());
+
+            // Abrir pop-up al hacer clic (solo si no se está arrastrando el slider)
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+            });
+        });
 
         function updateSlidePosition() {
             slides.style.transform = `translateX(-${currentIndex * 100}%)`;
@@ -99,7 +130,9 @@ window.addEventListener("load", function () {
         if (nextBtn) nextBtn.addEventListener("click", nextSlide);
     });
 
-    // SLIDER DE VÍDEOS
+    // ==========================================
+    // SLIDER DE VÍDEOS (SIN CONTROLES, EN BUCLE)
+    // ==========================================
     const videoPlayer = document.getElementById("videoPlayer5");
     if (videoPlayer) {
         const videoSources = [

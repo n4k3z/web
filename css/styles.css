@@ -190,60 +190,114 @@ h1, h2, h3, h4, h5, h6 {
     transition: color 0.3s ease;
 }
 
-/* SLIDER DE IMÁGENES */
+/* ==========================================
+   UNIFICACIÓN DE TAMAÑOS DE TODOS LOS VISORES
+   ========================================== */
+
+/* 1. Sliders de imágenes (Slider 1 y Slider 2) */
 .slider {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 400px; /* Altura unificada fija */
     overflow: hidden;
     margin: 20px 0;
     display: flex;
     justify-content: flex-start;
+    background-color: #1a1a1a; /* Fondo estético por si la imagen es más estrecha */
 }
 
 .slides {
     display: flex;
     width: 100%;
+    height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .slides img {
-    width: 100%;
-    min-width: 100%;
+    height: 400px; /* Altura idéntica al visor */
+    width: auto;   /* Ancho automático según proporción */
     max-width: 100%;
-    height: auto;
-    flex-shrink: 0;
-}
-
-/* Ajuste de tamaño unificado para las imágenes del slider 1 y slider 2 */
-.slider1 .slides img,
-.slider2 .slides img {
-    max-height: 450px;
-    width: auto;
     object-fit: contain;
     margin: 0 auto;
     display: block;
+    flex-shrink: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    pointer-events: auto; /* Permite el clic para el pop-up pero previene arrastre nativo */
 }
 
-.video-slider-container {
-    position: relative;
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    height: 300px;
-}
-
-.video-slider {
-    display: inline-block;
-}
-
+/* 2. Videos independientes en bucle */
 video {
     display: block;
     margin: 20px auto;
+    height: 400px; /* Altura unificada idéntica a los visores de imágenes */
+    width: auto;
     max-width: 100%;
-    max-height: 100%;
+    object-fit: contain;
+    background-color: #1a1a1a;
+}
+
+/* 3. Visor de video con flechas (antiguo slider de promos) */
+.video-slider-container {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 400px; /* Altura unificada idéntica */
+    background-color: #1a1a1a;
+}
+
+.video-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.video-slider video {
+    height: 100% !important;
+    width: auto !important;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   POP-UP (MODAL) PARA IMÁGENES AMPLIADAS
+   ========================================== */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .fade-in {
@@ -390,13 +444,8 @@ body.light-theme footer {
         padding: 10px;
     }
 
-    .video-slider-container {
-        height: auto;
-    }
-
-    video {
-        width: 100%;
-        height: auto;
+    .video-slider-container, .slider, video {
+        height: 250px; /* Altura adaptada para móviles */
     }
 
     .main-nav a:hover {
