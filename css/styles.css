@@ -215,8 +215,9 @@ h1, h2, h3, h4, h5, h6 {
     flex-shrink: 0;
 }
 
-/* Ajuste de tamaño para las imágenes del primer slider (más visibles y estéticas) */
-.slider1 .slides img {
+/* Ajuste de tamaño unificado para las imágenes del slider 1 y slider 2 */
+.slider1 .slides img,
+.slider2 .slides img {
     max-height: 450px;
     width: auto;
     object-fit: contain;
