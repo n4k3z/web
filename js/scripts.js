@@ -5,11 +5,13 @@ window.addEventListener("load", function () {
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll(".main-nav a");
 
+    // Aplicar tema guardado al cargar
     if (currentTheme === "light") {
         document.body.classList.add("light-theme");
         if (themeIcon) themeIcon.src = "images/moon.svg";
     }
 
+    // Alternar tema claro / oscuro
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", function () {
             document.body.classList.toggle("light-theme");
@@ -17,11 +19,7 @@ window.addEventListener("load", function () {
             localStorage.setItem("theme", theme);
 
             if (themeIcon) {
-                if (theme === "light") {
-                    themeIcon.src = "images/moon.svg";
-                } else {
-                    themeIcon.src = "images/sun.svg";
-                }
+                themeIcon.src = theme === "light" ? "images/moon.svg" : "images/sun.svg";
             }
         });
     }
@@ -29,8 +27,7 @@ window.addEventListener("load", function () {
     // Guardar la posición de desplazamiento antes de cambiar de idioma
     document.querySelectorAll('.language-switch').forEach(link => {
         link.addEventListener('click', function () {
-            const scrollPosition = window.scrollY;
-            localStorage.setItem('scrollPosition', scrollPosition);
+            localStorage.setItem('scrollPosition', window.scrollY);
         });
     });
 
@@ -41,7 +38,7 @@ window.addEventListener("load", function () {
         localStorage.removeItem('scrollPosition');
     }
 
-    // Ajustar el desplazamiento para que el título de la sección no quede tapado por el menú
+    // Ajustar el desplazamiento suave teniendo en cuenta la barra superior fija
     document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function (e) {
             if (!this.classList.contains('language-switch')) {
@@ -62,21 +59,20 @@ window.addEventListener("load", function () {
         });
     });
 
-    // Enlaces externos abren en nueva pestaña
-    const links = document.querySelectorAll("a:not(.main-nav a)");
-    links.forEach(function (link) {
+    // Abrir todos los enlaces externos (que empiecen por http/https) en una pestaña nueva
+    document.querySelectorAll('a[href^="http"]').forEach(function (link) {
         link.setAttribute("target", "_blank");
         link.setAttribute("rel", "noopener noreferrer");
     });
 
-    // SLIDER DE IMÁGENES CORREGIDO
+    // SLIDER DE IMÁGENES
     const sliders = document.querySelectorAll(".slider");
     sliders.forEach((slider) => {
         let currentIndex = 0;
         const slides = slider.querySelector(".slides");
         if (!slides) return;
         
-        // CORRECCIÓN: Contar únicamente las etiquetas <img> en lugar de todos los elementos hijo
+        // Contar únicamente las etiquetas <img> en lugar de todos los nodos hijo
         const images = slides.querySelectorAll("img");
         const totalSlides = images.length;
 
@@ -145,7 +141,7 @@ window.addEventListener("load", function () {
         if (nextVidBtn) nextVidBtn.addEventListener("click", nextVideoSlide);
     }
 
-    // Resaltado de sección activa en el menú
+    // Resaltado optimizado de la sección activa en el menú al hacer scroll
     function onScroll() {
         const nav = document.querySelector('.main-nav');
         if (!nav) return;
@@ -163,6 +159,16 @@ window.addEventListener("load", function () {
         });
     }
 
-    window.addEventListener('scroll', onScroll);
+    let ticking = false;
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            window.requestAnimationFrame(function () {
+                onScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
     onScroll();
 });

@@ -1,4 +1,4 @@
-/* Estilos comunes */
+/* Estilos generales */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -6,7 +6,8 @@ body {
     background-color: #2b2b2b;
     color: #ffffff;
     text-align: left;
-    overflow-x: hidden; /* Para evitar el desbordamiento horizontal */
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .theme-toggle {
@@ -24,11 +25,6 @@ body {
     width: 24px;
     height: 24px;
     vertical-align: middle;
-}
-
-/* Mostrar iconos según el tema */
-body.light-theme #theme-icon {
-    content: url('../images/moon.svg');
 }
 
 /* Tema claro */
@@ -92,6 +88,7 @@ body.light-theme footer {
     width: 100%;
     box-sizing: border-box;
     margin: 0;
+    transition: background-color 0.3s ease;
 }
 
 .main-nav ul {
@@ -134,6 +131,7 @@ body.light-theme footer {
     padding: 5px 10px;
     display: inline-block;
     position: relative;
+    transition: color 0.2s ease;
 }
 
 .main-nav a:hover {
@@ -189,9 +187,10 @@ section {
 h1, h2, h3, h4, h5, h6 {
     color: #ffffff;
     font-weight: 700;
+    transition: color 0.3s ease;
 }
 
-/* SLIDER CORREGIDO */
+/* SLIDER DE IMÁGENES */
 .slider {
     position: relative;
     width: 100%;
@@ -210,7 +209,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .slides img {
     width: 100%;
-    min-width: 100%; /* Garantiza que cada imagen ocupe todo el ancho visible */
+    min-width: 100%;
     max-width: 100%;
     height: auto;
     flex-shrink: 0;
@@ -322,6 +321,7 @@ footer {
     background-color: #333;
     color: #ffffff;
     margin-top: 40px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.light-theme footer {
@@ -340,6 +340,7 @@ body.light-theme footer {
     margin: 0 10px;
 }
 
+/* Responsividad */
 @media (max-width: 768px) {
     .main-nav ul {
         flex-direction: row;
