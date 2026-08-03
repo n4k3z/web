@@ -206,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {
 .slider {
     position: relative;
     width: 100%;
-    height: 480px; /* Altura aumentada */
+    height: 480px;
     overflow: hidden;
     margin: 20px 0;
     display: flex;
@@ -222,7 +222,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slides img {
-    height: 480px; /* Altura aumentada */
+    height: 480px;
     width: 100%;
     min-width: 100%;
     max-width: 100%;
@@ -237,7 +237,7 @@ h1, h2, h3, h4, h5, h6 {
 video {
     display: block;
     margin: 20px auto;
-    height: 480px; /* Altura aumentada */
+    height: 480px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -254,7 +254,7 @@ video {
     text-align: center;
     display: flex;
     justify-content: center;
-    height: 480px; /* Altura aumentada */
+    height: 480px;
     background-color: transparent;
 }
 
@@ -295,7 +295,7 @@ video {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: none; /* Sin sombra para evitar recuadros oscuros en imágenes transparentes */
     border-radius: 4px;
     cursor: default;
 }
@@ -483,18 +483,31 @@ body.light-theme footer {
     }
 
     .video-slider-container, .slider, video {
-        height: 250px; /* Altura ajustada para móviles para que no se corten las imágenes */
+        height: 250px;
     }
 
-    /* Solución para que las imágenes se adapten correctamente en móviles */
     .slider .slides img {
         height: 250px;
     }
 
-    /* Reducción del tamaño de las flechas de navegación de los sliders en móviles */
     .prev, .next {
         padding: 6px 10px;
         font-size: 14px;
+    }
+
+    /* Flechas en la vista de pantalla completa pequeñas para móviles */
+    .modal-prev, .modal-next {
+        padding: 6px 10px;
+        font-size: 14px;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .modal-prev {
+        left: 5px;
+    }
+
+    .modal-next {
+        right: 5px;
     }
 
     .main-nav a:hover {

@@ -14,9 +14,11 @@ window.addEventListener("load", function () {
         e.preventDefault();
     });
 
-    // Aplicar tema guardado al cargar
+    // Aplicar tema guardado al cargar: Modo oscuro -> Luna, Modo claro -> Sol
     if (currentTheme === "light") {
         document.body.classList.add("light-theme");
+        if (themeIcon) themeIcon.src = "images/sun.svg";
+    } else {
         if (themeIcon) themeIcon.src = "images/moon.svg";
     }
 
@@ -28,7 +30,7 @@ window.addEventListener("load", function () {
             localStorage.setItem("theme", theme);
 
             if (themeIcon) {
-                themeIcon.src = theme === "light" ? "images/moon.svg" : "images/sun.svg";
+                themeIcon.src = theme === "light" ? "images/sun.svg" : "images/moon.svg";
             }
         });
     }
@@ -136,6 +138,28 @@ window.addEventListener("load", function () {
             updateModalImage();
         }
     });
+
+    // Detección de gestos táctiles (Swipe) en móvil para la pantalla completa
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    modal.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    modal.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleModalSwipe();
+    }, { passive: true });
+
+    function handleModalSwipe() {
+        const threshold = 40; // Sensibilidad de deslizamiento
+        if (touchEndX < touchStartX - threshold) {
+            modalNextBtn.click(); // Deslizar a la izquierda -> Siguiente
+        } else if (touchEndX > touchStartX + threshold) {
+            modalPrevBtn.click(); // Deslizar a la derecha -> Anterior
+        }
+    }
 
     // Control por teclado (Escape para cerrar, Flechas para cambiar en el popup)
     window.addEventListener("keydown", (e) => {
