@@ -118,8 +118,10 @@ body.light-theme footer {
     position: relative;
 }
 
-.main-nav ul li.menu-item {
-    margin: 2px;
+.main-nav ul .menu-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-nav ul .right-align {
@@ -450,45 +452,56 @@ body.light-theme footer {
     }
 }
 
-/* Disposición Ultracompacta para Móviles (Todos visibles, sin scroll horizontal) */
+/* Configuración Móvil en 2 Filas Ultracompactas (Todos visibles y estéticos) */
 @media (max-width: 768px) {
     .main-nav {
-        padding: 4px 2px;
+        padding: 4px 6px;
     }
 
     .main-nav ul {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
         width: 100%;
+        gap: 3px;
     }
 
-    .main-nav ul li.menu-item {
-        margin: 1px;
+    /* Fila 1 y Fila 2 en móvil */
+    .main-nav ul .menu-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        gap: 2px;
     }
 
     .main-nav a {
-        font-size: 0.70rem;
-        padding: 2px 3px;
+        font-size: 0.73rem;
+        padding: 3px 5px;
         line-height: 1;
-        white-space: normal;
-        text-align: center;
+        white-space: nowrap;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+    }
+
+    body.light-theme .main-nav a {
+        background-color: rgba(0, 0, 0, 0.05);
     }
 
     .right-align {
         position: relative;
         display: flex;
         align-items: center;
-        justify-content: center;
-        margin-top: 2px;
-        width: 100%;
+        margin-left: 4px;
     }
 
     .right-align a, .right-align button {
-        margin: 0 4px;
+        margin: 0 2px;
         padding: 0;
+        background: none !important;
     }
 
     .icon {
