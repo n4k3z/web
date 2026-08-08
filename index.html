@@ -14,16 +14,18 @@
 </head>
 <body>
     <header class="header">
+        <h1 class="header-title">Álvaro Pérez</h1>
         <img src="images/cover.jpg" class="cover-image" alt="Cover Image">
     </header>
     <nav class="main-nav">
         <ul>
             <li class="menu-items">
-                <a href="#aboutme">Sobre mí</a>
                 <a href="#resumen">Resumen</a>
+                <a href="#aboutme">Sobre mí</a>
                 <a href="#experience-profesional">Profesional</a>
                 <a href="#experience">Personal</a>
                 <a href="#skills">Habilidades</a>
+                <a href="#Softwares">Softwares</a>
                 <a href="#education">Estudios</a>
                 <a href="#nota-al-pie">Nota</a>
                 <a href="#contact">Contacto</a>
@@ -40,23 +42,26 @@
     </nav>    
     <div class="container">
         <main>
-            <section id="aboutme">
+            <section id="resumen">
                 <p>"Especialista en modelado 3D con amplia experiencia en la industria del packaging. Destaco en el modelado Hard Surface y en el desarrollo de métodos y herramientas para optimizar la producción. Apasionado por explorar nuevas oportunidades y tecnologías, en constante aprendizaje y comprometido con los proyectos en los que me me involucro."</p>
                 
-                <h2 id="resumen">En resumen</h2>
+                <h2>En resumen</h2>
                 <p>Para ahorrarte tiempo de lectura y comprobar de un vistazo si mi perfil encaja con lo que buscas, te resumo mis habilidades clave:</p>
                 <p><strong>Modelado Hard Surface &amp; Packaging:</strong> Más de 7 años de experiencia profesional (y más de 15 desde que empecé en el 3D) creando todo tipo de modelos con precisión milimétrica, mallas optimizadas y retopología a partir de planos, imágenes o archivos CAD. Aunque he centrado gran parte de mi trayectoria en la industria del packaging, domino el modelado Hard Surface en su totalidad para cualquier tipo de producto o entorno.</p>
                 <p><strong>Automatización y herramientas a medida:</strong> Desarrollo generadores paramétricos con Geometry Nodes, scripts y addons (tanto en Blender como en aplicaciones externas desarrolladas en Qt) para eliminar tareas repetitivas, recortar tiempos de entrega y agilizar la producción.</p>
                 <p><strong>Renders fotorrealistas e iluminación:</strong> Gracias a mi trayectoria en el sector audiovisual y fotográfico, creo estudios de iluminación virtual y materiales para producir renders estáticos, animaciones e imágenes de producto.</p>
                 <p><strong>Gestión técnica y biblioteca propia:</strong> Experiencia coordinando producción 3D, estimando tiempos, calculando la complejidad de los proyectos y aplicando control de calidad. Además, cuento con una biblioteca propia de más de 1.500 modelos de packaging creados por mí, organizada y lista para reutilizar y acortar tiempos.</p>
                 <p>Si quieres conocer en detalle mi trayectoria, los proyectos que he desarrollado y cómo he adquirido estas habilidades, sigue leyendo.</p>
+            </section>
 
+            <section id="aboutme">
                 <h2>Sobre mí</h2>
                 <p>Mi relación con el mundo audiovisual empezó cuando tenía 14 años, al llegar la primera cámara a mi casa. Empecé a grabar vídeos de patines y a editarlos, algo que continuó durante años grabando cada viaje y a otros patinadores para sus profiles en colaboración con marcas. Esto me llevó más adelante a grabar y editar videoclips, festivales y el Tour de varios DJs.</p>
                 <p>Después conseguí entrar en una revista militar donde estuve 5 años como fotógrafo, camarógrafo y editor de vídeo. Fue allí donde hice mi primera animación 3D en Autodesk 3ds Max, allá por 2009, para la introducción de los vídeos de la revista. Justo esa animación me llevó a dejar la revista e irme a Barcelona a estudiar el Grado en Comunicación Audiovisual en la Universitat Pompeu Fabra. Escogí la especialidad de Interactivos y realicé un corto de animación y la Demo completa de un videojuego 3D como Trabajo de Fin de Grado, utilizando Maya, ZBrush y Unity.</p>
                 <p>Tras finalizar mis estudios solo quería hacer prácticas en 3D, dejando atrás mis años como camarógrafo y editor para centrarme en mi verdadera pasión. No tardé en encontrar prácticas en la empresa barcelonesa 3D Click, donde me contrataron al terminar y trabajé durante 5 años. Allí me profesionalicé como Modelador 3D y responsable de producción, especializándome en el modelado Hard Surface del packaging. Aprendí a modelar con medidas exactas, hacer retopología de CADs, interpretar planos e imagenes, y crear modelos exactos con mallas optimizadas para los configuradores web de la empresa. También me encargué de medir los tiempos, calcular la dificultad de los proyectos y dar fechas de entrega a los clientes. Para mejorar los tiempos empecé a aprender tecnologías como Geometry Nodes, donde creé generadores de distintos packagings para que cualquier persona sin conocimientos de modelado pudiera generarlos. Además creé scripts y addons específicos para suplir las carencias del software en el trabajo diario.</p>
                 <p>Tras el cierre de 3D Click fui contratado por la empresa holandesa Ovio, donde pude continuar todo lo aprendido ahora como 3D Production Lead durante 2 años más hasta su cierre. Actualmente estoy como Freelance en plataformas como Fiverr y con contratos independientes en remoto, siempre en busca de nuevas oportunidades donde seguir aportando soluciones y evolucionar profesionalmente.</p>
             </section>                   
+            
             <section id="experience-profesional">
                 <h2>Experiencia Profesional</h2>
                 <h3>Modelado</h3>
@@ -136,6 +141,7 @@
                     <button class="next" data-index="5">&#10095;</button>
                 </div>
             </section>
+
             <section id="experience">
                 <h2>Experiencia Personal</h2>
                 <p>Mi experiencia personal está estrechamente ligada a la profesional, ya que el 3D forma una parte muy significativa de mi vida. Todas las inquietudes técnicas que en mi trabajo diario no puedo volcar termino por llevarlas a cabo en lo personal. Muchas de ellas refuerzan mi trabajo y otras no tienen nada que ver, pero todas me ayudan a seguir mejorando.</p>
@@ -166,6 +172,7 @@
                     Your browser does not support the video tag.
                 </video>
             </section>
+
             <section id="skills">
                 <h2>Habilidades</h2>
                 <h3>En Producción</h3>
@@ -183,15 +190,10 @@
                 <p><strong>Renderizado y automatización:</strong> Optimizo parámetros en el motor de render para acortar tiempos sin perder calidad visual, combinándolo con la creación de aplicaciones externas y estudios procedurales para procesar renders en lote.</p>
                 <p><strong>Animación:</strong> Centrada en la presentación comercial de producto, creando piezas promocionales, animaciones para marketing, mailing o vistas 360º.</p>                
             </section>
-            <section id="education">
-                <h2>Estudios</h2>
-                <div>
-                    <img src="images/upflogo.webp" alt="UPF Logo" loading="lazy">
-                    <p>Grado en Comunicación Audiovisual (Especialidad Interactivos) | Universitat Pompeu Fabra (2014 - 2018)</p>
-                </div>
-                
+
+            <section id="Softwares">
+                <h2>Dominio de Software</h2>
                 <div class="software-group">
-                    <h3>Dominio de Software</h3>
                     <div class="software-stars">
                         <span class="stars">★★★</span>
                         <ul class="softwares-logos">
@@ -225,13 +227,23 @@
                         </ul>
                     </div>
                 </div>
-            </section>                    
+            </section>
+
+            <section id="education">
+                <h2>Estudios</h2>
+                <div>
+                    <img src="images/upflogo.webp" alt="UPF Logo" loading="lazy">
+                    <p>Grado en Comunicación Audiovisual (Especialidad Interactivos) | Universitat Pompeu Fabra (2014 - 2018)</p>
+                </div>
+            </section>
+
             <section id="nota-al-pie">
                 <h3>Nota final</h3>
                 <p>Mis inquietudes y proyectos son muchos, así que he intentado simplificar todo lo posible para no hacer la lectura interminable.</p>
                 <p>Por otra parte, haber estado trabajando de forma continua durante estos años ha hecho que nunca me haya tenido que preocupar demasiado por mantener un CV al día o exponer mi portfolio. Además, por acuerdos de confidencialidad no puedo mostrar públicamente parte de mis mejores trabajos, y los proyectos personales los he ido guardando más como un archivo propio que para enseñarlos, algo que poco a poco voy mejorando.</p>
                 <p>Por todo esto, si quieres saber más sobre mi forma de trabajar o necesitas consultar cualquier duda sobre algún proyecto, no dudes en escribirme. Actualmente estoy disponible tanto para colaboraciones freelance como para contratos de incorporación a equipo.</p>                
             </section>
+
             <section id="contact">
                 <h2>Contacto</h2>
                 <a href="https://www.linkedin.com/in/alvaroperez3d/">

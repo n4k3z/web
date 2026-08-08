@@ -83,15 +83,29 @@ body.light-theme footer {
     position: relative;
 }
 
+.header-title {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.85);
+    z-index: 10;
+    letter-spacing: 0.5px;
+}
+
 .cover-image {
     width: 100%;
     height: auto;
     object-fit: cover;
+    display: block;
 }
 
 .main-nav {
     background-color: #333;
-    padding: 0;
+    padding: 0 15px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -103,14 +117,16 @@ body.light-theme footer {
 
 .main-nav ul {
     list-style-type: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    max-width: 1200px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .main-nav ul li {
@@ -120,6 +136,7 @@ body.light-theme footer {
 .main-nav ul .menu-items {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-grow: 1;
     flex-wrap: wrap;
 }
@@ -127,7 +144,8 @@ body.light-theme footer {
 .main-nav ul .right-align {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    position: absolute;
+    right: 0;
 }
 
 .right-align a, .right-align button {
@@ -138,7 +156,7 @@ body.light-theme footer {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px;
+    padding: 8px 12px;
     display: inline-block;
     position: relative;
     transition: color 0.2s ease;
@@ -191,7 +209,8 @@ main {
 }
 
 section {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    scroll-margin-top: 60px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -295,7 +314,7 @@ video {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
-    box-shadow: none; /* Sin sombra para evitar recuadros oscuros en imágenes transparentes */
+    box-shadow: none;
     border-radius: 4px;
     cursor: default;
 }
@@ -443,7 +462,20 @@ body.light-theme footer {
 }
 
 /* Responsividad */
+@media (max-width: 900px) {
+    .main-nav ul .right-align {
+        position: relative;
+        margin-left: auto;
+    }
+}
+
 @media (max-width: 768px) {
+    .header-title {
+        font-size: 1.3rem;
+        top: 12px;
+        left: 15px;
+    }
+
     .main-nav ul {
         flex-direction: row;
         align-items: center;
@@ -464,6 +496,7 @@ body.light-theme footer {
     }
     
     .right-align {
+        position: relative;
         flex-direction: row;
         align-items: center;
         margin-left: auto;
@@ -495,7 +528,6 @@ body.light-theme footer {
         font-size: 14px;
     }
 
-    /* Flechas en la vista de pantalla completa pequeñas para móviles */
     .modal-prev, .modal-next {
         padding: 6px 10px;
         font-size: 14px;
