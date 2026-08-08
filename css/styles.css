@@ -452,7 +452,7 @@ body.light-theme footer {
     }
 }
 
-/* Configuración Móvil Optimizada con Texto Más Grande y Botones al Fondo a la Derecha */
+/* Configuración Móvil Ajustada: Botones Centrados, Sin Contornos e Iconos Separados a la Derecha */
 @media (max-width: 768px) {
     .main-nav {
         padding: 5px 8px;
@@ -461,10 +461,10 @@ body.light-theme footer {
     .main-nav ul {
         display: flex;
         flex-direction: column;
-        align-items: stretch;
+        align-items: center;
         justify-content: center;
         width: 100%;
-        gap: 4px;
+        gap: 3px;
     }
 
     /* Filas 1 y 2 en móvil */
@@ -472,9 +472,10 @@ body.light-theme footer {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
-        gap: 3px;
+        position: relative;
+        gap: 2px;
     }
 
     .main-nav a {
@@ -482,21 +483,19 @@ body.light-theme footer {
         padding: 4px 6px;
         line-height: 1.1;
         white-space: nowrap;
-        background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 4px;
+        background-color: transparent !important;
+        border-radius: 0;
     }
 
-    body.light-theme .main-nav a {
-        background-color: rgba(0, 0, 0, 0.05);
-    }
-
-    /* Posiciona Idioma y Tema al fondo a la derecha de la 2ª fila */
+    /* Iconos fijados a la derecha de la 2ª fila con separación */
     .right-align {
-        position: relative;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
         display: flex;
         align-items: center;
-        margin-left: auto;
-        gap: 2px;
+        gap: 8px;
     }
 
     .right-align a, .right-align button {
