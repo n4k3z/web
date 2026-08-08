@@ -420,7 +420,7 @@ video {
 
 #education img {
     width: 250px;
-    height: auto;
+    height auto;
     margin: 0 10px;
 }
 
@@ -457,50 +457,59 @@ body.light-theme footer {
     }
 }
 
-/* Optimización móvil: Barra ultracompacta en 1 sola fila deslizante */
+/* Configuración Móvil Ultracompacta (Todos los botones visibles) */
 @media (max-width: 768px) {
     .main-nav {
-        padding: 0 5px;
+        padding: 3px 2px;
     }
 
     .main-nav ul {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-        flex-wrap: nowrap;
+        justify-content: center;
+        flex-wrap: wrap;
         width: 100%;
-        overflow: hidden;
+    }
+
+    .main-nav ul li {
+        margin: 1px;
     }
 
     .main-nav ul .menu-items {
         display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
-        padding: 5px 0;
-    }
-
-    .main-nav ul .menu-items::-webkit-scrollbar {
-        display: none; /* Oculta la barra de scroll en Chrome/Safari */
+        width: auto;
     }
 
     .main-nav a {
-        font-size: 0.82rem;
-        padding: 6px 8px;
-        white-space: nowrap;
+        font-size: 0.72rem;
+        padding: 2px 4px;
+        line-height: 1.1;
     }
 
     .right-align {
+        position: relative;
         display: flex;
         align-items: center;
-        flex-shrink: 0;
-        margin-left: 5px;
-        background-color: inherit;
+        margin-left: 2px;
+    }
+
+    .right-align a, .right-align button {
+        margin: 0 1px;
+        padding: 0 2px;
+    }
+
+    .icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .theme-toggle {
+        width: 22px;
+        height: 22px;
     }
 
     .container {
