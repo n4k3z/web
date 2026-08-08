@@ -452,66 +452,67 @@ body.light-theme footer {
     }
 }
 
-/* Configuración Móvil en 2 Filas Ultracompactas (Todos visibles y estéticos) */
+/* Configuración Móvil Optimizada con Texto Más Grande y Botones al Fondo a la Derecha */
 @media (max-width: 768px) {
     .main-nav {
-        padding: 4px 6px;
+        padding: 5px 8px;
     }
 
     .main-nav ul {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
+        width: 100%;
+        gap: 4px;
+    }
+
+    /* Filas 1 y 2 en móvil */
+    .main-nav ul .menu-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
         gap: 3px;
     }
 
-    /* Fila 1 y Fila 2 en móvil */
-    .main-nav ul .menu-row {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
-        width: 100%;
-        gap: 2px;
-    }
-
     .main-nav a {
-        font-size: 0.73rem;
-        padding: 3px 5px;
-        line-height: 1;
+        font-size: 0.82rem;
+        padding: 4px 6px;
+        line-height: 1.1;
         white-space: nowrap;
         background-color: rgba(255, 255, 255, 0.05);
-        border-radius: 3px;
+        border-radius: 4px;
     }
 
     body.light-theme .main-nav a {
         background-color: rgba(0, 0, 0, 0.05);
     }
 
+    /* Posiciona Idioma y Tema al fondo a la derecha de la 2ª fila */
     .right-align {
         position: relative;
         display: flex;
         align-items: center;
-        margin-left: 4px;
+        margin-left: auto;
+        gap: 2px;
     }
 
     .right-align a, .right-align button {
-        margin: 0 2px;
-        padding: 0;
+        margin: 0;
+        padding: 2px;
         background: none !important;
     }
 
     .icon {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
     }
 
     .theme-toggle {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
     }
 
     .container {
