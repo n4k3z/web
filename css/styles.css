@@ -452,7 +452,7 @@ body.light-theme footer {
     }
 }
 
-/* Configuración Móvil Ajustada: Botones Centrados, Sin Contornos e Iconos Separados a la Derecha */
+/* Configuración Móvil Ajustada: Filas Centradas y Alineación Perfecta */
 @media (max-width: 768px) {
     .main-nav {
         padding: 5px 8px;
@@ -464,10 +464,10 @@ body.light-theme footer {
         align-items: center;
         justify-content: center;
         width: 100%;
-        gap: 3px;
+        gap: 4px;
     }
 
-    /* Filas 1 y 2 en móvil */
+    /* Filas 1 y 2 en móvil con Flexbox alineado al centro */
     .main-nav ul .menu-row {
         display: flex;
         flex-direction: row;
@@ -479,28 +479,35 @@ body.light-theme footer {
     }
 
     .main-nav a {
-        font-size: 0.82rem;
-        padding: 4px 6px;
+        font-size: 0.80rem;
+        padding: 4px 5px;
         line-height: 1.1;
         white-space: nowrap;
         background-color: transparent !important;
         border-radius: 0;
     }
 
-    /* Iconos fijados a la derecha de la 2ª fila con separación */
+    /* Contenedor centralizado para los enlaces de la segunda fila */
+    .row-center-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        margin: 0 auto;
+    }
+
+    /* Iconos integrados a la derecha de la 2ª fila */
     .right-align {
         position: absolute;
         right: 0;
-        top: 50%;
-        transform: translateY(-50%);
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 8px; /* Espacio extra entre bandera y sol/luna */
     }
 
     .right-align a, .right-align button {
         margin: 0;
-        padding: 2px;
+        padding: 0;
         background: none !important;
     }
 
@@ -510,8 +517,8 @@ body.light-theme footer {
     }
 
     .theme-toggle {
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
     }
 
     .container {
