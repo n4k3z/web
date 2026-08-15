@@ -62,7 +62,8 @@ body.light-theme a {
     color: #85ABED;
 }
 
-body.light-theme a:hover {
+body.light-theme a:hover,
+body.light-theme a:visited:hover {
     color: #5c8edc !important;
 }
 
@@ -166,8 +167,9 @@ a {
     transition: color 0.2s ease;
 }
 
-a:hover {
-    color: #b0c9f8;
+a:hover,
+a:visited:hover {
+    color: #b0c9f8 !important;
     text-decoration: none;
 }
 
