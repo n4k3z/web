@@ -31,6 +31,7 @@ img, video {
     justify-content: center;
     width: 30px;
     height: 30px;
+    margin-left: 5px;
 }
 
 .icon {
@@ -62,7 +63,7 @@ body.light-theme a {
 }
 
 body.light-theme a:hover {
-    color: #85ABED !important;
+    color: #5c8edc !important;
 }
 
 body.light-theme h1, 
@@ -159,21 +160,15 @@ body.light-theme footer {
     color: #85ABED !important;
 }
 
-.theme-toggle {
-    margin-left: 5px;
-    display: flex;
-    align-items: center;
-}
-
 a {
     color: #85ABED;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    color: #85ABED;
+    color: #b0c9f8;
     text-decoration: none;
-    font-weight: bold;
 }
 
 a:visited,
