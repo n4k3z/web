@@ -1,4 +1,19 @@
 window.addEventListener("load", function () {
+    // Restaurar posición de scroll tras cambio de idioma
+    const savedScrollPos = sessionStorage.getItem("scrollPosForLangChange");
+    if (savedScrollPos !== null) {
+        window.scrollTo(0, parseInt(savedScrollPos, 10));
+        sessionStorage.removeItem("scrollPosForLangChange");
+    }
+
+    // Guardar posición de scroll al hacer clic en el botón de idioma
+    const langSwitchLink = document.querySelector(".language-switch");
+    if (langSwitchLink) {
+        langSwitchLink.addEventListener("click", function () {
+            sessionStorage.setItem("scrollPosForLangChange", window.scrollY);
+        });
+    }
+
     const themeToggleBtn = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
     
