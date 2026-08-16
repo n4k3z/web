@@ -1,13 +1,11 @@
 window.addEventListener("load", function () {
     const themeToggleBtn = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
-    const langToggleBtn = document.getElementById("lang-toggle");
-    const langIcon = document.getElementById("lang-icon");
-
+    const currentTheme = localStorage.getItem("theme") || "dark";
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll(".main-nav a");
 
-    // Bloqueo global de Clic Derecho y arrastre
+    // Bloqueo global estricto de Clic Derecho y arrastre en toda la página
     document.addEventListener("contextmenu", function (e) {
         e.preventDefault();
     });
@@ -16,81 +14,7 @@ window.addEventListener("load", function () {
         e.preventDefault();
     });
 
-    // ==========================================
-    // SISTEMA DE INTERNACIONALIZACIÓN (i18n)
-    // ==========================================
-    const translations = {
-        es: typeof translationsEs !== 'undefined' ? translationsEs : {},
-        en: typeof translationsEn !== 'undefined' ? translationsEn : {}
-    };
-
-    let currentLang = localStorage.getItem("lang") || "es";
-
-    function getNestedTranslation(obj, path) {
-        return path.split('.').reduce((prev, curr) => prev ? prev[curr] : null, obj);
-    }
-
-    function applyLanguage(lang) {
-        currentLang = lang;
-        localStorage.setItem("lang", lang);
-        document.documentElement.lang = lang;
-
-        const langData = translations[lang];
-        if (!langData) return;
-
-        // Metadatos
-        if (langData.meta) {
-            document.title = langData.meta.title;
-            const metaDesc = document.getElementById("meta-desc");
-            const ogTitle = document.getElementById("og-title");
-            const ogDesc = document.getElementById("og-desc");
-
-            if (metaDesc) metaDesc.setAttribute("content", langData.meta.description);
-            if (ogTitle) ogTitle.setAttribute("content", langData.meta.title);
-            if (ogDesc) ogDesc.setAttribute("content", langData.meta.description);
-        }
-
-        // Elementos de Texto Plano
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-            const key = el.getAttribute("data-i18n");
-            const text = getNestedTranslation(langData, key);
-            if (text !== null && text !== undefined) {
-                el.textContent = text;
-            }
-        });
-
-        // Elementos de Texto con HTML
-        document.querySelectorAll("[data-i18n-html]").forEach(el => {
-            const key = el.getAttribute("data-i18n-html");
-            const htmlText = getNestedTranslation(langData, key);
-            if (htmlText !== null && htmlText !== undefined) {
-                el.innerHTML = htmlText;
-            }
-        });
-
-        // Icono de cambio de idioma
-        if (langIcon) {
-            langIcon.src = lang === "es" ? "images/spain.svg" : "images/uk.svg";
-            langIcon.alt = lang === "es" ? "Bandera España" : "English Flag";
-        }
-    }
-
-    // Evento de cambio de idioma
-    if (langToggleBtn) {
-        langToggleBtn.addEventListener("click", function () {
-            const newLang = currentLang === "es" ? "en" : "es";
-            applyLanguage(newLang);
-        });
-    }
-
-    // Inicializar Idioma
-    applyLanguage(currentLang);
-
-    // ==========================================
-    // SISTEMA DE TEMA (MODO CLARO / OSCURO)
-    // ==========================================
-    const currentTheme = localStorage.getItem("theme") || "dark";
-
+    // Aplicar tema guardado al cargar: Modo oscuro -> Luna, Modo claro -> Sol
     if (currentTheme === "light") {
         document.body.classList.add("light-theme");
         if (themeIcon) themeIcon.src = "images/sun.svg";
@@ -98,6 +22,7 @@ window.addEventListener("load", function () {
         if (themeIcon) themeIcon.src = "images/moon.svg";
     }
 
+    // Alternar tema claro / oscuro
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", function () {
             document.body.classList.toggle("light-theme");
@@ -110,27 +35,42 @@ window.addEventListener("load", function () {
         });
     }
 
-    // ==========================================
-    // NAVEGACIÓN Y DESPLAZAMIENTO
-    // ==========================================
+    // Guardar la posición de desplazamiento antes de cambiar de idioma
+    document.querySelectorAll('.language-switch').forEach(link => {
+        link.addEventListener('click', function () {
+            localStorage.setItem('scrollPosition', window.scrollY);
+        });
+    });
+
+    // Restaurar la posición de desplazamiento al cargar la página
+    const scrollPosition = localStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+        window.scrollTo(0, parseInt(scrollPosition, 10));
+        localStorage.removeItem('scrollPosition');
+    }
+
+    // Ajustar el desplazamiento suave teniendo en cuenta la barra superior fija
     document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const headerOffset = document.querySelector('.main-nav').offsetHeight;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            if (!this.classList.contains('language-switch')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const headerOffset = document.querySelector('.main-nav').offsetHeight;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
 
+    // Abrir todos los enlaces externos en una pestaña nueva
     document.querySelectorAll('a[href^="http"]').forEach(function (link) {
         link.setAttribute("target", "_blank");
         link.setAttribute("rel", "noopener noreferrer");
@@ -143,9 +83,9 @@ window.addEventListener("load", function () {
     modal.className = "image-modal";
     modal.innerHTML = `
         <span class="image-modal-close">&times;</span>
-        <button class="modal-prev" aria-label="Anterior">&#10094;</button>
+        <button class="modal-prev">&#10094;</button>
         <img class="image-modal-content" alt="Ampliada">
-        <button class="modal-next" aria-label="Siguiente">&#10095;</button>
+        <button class="modal-next">&#10095;</button>
     `;
     document.body.appendChild(modal);
 
@@ -175,6 +115,8 @@ window.addEventListener("load", function () {
     }
 
     modalClose.addEventListener("click", closeModal);
+    
+    // Cerrar si se hace clic fuera de la imagen y de los botones
     modal.addEventListener("click", (e) => {
         if (e.target === modal) {
             closeModal();
@@ -197,6 +139,7 @@ window.addEventListener("load", function () {
         }
     });
 
+    // Detección de gestos táctiles (Swipe) en móvil para la pantalla completa
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -210,14 +153,15 @@ window.addEventListener("load", function () {
     }, { passive: true });
 
     function handleModalSwipe() {
-        const threshold = 40;
+        const threshold = 40; // Sensibilidad de deslizamiento
         if (touchEndX < touchStartX - threshold) {
-            modalNextBtn.click();
+            modalNextBtn.click(); // Deslizar a la izquierda -> Siguiente
         } else if (touchEndX > touchStartX + threshold) {
-            modalPrevBtn.click();
+            modalPrevBtn.click(); // Deslizar a la derecha -> Anterior
         }
     }
 
+    // Control por teclado (Escape para cerrar, Flechas para cambiar en el popup)
     window.addEventListener("keydown", (e) => {
         if (modal.style.display === "flex") {
             if (e.key === "Escape") {
@@ -315,9 +259,7 @@ window.addEventListener("load", function () {
         if (nextVidBtn) nextVidBtn.addEventListener("click", nextVideoSlide);
     }
 
-    // ==========================================
-    // RESALTADO DE SECCIÓN EN MENÚ
-    // ==========================================
+    // Resaltado optimizado de la sección activa en el menú al hacer scroll
     function onScroll() {
         const nav = document.querySelector('.main-nav');
         if (!nav) return;
