@@ -4,7 +4,19 @@ window.addEventListener("load", function () {
     const langToggleBtn = document.getElementById("lang-toggle");
     const langIcon = document.getElementById("lang-icon");
     
-    let currentLang = localStorage.getItem("language") || "es";
+    // 1. Detectar si la URL trae un parámetro de idioma (?lang=en o ?lang=es)
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+
+    // 2. Determinar el idioma inicial (URL > localStorage > 'es' por defecto)
+    let currentLang = 'es';
+    if (langParam === 'es' || langParam === 'en') {
+        currentLang = langParam;
+        localStorage.setItem("language", currentLang);
+    } else {
+        currentLang = localStorage.getItem("language") || "es";
+    }
+
     let currentTheme = localStorage.getItem("theme") || "dark";
 
     const sections = document.querySelectorAll("main section");
@@ -67,13 +79,19 @@ window.addEventListener("load", function () {
         });
     }
 
-    // Inicializar idioma guardado
+    // Inicializar idioma guardado / detectado
     applyLanguage(currentLang);
 
     // Evento cambiar idioma
     if (langToggleBtn) {
         langToggleBtn.addEventListener("click", function () {
             const newLang = currentLang === "es" ? "en" : "es";
+            
+            // Actualizar la URL en el navegador dinámicamente sin recargar la página
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('lang', newLang);
+            window.history.pushState({}, '', newUrl);
+
             applyLanguage(newLang);
         });
     }
