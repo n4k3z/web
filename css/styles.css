@@ -117,6 +117,46 @@ section h1, section h2, section h3 {
     color: var(--accent-color);
 }
 
+section video {
+    max-width: 100%;
+    border-radius: 8px;
+    display: block;
+    margin: 15px 0;
+}
+
+/* Contenedores de Addons y Apps */
+.addons-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.addon-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.addon-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.app-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.app-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
 /* Sliders de Imágenes y Vídeo */
 .slider,
 .video-slider-container {
