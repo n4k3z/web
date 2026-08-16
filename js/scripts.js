@@ -1,60 +1,315 @@
+const translations = {
+    es: {
+        doc_title: "Portafolio Alvaro Perez",
+        meta_desc: "Mi portafolio como modelador y productor 3D",
+        nav_resumen: "Resumen",
+        nav_aboutme: "Sobre mí",
+        nav_professional: "Profesional",
+        nav_personal: "Personal",
+        nav_skills: "Habilidades",
+        nav_software: "Softwares",
+        nav_education: "Estudios",
+        nav_note: "Nota",
+        nav_contact: "Contacto",
+        quote_text: '"Especialista en modelado 3D con amplia experiencia en la industria del packaging. Destaco en el modelado Hard Surface y en el desarrollo de métodos y herramientas para optimizar la producción. Apasionado por explorar nuevas oportunidades y tecnologías, en constante aprendizaje y comprometido con los proyectos en los que me me involucro."',
+        resumen_title: "En resumen",
+        resumen_intro: "Para ahorrarte tiempo de lectura y comprobar de un vistazo si mi perfil encaja con lo que buscas, te resumo mis habilidades clave:",
+        resumen_hs_label: "Modelado Hard Surface:",
+        resumen_hs_text: "Más de 7 años de experiencia profesional (y más de 15 desde que empecé en el 3D) creando todo tipo de modelos con precisión milimétrica, mallas optimizadas a partir de planos, imágenes o retopología de archivos CAD. Aunque he centrado gran parte de mi trayectoria en la industria del packaging, domino el modelado Hard Surface en su totalidad para cualquier tipo de producto o entorno.",
+        resumen_auto_label: "Automatización y herramientas a medida:",
+        resumen_auto_text: "Desarrollo generadores paramétricos con Geometry Nodes, scripts y addons (tanto en Blender como en aplicaciones externas) para eliminar tareas repetitivas, recortar tiempos de entrega y agilizar la producción.",
+        resumen_render_label: "Renders fotorrealistas e iluminación:",
+        resumen_render_text: "Por mi trayectoria en el sector audiovisual y fotográfico, creo estudios de iluminación y materiales para producir renders estáticos, animaciones e imágenes de producto.",
+        resumen_mgmt_label: "Gestión técnica y biblioteca propia:",
+        resumen_mgmt_text: "Experiencia coordinando producción 3D, estimando tiempos, calculando la complejidad de los proyectos y aplicando control de calidad. Además, cuento con una biblioteca propia de más de 1.500 modelos de packaging creados por mí, organizada y lista para reutilizar y acortar tiempos.",
+        resumen_footer_p1: "Si quieres conocer en detalle mi trayectoria, los proyectos que he desarrollado y cómo he adquirido estas ",
+        skills_link_text: "habilidades",
+        resumen_footer_p2: ", sigue leyendo.",
+        about_title: "Sobre mí",
+        about_p1: "Mi relación con el mundo audiovisual empezó cuando tenía 14 años, al llegar la primera cámara a mi casa. Empecé a grabar vídeos personales, cada viaje, luego a grabar a patinadores para sus profiles en colaboración con marcas y más adelante a grabar y editar videoclips, festivales y tours.",
+        about_p2: "Conseguí entrar en una revista militar donde estuve 5 años como fotógrafo, camarógrafo y editor de vídeos. Fue allí donde hice mi primera animación 3D en Autodesk 3ds Max en 2009 para la introducción de los DVDs de la revista. Esa animación me llevó a dejar la revista e irme a Barcelona a estudiar el Grado en Comunicación Audiovisual en la Universitat Pompeu Fabra. Escogí la especialidad de Interactivos y realicé un corto de animación y la Demo completa de un videojuego 3D como Trabajo de Fin de Grado, utilizando Maya y Unity.",
+        about_p3: "Tras finalizar mis estudios solo quería hacer prácticas en 3D, dejando atrás mis años como camarógrafo y editor para centrarme en lo que más me gustaba. Hice las prácticas en la empresa barcelonesa 3D Click, donde me contrataron y trabajé durante 5 años. Allí me profesionalicé como Modelador 3D y responsable de producción, especializándome en el modelado Hard Surface del packaging. Aprendí a modelar con medidas exactas, hacer retopología de CADs, interpretar planos e imagenes, y crear modelos exactos con mallas optimizadas para los configuradores web de la empresa. También me encargué de medir los tiempos, calcular la dificultad de los proyectos y dar fechas de entrega para los clientes. Con el fin de mejorar los tiempos empecé a aprender tecnologías como Geometry Nodes, donde creé generadores de distintos packagings para que cualquier persona sin conocimientos de modelado pudiera generarlos. Además creé scripts y addons específicos para suplir las carencias del software en el trabajo diario.",
+        about_p4: "Tras el cierre de 3D Click fui contratado por la empresa holandesa Ovio, donde pude continuar todo lo aprendido ahora como 3D Production Lead durante 2 años más hasta su cierre. Actualmente estoy como Freelance en plataformas como Fiverr y contratos independientes en remoto, siempre en busca de nuevas oportunidades donde seguir aportando soluciones y evolucionar profesionalmente.",
+        exp_prof_title: "Experiencia Profesional",
+        exp_prof_mod_title: "Modelado",
+        exp_prof_mod_p1: "Comencé en el sector del packaging como modelador tradicional. Envase a envase fui construyendo una biblioteca y detectando patrones y semejanzas entre los modelos, algo que más tarde me serviría para dar el salto a la parametrización.",
+        exp_prof_mod_p2: "A lo largo de 5 años en 3D Click creé infinidad de modelos abarcando todos los sectores del packaging, una labor que continué expandiendo en Ovio con clientes de gran reconocimiento internacional. Aprendí a agruparlos, organizarlos y optimizarlos para reutilizar componentes y reducir drásticamente los tiempos de producción.",
+        exp_prof_lib_title: "Biblioteca personalizada",
+        exp_prof_lib_p1: "La ampliación y sistematización de esta biblioteca permitió reutilizar partes de modelos y recortar el tiempo de diseño. Implementé sistemas de organización que facilitaban la búsqueda e incorporación de modelos completos o componentes a nuevos proyectos. Actualmente dispongo de una biblioteca de más de 1.500 modelos que cubre prácticamente cualquier tipo de envase de la industria, con medidas y referencias reales. Además de servir para la producción base, en la empresa la utilizábamos para que el equipo de marketing pudiera seleccionar rápidamente modelos y pedirme renders o animaciones publicitarias.",
+        exp_prof_lib_p2: "La creación de una biblioteca tan grande me ayudó a perfeccionar el modelado Hard Surface y a saber abordar cada modelo de la forma más eficiente, identificando particularidades y, sobre todo, las geometrías comunes que podían parametrizarse mediante Geometry Nodes.",
+        exp_prof_gn_title: "Geometry Nodes",
+        exp_prof_gn_p1: "Tras moldear infinidad de envases en Blender, comencé a estudiar a fondo sus capacidades paramétricas desde el primer día que se lanzó la herramienta Geometry Nodes aún en fase beta. En lugar de modelar pieza a pieza o duplicar y modificar manualmente, desarrollé generadores de packaging que crean modelos automáticos a partir de datos de entrada, generando familias enteras de productos en muy poco tiempo.",
+        exp_prof_gn_p2: "He desarrollado generadores completos de vasos de cartón, cintas de embalar, bolsas, doypacks, pillow bags, latas, botes (canisters), cajas, botellas y tapones a partir de un perfil 2D, además de otras herramientas específicas para clientes.",
+        exp_prof_gn_p3: "Este enfoque transformó nuestro flujo de trabajo, ya que permitió generar cientos de modelos con máxima precisión y un peso de archivo menor. Sustituyó el trabajo manual tedioso y permitió que otros compañeros sin conocimientos de modelado pudieran generar assets. Como resultado, la eficiencia de nuestro equipo aumentó de forma exponencial.",
+        exp_prof_gn_p4: "Además creé herramientas secundarias para agilizar el modelado convencional, como utilidades para automatizar el Unwrap de UVs, centrando y ajustando la malla a formas cuadradas, clave para etiquetas y zonas de personalización, o generadores de roscas y contrarroscas paramétricas entre muchos otros. Siempre que detecto una tarea repetitiva busco la manera de parametrizarla o resolverla mediante un addon o script.",
+        exp_prof_addons_title: "Addons, Scripts y Apps",
+        exp_prof_addons_p1: "Cuando un problema supera la parametrización estándar de Blender o requiere un acceso más directo al software recurro a la programación. Si el script evoluciona hacia una herramienta recurrente lo convierto en un Addon con su propia interfaz.",
+        exp_prof_addons_p2: "He desarrollado más scripts de los que puedo enumerar para acelerar tareas largas y repetitivas, como la exportación masiva de colecciones o la organización de la biblioteca de assets. Entre los addons más destacados que he programado están los siguientes:",
+        addon1_label: "Asset Batch Manager:",
+        addon1_text: "Permite mover assets entre catálogos, etiquetarlos y renombrar tanto los assets como sus archivos fuente en lote, evitando el proceso manual de Blender de abrir archivo por archivo.",
+        addon2_label: "GLTF Export:",
+        addon2_text: "Exporta automáticamente todas las colecciones de un archivo .blend a formato .glb de forma individual, aplicando las configuraciones seleccionadas en el addon.",
+        addon3_label: "Compresor de Texturas:",
+        addon3_text: "Optimiza el tamaño de las texturas generadas tras el bake preservando la calidad visual.",
+        addon3_item_title: "Compresor de Texturas",
+        exp_prof_app_p1: "También desarrollé una aplicación en Qt (cuya primera versión fue para web) pensada para que cualquier persona pueda realizar renders sin necesidad de abrir Blender. La app se apoya en Blender en segundo plano, pero ofrece una interfaz propia e independiente.",
+        exp_prof_app_p2: "Entre sus opciones más destacables permite generar las imágenes necesarias según el estándar GS1 o en animaciones 360º, elegir el perfil de iluminación, la distancia focal de la lente y seleccionar fondo transparente o blanco. Por detrás cuenta con un estudio paramétrico desarrollado en Geometry Nodes que calcula automáticamente la distancia a cualquier producto y es totalmente modificable para añadir nuevos presets de luz, ángulos de cámara, etc.",
+        exp_prof_app_p3: "Admite la importación de archivos .blend y .glb, siendo el .blend el más configurable ya que la app lee sus modificadores de Geometry Nodes. Esto permite cambiar partes del producto, modificar materiales o detectar las etiquetas para subir imágenes nuevas y reemplazarlas al instante. Funciona tanto para el renderizado individual como en lote, aplicando la misma configuración a múltiples archivos a la vez para agilizar el trabajo.",
+        exp_pers_title: "Experiencia Personal",
+        exp_pers_intro: "Mi experiencia personal está ligada a la profesional, ya que el 3D forma una parte muy significativa de mi vida. Todas las inquietudes técnicas que en mi trabajo diario no puedo volcar termino por llevarlas a cabo en lo personal. Muchas de ellas refuerzan mi trabajo y otras no tienen nada que ver, pero todas me ayudan a seguir mejorando.",
+        exp_pers_games_title: "Geometry Nodes en Videojuegos",
+        exp_pers_games_p1: "Este proyecto nació cuando estaba recreando mi pueblo de la infancia a escala en Unreal Engine para poder recorrerlo. Lo que me llevó a preguntarme cómo generar poblaciones de forma masiva sin tener que colocar cada casa, carretera, farola o elemento urbano individualmente. Justo en ese momento comencé a estudiar Geometry Nodes, utilizando este proyecto personal para aprender la herramienta y luego ver como podría usarla en el trabajo. Tras un año de aprendizaje desarrollé el principio de un generador de ciudades procedurales, esta vez implementándolo en el motor de Godot. Este proyecto me permitió explorar la herramienta a fondo y, en cuanto aprendí como funcionaba, no dejaron de surgir nuevas ideas para aprovechar Geometry Nodes en la producción.",
+        exp_pers_assets_title: "Assets",
+        exp_pers_assets_p1: "Mi interés por el 3D y el desarrollo de videojuegos me mantiene siempre activo. Principalmente modelando assets para entornos, renders, mobiliario ocasional y para piezas para impresión 3D. Trabajo todos estos modelos con medidas reales, mallas optimizadas y calidad profesional. Además, de vez en cuando hago algo de modelado orgánico para crear personajes y probarlos en motores de videojuegos. Son proyectos que me sirven para reforzar y aprender aspectos que habitualmente no se me exigen en el trabajo diario.",
+        exp_pers_engines_title: "Motores de videojuegos",
+        exp_pers_engines_p1_a: "Además del modelado, mi otra pasión son los motores de videojuegos, principalmente por la interactividad que ofrecen. Mi primer contacto fue con Unity para la demo de mi ",
+        exp_pers_engines_link: "Trabajo de Fin de Grado",
+        exp_pers_engines_p1_b: ", pero donde he pasado más tiempo ha sido en Unreal Engine, dando vida a personajes y entornos a través de Blueprints.",
+        exp_pers_engines_p2: "Sin embargo, cuando comencé a trabajar con Geometry Nodes descubrí Godot y, al igual que me ocurrió con Blender, me enamoré de su potencial y su libertad. Actualmente es el motor donde desarrollo todos mis proyectos personales.",
+        exp_pers_ai_title: "Inteligencia Artificial como herramienta:",
+        exp_pers_ai_p1: "He hablado mucho del desarrollo de aplicaciones, scripts y addons, así que es el momento de desvelar el velo. No soy programador, aunque sí informático desde que tuve mi primer ordenador en 1995, llegando a trabajar profesionalmente. He pasado por Windows, macOS y Linux, siendo este último mi sistema principal desde hace años. Me apasiona la informática y parte de mi afición es montar aplicaciones mediante Docker Compose en mi servidor local, algo que ya hacía antes de la llegada de la IA.",
+        exp_pers_ai_p2: "Pero fue la aparición de la IA la que me dio la oportunidad de crear aplicaciones que antes solo podía imaginar. El uso principal que le doy es la programación de scripts, addons y herramientas como las que he mencionado, aunque también he desarrollado proyectos para Android, Tauri y configuradores web, ya que en lo personal recurro a ella constantemente, desde pequeñas utilidades para Linux hasta software más complejo. Siempre estoy al tanto de la evolución tecnológica y la utilizo siempre que me facilite el trabajo, pero hasta el momento no la he usado para generar renders ni modelos 3D, si acaso upscale. A día de hoy no da la precisión técnica y el control topológico que exige el mercado, por lo que la integro como una herramienta para optimizar procesos sin comprometer nunca la calidad del resultado final.",
+        skills_main_title: "Habilidades",
+        skills_prod_title: "En Producción",
+        sk_p1_l: "Evaluación y planificación de proyectos:",
+        sk_p1_t: "Como responsable de producción me encargo de analizar el producto a digitalizar, evaluar su complejidad, calcular tiempos de entrega y estructurar la estrategia de trabajo idónea para abordarlo.",
+        sk_p2_l: "Metodología adaptada a la complejidad:",
+        sk_p2_t: "Analizo los requerimientos de cada producto antes de empezar para elegir la técnica de modelado o parametrización más efectiva, asegurando un proceso fluido y el cumplimiento estricto de los plazos.",
+        sk_p3_l: "Innovación y escalabilidad:",
+        sk_p3_t: "Busco de forma continua cómo optimizar y escalar los procesos. Diseño herramientas y métodos que ahorran tiempo a todo el equipo sin perder rigor técnico.",
+        sk_p4_l: "Control de calidad:",
+        sk_p4_t: "Reviso minuciosamente cada etapa de producción para garantizar que cumpla con las especificaciones exigidas antes de la entrega final.",
+        sk_p5_l: "Gestión y organización de activos:",
+        sk_p5_t: "Mantengo los proyectos estructurados, organizados en librerías accesibles y respaldadas con copias de seguridad periódicas para que la información esté lista de cara a futuros desarrollos.",
+        skills_tech_title: "En Modelado y Pipeline Técnico",
+        sk_t1_l: "Modelado Hard Surface:",
+        sk_t1_t: "Es el pilar principal de mi trabajo diario. Me especializo en la creación de mallas optimizadas, interpretación de planos e imagenes y retopología precisa a partir de archivos CAD.",
+        sk_t2_l: "Shaders y materiales procedimentales:",
+        sk_t2_t: "Uso principalmente materiales procedulares, aunque también utilizo herramientas como Substance Painter o Blender cuando el proyecto requiere un texturizado especial, haciendo los correspondientes bakes para el archivo final.",
+        sk_t3_l: "Generación y optimización de mapas UV:",
+        sk_t3_t: "Dado que el packaging exige personalizar zonas concretas con etiquetas, artes finales y estampados donde el cliente pueda ver una representación exacta de su producto, estoy muy especializado en el desarrollo de desplegados de UV limpios y adecuados a la plantilla correspondiente. Además, desarrollo herramientas y scripts propios para automatizar, centrar y cuadrar las mallas UV de forma rápida y eficiente.",
+        sk_t4_l: "Iluminación y encuadre:",
+        sk_t4_t: "Aplico mis conocimientos en más de 15 años de fotografía al entorno virtual, construyendo esquemas de luz y composiciones de cámara que aportan realismo al producto en 3D.",
+        sk_t5_l: "Renderizado y automatización:",
+        sk_t5_t: "Optimizo parámetros en el motor de render para acortar tiempos sin perder calidad visual, combinándolo con la creación de aplicaciones externas y estudios procedurales para procesar renders en lote.",
+        sk_t6_l: "Animación:",
+        sk_t6_t: "Centrada en la presentación comercial de producto, creando renders promocionales, animaciones para marketing, mailing o vistas 360º.",
+        softwares_title: "Softwares",
+        education_title: "Estudios",
+        education_desc: "Grado en Comunicación Audiovisual (Especialidad Interactivos) | Universitat Pompeu Fabra (2014 - 2018)",
+        note_title: "Nota final",
+        note_p1: "Mis inquietudes y proyectos son muchos, así que he intentado simplificar todo lo posible para no hacer la lectura interminable.",
+        note_p2: "Por otra parte, haber estado trabajando de forma continua durante estos años ha hecho que nunca me haya tenido que preocupar demasiado por mantener un CV al día o exponer mi portfolio. Además, por acuerdos de confidencialidad no puedo mostrar públicamente parte de mis mejores trabajos, y los proyectos personales los he ido guardando más como un archivo propio que para enseñarlos, algo que poco a poco voy mejorando.",
+        note_p3: "Por todo esto, si quieres saber más sobre mi forma de trabajar o necesitas consultar cualquier duda sobre algún proyecto, no dudes en escribirme. Actualmente estoy disponible tanto para colaboraciones freelance como para contratos de incorporación a equipo.",
+        contact_title: "Contacto"
+    },
+    en: {
+        doc_title: "Alvaro Perez Portfolio",
+        meta_desc: "My portfolio as a 3D modeler and producer",
+        nav_resumen: "Summary",
+        nav_aboutme: "About me",
+        nav_professional: "Professional",
+        nav_personal: "Personal",
+        nav_skills: "Skills",
+        nav_software: "Software",
+        nav_education: "Education",
+        nav_note: "Note",
+        nav_contact: "Contact",
+        quote_text: '"Specialist in 3D modeling with extensive experience in the packaging industry. I excel in Hard Surface modeling and in developing methods and tools to optimize production. Passionate about exploring new opportunities and technologies, constantly learning, and deeply committed to every project I undertake."',
+        resumen_title: "In Summary",
+        resumen_intro: "To save you reading time and allow you to quickly check if my profile fits what you are looking for, here is a summary of my key skills:",
+        resumen_hs_label: "Hard Surface Modeling:",
+        resumen_hs_text: "Over 7 years of professional experience (and more than 15 since I started in 3D) creating all kinds of models with millimeter accuracy, optimized meshes built from blueprints, images, or CAD retopology. Although much of my career has focused on the packaging industry, I master overall Hard Surface modeling for any product or environment.",
+        resumen_auto_label: "Automation and Custom Tools:",
+        resumen_auto_text: "I build parametric generators using Geometry Nodes, scripts, and addons (both in Blender and external applications) to eliminate repetitive tasks, cut lead times, and streamline production.",
+        resumen_render_label: "Photorealistic Renders and Lighting:",
+        resumen_render_text: "Drawing from my background in photography and audiovisual production, I build studio lighting setups and procedural materials to produce static renders, animations, and product imagery.",
+        resumen_mgmt_label: "Technical Management and Custom Library:",
+        resumen_mgmt_text: "Experienced in coordinating 3D production, estimating delivery times, calculating project complexity, and applying quality control. I also maintain my own library of over 1,500 packaging models I created, organized and ready to reuse to shorten turnaround times.",
+        resumen_footer_p1: "If you would like to know more details about my career path, the projects I have developed, and how I acquired these ",
+        skills_link_text: "skills",
+        resumen_footer_p2: ", keep reading.",
+        about_title: "About Me",
+        about_p1: "My relationship with the audiovisual world began when I was 14 years old, when the first camera arrived at my house. I started shooting personal videos, documenting every trip, then filming skaters for their brand-sponsored video profiles, and later directing and editing music videos, festivals, and tours.",
+        about_p2: "I landed a position at a military magazine where I spent 5 years as a photographer, videographer, and video editor. It was there that I created my first 3D animation in Autodesk 3ds Max back in 2009 for the magazine's DVD intros. That animation inspired me to leave the magazine and move to Barcelona to pursue a Bachelor's Degree in Audiovisual Communication at Universitat Pompeu Fabra. I chose the Interactive specialization and created an animated short film as well as a full 3D video game Demo for my Final Degree Project using Maya and Unity.",
+        about_p3: "After graduating, my sole focus was finding a 3D internship, leaving my years as a videographer and editor behind to dedicate myself to what I loved most. I completed my internship at Barcelona-based 3D Click, where I was hired and worked for 5 years. There, I grew professionally as a 3D Modeler and Production Lead, specializing in Hard Surface packaging modeling. I learned to model with exact dimensions, perform CAD retopology, interpret blueprints and images, and build precise models with optimized meshes for the company's web configurators. I was also responsible for estimating lead times, calculating project difficulty, and setting delivery dates for clients. To optimize production times, I began learning technologies such as Geometry Nodes, building parametric packaging generators so team members without modeling experience could generate assets. Additionally, I created specific scripts and addons to address software limitations in daily workflows.",
+        about_p4: "Following the closure of 3D Click, I was hired by the Dutch company Ovio, where I continued building on everything I had learned, serving as 3D Production Lead for 2 more years until its closure. I am currently working as a Freelancer on platforms like Fiverr and taking on independent remote contracts, always seeking new opportunities to provide solutions and evolve professionally.",
+        exp_prof_title: "Professional Experience",
+        exp_prof_mod_title: "Modeling",
+        exp_prof_mod_p1: "I started in the packaging industry as a traditional modeler. Package by package, I built up a library while identifying recurring patterns and similarities across models—an insight that would later allow me to transition into parametric modeling.",
+        exp_prof_mod_p2: "Over 5 years at 3D Click, I created countless models covering all sectors of packaging, a role I continued expanding at Ovio with internationally recognized clients. I learned to group, organize, and optimize them to reuse components and drastically reduce production times.",
+        exp_prof_lib_title: "Custom Asset Library",
+        exp_prof_lib_p1: "Expanding and systematizing this library made it possible to reuse model components and cut design times. I implemented organization systems that simplified finding and integrating complete models or individual parts into new projects. I currently possess a proprietary library of over 1,500 models covering virtually every type of package in the industry, complete with real-world dimensions and references. Beyond baseline production, our team used it so marketing could rapidly select models and request promotional renders or animations.",
+        exp_prof_lib_p2: "Building such a vast library helped me refine my Hard Surface modeling skills and learn how to approach every model in the most efficient manner, identifying unique traits and, above all, common geometries that could be parametrized through Geometry Nodes.",
+        exp_prof_gn_title: "Geometry Nodes",
+        exp_prof_gn_p1: "After modeling countless containers in Blender, I began studying its parametric capabilities in depth from the very day Geometry Nodes was first released in beta. Instead of modeling piece by piece or manually duplicating and modifying meshes, I developed packaging generators that produce automated models directly from input data, generating entire product families in minutes.",
+        exp_prof_gn_p2: "I have built complete parametric generators for paper cups, packing tapes, bags, doypacks, pillow bags, cans, canisters, boxes, bottles, and bottle caps starting from a 2D profile, alongside other specialized tools tailored for clients.",
+        exp_prof_gn_p3: "This approach transformed our workflow, enabling us to generate hundreds of models with extreme precision and lighter file sizes. It replaced tedious manual tasks and allowed teammates without 3D modeling skills to generate production assets. As a result, our team's overall efficiency grew exponentially.",
+        exp_prof_gn_p4: "Additionally, I built secondary utility tools to streamline conventional modeling, such as automated UV unwrapping tools that center and square UV meshes—essential for labels and artwork placement—as well as parametric thread and counter-thread generators. Whenever I detect a repetitive task, I find a way to parameterize it or solve it with an addon or script.",
+        exp_prof_addons_title: "Addons, Scripts, and Apps",
+        exp_prof_addons_p1: "When a problem goes beyond Blender's standard procedural tools or requires deeper integration, I turn to programming. If a script evolves into a recurring tool, I turn it into a full Addon with its own custom UI.",
+        exp_prof_addons_p2: "I have developed more scripts than I can count to automate long, repetitive tasks—such as batch exporting collections or organizing asset libraries. Among the most notable addons I have programmed are:",
+        addon1_label: "Asset Batch Manager:",
+        addon1_text: "Enables moving assets between catalogs, tagging them, and batch renaming both assets and source files without opening each Blender file manually.",
+        addon2_label: "GLTF Export:",
+        addon2_text: "Automatically exports all collections in a .blend file into individual .glb files while applying configured settings.",
+        addon3_label: "Texture Compressor:",
+        addon3_text: "Optimizes the file size of baked textures while preserving visual fidelity.",
+        addon3_item_title: "Texture Compressor",
+        exp_prof_app_p1: "I also developed a standalone Qt application (originally built for the web) designed to allow anyone to generate renders without opening Blender. The app runs Blender in the background while offering a custom, standalone interface.",
+        exp_prof_app_p2: "Key features include generating standardized GS1 images or 360° turntable animations, selecting lighting profiles and lens focal lengths, and switching between transparent and solid white backgrounds. Under the hood, it features a parametric studio built in Geometry Nodes that automatically calculates framing distances for any product, fully customizable for adding new lighting presets, camera angles, and more.",
+        exp_prof_app_p3: "It supports importing .blend and .glb files, with .blend files offering the highest degree of customizability because the app reads their Geometry Nodes modifiers. This allows users to swap product parts, change materials, or automatically detect label slots to upload new artwork instantly. It supports both single and batch rendering, applying uniform settings across multiple files to speed up workflows.",
+        exp_pers_title: "Personal Experience",
+        exp_pers_intro: "My personal experience is closely tied to my professional career, as 3D plays a huge part in my life. Any technical curiosities I cannot explore during my daily work I carry out through personal projects. Many of these reinforce my professional work while others are entirely unrelated, but all of them help me continually improve.",
+        exp_pers_games_title: "Geometry Nodes in Game Development",
+        exp_pers_games_p1: "This project began when I was recreating my childhood hometown to scale in Unreal Engine to explore it. That led me to ask how to generate environments on a large scale without placing every house, road, streetlamp, or urban asset individually. Right around that time, I started studying Geometry Nodes, using this personal project to master the tool before introducing it at work. After a year of experimentation, I developed the foundation of a procedural city generator, this time inside the Godot engine. This project allowed me to explore the tool thoroughly, and once I mastered its mechanics, endless new ideas emerged for leveraging Geometry Nodes in production.",
+        exp_pers_assets_title: "Assets",
+        exp_pers_assets_p1: "My passion for 3D and game development keeps me constantly active—primarily modeling environment assets, architectural renders, occasional furniture, and parts for 3D printing. I build all these models with real-world dimensions, optimized topology, and professional quality. Additionally, I occasionally practice organic modeling to create characters and test them inside game engines. These projects serve to sharpen and learn skills that are not typically required in my day-to-day work.",
+        exp_pers_engines_title: "Game Engines",
+        exp_pers_engines_p1_a: "Beyond modeling, my other main passion is game engines, primarily due to the interactivity they offer. My first hands-on experience was with Unity for my ",
+        exp_pers_engines_link: "Final Degree Project demo",
+        exp_pers_engines_p1_b: ", but I have spent the most time in Unreal Engine, bringing characters and environments to life via Blueprints.",
+        exp_pers_engines_p2: "However, when I started working with Geometry Nodes, I discovered Godot and, much like with Blender, I fell in love with its potential and flexibility. It is currently my engine of choice for all personal projects.",
+        exp_pers_ai_title: "Artificial Intelligence as a Tool:",
+        exp_pers_ai_p1: "I have spoken a lot about developing applications, scripts, and addons, so it is time to lift the curtain. I am not a programmer by trade, though I have been a tech enthusiast since getting my first computer in 1995, eventually working professionally in IT. I have worked across Windows, macOS, and Linux—with Linux being my main daily OS for years. I am passionate about technology, and part of my hobby is self-hosting applications via Docker Compose on my local server, something I was already doing long before AI arrived.",
+        exp_pers_ai_p2: "However, the advent of AI gave me the opportunity to build applications I could previously only envision. My primary use for AI is programming scripts, addons, and utilities like the ones mentioned, though I have also developed projects for Android, Tauri, and web configurators. I rely on it constantly in my personal workflow—ranging from small Linux utilities to complex software. I always stay up to date with technological advancements and adopt AI whenever it streamlines my work, but to date I have not used it to generate 3D models or renders (aside from occasional image upscaling). As of today, AI lacks the technical precision and topological control required by the industry, so I integrate it strictly as a workflow optimization tool without ever compromising output quality.",
+        skills_main_title: "Skills",
+        skills_prod_title: "In Production",
+        sk_p1_l: "Project Evaluation and Planning:",
+        sk_p1_t: "As production lead, I analyze products to be digitized, assess their technical complexity, estimate delivery timelines, and structure the ideal workflow strategy.",
+        sk_p2_l: "Adaptive Methodology:",
+        sk_p2_t: "I analyze product requirements before starting to select the most effective modeling or parametric technique, ensuring smooth execution and strict adherence to deadlines.",
+        sk_p3_l: "Innovation and Scalability:",
+        sk_p3_t: "I continuously seek ways to optimize and scale workflows, designing tools and methods that save time for the entire team while maintaining high technical rigor.",
+        sk_p4_l: "Quality Control:",
+        sk_p4_t: "I thoroughly review every production stage to guarantee full compliance with target specifications prior to final delivery.",
+        sk_p5_l: "Asset Management & Organization:",
+        sk_p5_t: "I keep projects structured and organized within accessible libraries backed up regularly, ensuring all data remains structured and ready for future iterations.",
+        skills_tech_title: "In Modeling and Technical Pipeline",
+        sk_t1_l: "Hard Surface Modeling:",
+        sk_t1_t: "The core pillar of my daily work. I specialize in creating optimized meshes, interpreting blueprints and reference images, and performing accurate CAD retopology.",
+        sk_t2_l: "Procedural Shaders and Materials:",
+        sk_t2_t: "I primarily construct procedural materials, though I also utilize tools like Substance Painter or Blender when specialized texturing is required, performing appropriate map baking for final delivery.",
+        sk_t3_l: "UV Generation and Optimization:",
+        sk_t3_t: "Because packaging requires precise customization with labels, final artwork, and print finishes, I excel at unwrapping clean, standardized UV maps tailored to artwork templates. I also write custom tools and scripts to automate, center, and square UV meshes efficiently.",
+        sk_t4_l: "Lighting and Framing:",
+        sk_t4_t: "I apply over 15 years of photography experience to virtual environments, constructing lighting schemes and camera compositions that bring photorealism to 3D products.",
+        sk_t5_l: "Rendering and Automation:",
+        sk_t5_t: "I optimize render engine parameters to reduce compute times without sacrificing visual quality, pairing this with external applications and procedural studio setups to batch-process renders.",
+        sk_t6_l: "Animation:",
+        sk_t6_t: "Focused on commercial product showcase, producing promotional renders, marketing animations, email campaign graphics, and 360° interactive views.",
+        softwares_title: "Software",
+        education_title: "Education",
+        education_desc: "Bachelor's Degree in Audiovisual Communication (Interactive Specialization) | Universitat Pompeu Fabra (2014 - 2018)",
+        note_title: "Final Note",
+        note_p1: "My technical interests and personal projects are numerous, so I have tried to simplify this portfolio as much as possible to keep it concise.",
+        note_p2: "Furthermore, working continuously over these years meant I rarely had to worry about maintaining an updated CV or publicly showcasing my work. Additionally, due to non-disclosure agreements (NDAs), I cannot publicly display some of my best commercial work, and personal projects were kept more as a personal archive than a showcase—something I am actively improving.",
+        note_p3: "For all these reasons, if you would like to know more about my workflow or have any questions regarding a project, please feel free to reach out. I am currently available for freelance collaborations as well as full-time team positions.",
+        contact_title: "Contact"
+    }
+};
+
 window.addEventListener("load", function () {
     const themeToggleBtn = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
-    const currentTheme = localStorage.getItem("theme") || "dark";
+    const langToggleBtn = document.getElementById("lang-toggle");
+    const langIcon = document.getElementById("lang-icon");
+    
+    let currentLang = localStorage.getItem("language") || "es";
+    let currentTheme = localStorage.getItem("theme") || "dark";
+
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll(".main-nav a");
 
-    // Bloqueo global estricto de Clic Derecho y arrastre en toda la página
-    document.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-    });
+    // Bloqueo de Clic Derecho y Arrastre
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("dragstart", e => e.preventDefault());
 
-    document.addEventListener("dragstart", function (e) {
-        e.preventDefault();
-    });
+    // Configurar icono de tema al cargar
+    if (themeIcon) {
+        themeIcon.src = currentTheme === "light" ? "images/sun.svg" : "images/moon.svg";
+    }
 
-    // Aplicar tema guardado al cargar: Modo oscuro -> Luna, Modo claro -> Sol
-    if (currentTheme === "light") {
-        document.body.classList.add("light-theme");
-        if (themeIcon) themeIcon.src = "images/sun.svg";
-    } else {
-        if (themeIcon) themeIcon.src = "images/moon.svg";
+    // Aplicar traducción de textos sin recarga
+    function applyLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem("language", lang);
+        document.documentElement.lang = lang;
+
+        // Actualizar Bandera (Si es ES muestra bandera UK para cambiar a EN y viceversa)
+        if (langIcon) {
+            langIcon.src = lang === "es" ? "images/uk.svg" : "images/spain.svg";
+            langIcon.alt = lang === "es" ? "English" : "Español";
+        }
+
+        const t = translations[lang];
+        if (!t) return;
+
+        // Traducir elementos por data-i18n
+        document.querySelectorAll("[data-i18n]").forEach(elem => {
+            const key = elem.getAttribute("data-i18n");
+            if (t[key]) {
+                elem.textContent = t[key];
+            }
+        });
+
+        // Casos con HTML interno o enlaces embebidos
+        const resumenFooter = document.getElementById("resumen_footer");
+        if (resumenFooter) {
+            resumenFooter.innerHTML = `${t.resumen_footer_p1}<strong><a href="#skills">${t.skills_link_text}</a></strong>${t.resumen_footer_p2}`;
+        }
+
+        const expPersEnginesP1 = document.getElementById("exp_pers_engines_p1");
+        if (expPersEnginesP1) {
+            expPersEnginesP1.innerHTML = `${t.exp_pers_engines_p1_a}<a href="https://nakez.itch.io/cryptophasia" target="_blank" rel="noopener noreferrer">${t.exp_pers_engines_link}</a>${t.exp_pers_engines_p1_b}`;
+        }
+
+        const quoteElem = document.getElementById("quote_text");
+        if (quoteElem) {
+            quoteElem.textContent = t.quote_text;
+        }
+
+        // Re-asignar target="_blank" a nuevos links cargados
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.setAttribute("target", "_blank");
+            link.setAttribute("rel", "noopener noreferrer");
+        });
+    }
+
+    // Inicializar idioma guardado
+    applyLanguage(currentLang);
+
+    // Evento cambiar idioma
+    if (langToggleBtn) {
+        langToggleBtn.addEventListener("click", function () {
+            const newLang = currentLang === "es" ? "en" : "es";
+            applyLanguage(newLang);
+        });
     }
 
     // Alternar tema claro / oscuro
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", function () {
+            document.documentElement.classList.toggle("light-theme");
             document.body.classList.toggle("light-theme");
-            const theme = document.body.classList.contains("light-theme") ? "light" : "dark";
+            
+            const isLight = document.body.classList.contains("light-theme");
+            const theme = isLight ? "light" : "dark";
             localStorage.setItem("theme", theme);
 
             if (themeIcon) {
-                themeIcon.src = theme === "light" ? "images/sun.svg" : "images/moon.svg";
+                themeIcon.src = isLight ? "images/sun.svg" : "images/moon.svg";
             }
         });
     }
 
-    // Guardar la posición de desplazamiento antes de cambiar de idioma
-    document.querySelectorAll('.language-switch').forEach(link => {
-        link.addEventListener('click', function () {
-            localStorage.setItem('scrollPosition', window.scrollY);
-        });
-    });
-
-    // Restaurar la posición de desplazamiento al cargar la página
-    const scrollPosition = localStorage.getItem('scrollPosition');
-    if (scrollPosition) {
-        window.scrollTo(0, parseInt(scrollPosition, 10));
-        localStorage.removeItem('scrollPosition');
-    }
-
-    // Ajustar el desplazamiento suave teniendo en cuenta la barra superior fija
+    // Desplazamiento suave para la navegación fija
     document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function (e) {
-            if (!this.classList.contains('language-switch')) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
+                const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     const headerOffset = document.querySelector('.main-nav').offsetHeight;
@@ -70,15 +325,7 @@ window.addEventListener("load", function () {
         });
     });
 
-    // Abrir todos los enlaces externos en una pestaña nueva
-    document.querySelectorAll('a[href^="http"]').forEach(function (link) {
-        link.setAttribute("target", "_blank");
-        link.setAttribute("rel", "noopener noreferrer");
-    });
-
-    // ==========================================
-    // SISTEMA DE POP-UP GLOBAL PARA AMBOS SLIDERS
-    // ==========================================
+    // Modal de Imágenes
     const modal = document.createElement("div");
     modal.className = "image-modal";
     modal.innerHTML = `
@@ -115,15 +362,11 @@ window.addEventListener("load", function () {
     }
 
     modalClose.addEventListener("click", closeModal);
-    
-    // Cerrar si se hace clic fuera de la imagen y de los botones
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            closeModal();
-        }
+    modal.addEventListener("click", e => {
+        if (e.target === modal) closeModal();
     });
 
-    modalPrevBtn.addEventListener("click", (e) => {
+    modalPrevBtn.addEventListener("click", e => {
         e.stopPropagation();
         if (activeImageCollection.length > 0) {
             activeModalIndex = (activeModalIndex === 0) ? activeImageCollection.length - 1 : activeModalIndex - 1;
@@ -131,7 +374,7 @@ window.addEventListener("load", function () {
         }
     });
 
-    modalNextBtn.addEventListener("click", (e) => {
+    modalNextBtn.addEventListener("click", e => {
         e.stopPropagation();
         if (activeImageCollection.length > 0) {
             activeModalIndex = (activeModalIndex === activeImageCollection.length - 1) ? 0 : activeModalIndex + 1;
@@ -139,46 +382,33 @@ window.addEventListener("load", function () {
         }
     });
 
-    // Detección de gestos táctiles (Swipe) en móvil para la pantalla completa
+    // Control táctil (Swipe)
     let touchStartX = 0;
     let touchEndX = 0;
 
-    modal.addEventListener("touchstart", (e) => {
+    modal.addEventListener("touchstart", e => {
         touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
 
-    modal.addEventListener("touchend", (e) => {
+    modal.addEventListener("touchend", e => {
         touchEndX = e.changedTouches[0].screenX;
-        handleModalSwipe();
+        const threshold = 40;
+        if (touchEndX < touchStartX - threshold) modalNextBtn.click();
+        else if (touchEndX > touchStartX + threshold) modalPrevBtn.click();
     }, { passive: true });
 
-    function handleModalSwipe() {
-        const threshold = 40; // Sensibilidad de deslizamiento
-        if (touchEndX < touchStartX - threshold) {
-            modalNextBtn.click(); // Deslizar a la izquierda -> Siguiente
-        } else if (touchEndX > touchStartX + threshold) {
-            modalPrevBtn.click(); // Deslizar a la derecha -> Anterior
-        }
-    }
-
-    // Control por teclado (Escape para cerrar, Flechas para cambiar en el popup)
-    window.addEventListener("keydown", (e) => {
+    // Teclado modal
+    window.addEventListener("keydown", e => {
         if (modal.style.display === "flex") {
-            if (e.key === "Escape") {
-                closeModal();
-            } else if (e.key === "ArrowLeft") {
-                modalPrevBtn.click();
-            } else if (e.key === "ArrowRight") {
-                modalNextBtn.click();
-            }
+            if (e.key === "Escape") closeModal();
+            else if (e.key === "ArrowLeft") modalPrevBtn.click();
+            else if (e.key === "ArrowRight") modalNextBtn.click();
         }
     });
 
-    // ==========================================
-    // CONFIGURACIÓN DE SLIDERS DE IMÁGENES
-    // ==========================================
+    // Configuración de Sliders
     const sliders = document.querySelectorAll(".slider");
-    sliders.forEach((slider) => {
+    sliders.forEach(slider => {
         let currentIndex = 0;
         const slides = slider.querySelector(".slides");
         if (!slides) return;
@@ -187,89 +417,44 @@ window.addEventListener("load", function () {
         const totalSlides = images.length;
 
         images.forEach((img, idx) => {
-            img.addEventListener("click", () => {
-                openModal(images, idx);
-            });
+            img.addEventListener("click", () => openModal(images, idx));
         });
 
         function updateSlidePosition() {
             slides.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
 
-        function prevSlide() {
-            if (totalSlides === 0) return;
-            currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
-            updateSlidePosition();
-        }
-
-        function nextSlide() {
-            if (totalSlides === 0) return;
-            currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
-            updateSlidePosition();
-        }
-
         const prevBtn = slider.querySelector(".prev");
         const nextBtn = slider.querySelector(".next");
 
-        if (prevBtn) prevBtn.addEventListener("click", prevSlide);
-        if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+        if (prevBtn) {
+            prevBtn.addEventListener("click", () => {
+                if (totalSlides === 0) return;
+                currentIndex = currentIndex === 0 ? totalSlides - 1 : currentIndex - 1;
+                updateSlidePosition();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener("click", () => {
+                if (totalSlides === 0) return;
+                currentIndex = currentIndex === totalSlides - 1 ? 0 : currentIndex + 1;
+                updateSlidePosition();
+            });
+        }
     });
 
-    // ==========================================
-    // SLIDER DE VÍDEOS (SIN CONTROLES, EN BUCLE)
-    // ==========================================
-    const videoPlayer = document.getElementById("videoPlayer5");
-    if (videoPlayer) {
-        const videoSources = [
-            "videos/promo01.webm",
-            "videos/promo02.webm",
-            "videos/promo03.webm",
-            "videos/promo04.webm",
-            "videos/promo05.webm",
-        ];
-        let currentVideoIndex = 0;
-
-        function changeVideo(index) {
-            videoPlayer.classList.add("fade-out");
-
-            setTimeout(() => {
-                currentVideoIndex = index;
-                videoPlayer.src = videoSources[currentVideoIndex];
-                videoPlayer.load();
-                videoPlayer.play();
-                videoPlayer.classList.remove("fade-out");
-                videoPlayer.classList.add("fade-in");
-            }, 500);
-        }
-
-        function prevVideoSlide() {
-            const newIndex = currentVideoIndex === 0 ? videoSources.length - 1 : currentVideoIndex - 1;
-            changeVideo(newIndex);
-        }
-
-        function nextVideoSlide() {
-            const newIndex = currentVideoIndex === videoSources.length - 1 ? 0 : currentVideoIndex + 1;
-            changeVideo(newIndex);
-        }
-
-        const prevVidBtn = document.querySelector(".video-slider-container .prev");
-        const nextVidBtn = document.querySelector(".video-slider-container .next");
-
-        if (prevVidBtn) prevVidBtn.addEventListener("click", prevVideoSlide);
-        if (nextVidBtn) nextVidBtn.addEventListener("click", nextVideoSlide);
-    }
-
-    // Resaltado optimizado de la sección activa en el menú al hacer scroll
+    // Resaltado de sección activa en menú
     function onScroll() {
         const nav = document.querySelector('.main-nav');
         if (!nav) return;
         let scrollPos = window.scrollY + nav.offsetHeight;
 
-        sections.forEach((section) => {
+        sections.forEach(section => {
             if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-                navLinks.forEach((link) => {
+                navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === section.getAttribute('id')) {
+                    if (link.getAttribute('href') === `#${section.getAttribute('id')}`) {
                         link.classList.add('active');
                     }
                 });
@@ -278,9 +463,9 @@ window.addEventListener("load", function () {
     }
 
     let ticking = false;
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', () => {
         if (!ticking) {
-            window.requestAnimationFrame(function () {
+            window.requestAnimationFrame(() => {
                 onScroll();
                 ticking = false;
             });
