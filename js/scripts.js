@@ -25,13 +25,14 @@ window.addEventListener("load", function () {
         localStorage.setItem("language", lang);
         document.documentElement.lang = lang;
 
-        // Mostrar la bandera del idioma actualmente seleccionado
+        // Banderas: Si el idioma actual es Español (es) se muestra la bandera de España (spain.svg).
+        // Si cambia a Inglés (en), se muestra la bandera de Reino Unido (uk.svg).
         if (langIcon) {
             langIcon.src = lang === "es" ? "images/spain.svg" : "images/uk.svg";
             langIcon.alt = lang === "es" ? "Español" : "English";
         }
 
-        const translations = window.translations || {};
+        if (typeof translations === "undefined") return;
         const t = translations[lang];
         if (!t) return;
 
@@ -43,10 +44,10 @@ window.addEventListener("load", function () {
             }
         });
 
-        // Casos con HTML interno o enlaces embebidos
+        // Casos especiales con HTML interno o enlaces embebidos
         const resumenFooter = document.getElementById("resumen_footer");
         if (resumenFooter) {
-            resumenFooter.innerHTML = `${t.resumen_footer_p1}<strong><a href="#skills">${t.skills_link_text}</a></strong>${t.resumen_footer_p2}`;
+            resumenFooter.innerHTML = `${t.resumen_footer_p1}<strong><a href="#skills" data-i18n="skills_link_text">${t.skills_link_text}</a></strong>${t.resumen_footer_p2}`;
         }
 
         const expPersEnginesP1 = document.getElementById("exp_pers_engines_p1");
