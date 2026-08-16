@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
 
     let currentTheme = localStorage.getItem("theme") || "dark";
 
-    // Bloqueo de Clic Derecho y Arrastre (Opcional)
+    // Bloqueo de Clic Derecho y Arrastre
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("dragstart", e => e.preventDefault());
 
@@ -54,12 +54,7 @@ window.addEventListener("load", function () {
             }
         });
 
-        // Casos especiales con HTML interno
-        const resumenFooter = document.getElementById("resumen_footer");
-        if (resumenFooter) {
-            resumenFooter.innerHTML = `${t.resumen_footer_p1}<strong><a href="#skills" data-i18n="skills_link_text">${t.skills_link_text}</a></strong>${t.resumen_footer_p2}`;
-        }
-
+        // Casos especiales con HTML interno / Enlaces
         const expPersEnginesP1 = document.getElementById("exp_pers_engines_p1");
         if (expPersEnginesP1) {
             expPersEnginesP1.innerHTML = `${t.exp_pers_engines_p1_a}<a href="https://nakez.itch.io/cryptophasia" target="_blank" rel="noopener noreferrer">${t.exp_pers_engines_link}</a>${t.exp_pers_engines_p1_b}`;
@@ -118,7 +113,7 @@ window.addEventListener("load", function () {
         });
     }
 
-    // Desplazamiento suave ajustado al header
+    // Desplazamiento suave ajustado al nav
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -170,12 +165,12 @@ window.addEventListener("load", function () {
         activeModalIndex = startIndex;
         updateModalImage();
         modal.style.display = "flex";
-        document.body.style.overflow = "hidden"; // Evita el scroll de fondo
+        document.body.style.overflow = "hidden";
     }
 
     function closeModal() {
         modal.style.display = "none";
-        document.body.style.overflow = ""; // Restaura el scroll
+        document.body.style.overflow = "";
     }
 
     modalClose.addEventListener("click", closeModal);
