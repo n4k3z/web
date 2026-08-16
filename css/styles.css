@@ -1,4 +1,10 @@
 /* Estilos generales */
+html.light-theme,
+body.light-theme {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -22,7 +28,7 @@ img, video {
     pointer-events: auto;
 }
 
-.theme-toggle {
+.theme-toggle, .language-switch {
     border: none;
     background: none;
     cursor: pointer;
@@ -32,6 +38,7 @@ img, video {
     width: 30px;
     height: 30px;
     margin-left: 5px;
+    padding: 0;
 }
 
 .icon {
@@ -41,11 +48,6 @@ img, video {
 }
 
 /* Tema claro */
-body.light-theme {
-    background-color: #ffffff;
-    color: #000000;
-}
-
 body.light-theme .main-nav {
     background-color: #f0f0f0;
 }
@@ -449,7 +451,7 @@ body.light-theme footer {
     }
 }
 
-/* Configuración Móvil Ajustada: Filas Centradas y Alineación Perfecta */
+/* Configuración Móvil Ajustada */
 @media (max-width: 768px) {
     .main-nav {
         padding: 5px 8px;
@@ -464,7 +466,6 @@ body.light-theme footer {
         gap: 4px;
     }
 
-    /* Filas 1 y 2 en móvil con Flexbox alineado al centro */
     .main-nav ul .menu-row {
         display: flex;
         flex-direction: row;
@@ -484,7 +485,6 @@ body.light-theme footer {
         border-radius: 0;
     }
 
-    /* Contenedor centralizado para los enlaces de la segunda fila */
     .row-center-items {
         display: flex;
         align-items: center;
@@ -493,13 +493,12 @@ body.light-theme footer {
         margin: 0 auto;
     }
 
-    /* Iconos integrados a la derecha de la 2ª fila */
     .right-align {
         position: absolute;
         right: 0;
         display: flex;
         align-items: center;
-        gap: 8px; /* Espacio extra entre bandera y sol/luna */
+        gap: 8px;
     }
 
     .right-align a, .right-align button {
@@ -513,7 +512,7 @@ body.light-theme footer {
         height: 18px;
     }
 
-    .theme-toggle {
+    .theme-toggle, .language-switch {
         width: 20px;
         height: 20px;
     }
