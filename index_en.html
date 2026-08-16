@@ -10,7 +10,7 @@
     <meta property="og:image" content="images/icon.png">
     <meta property="og:url" content="https://nk3z.github.io/web/index_en.html">
     
-    <!-- Carga del tema e icono de forma instantánea antes de renderizar -->
+    <!-- Aplicar tema e icono instantáneamente para evitar parpadeos -->
     <script>
         (function() {
             if ('scrollRestoration' in history) {
@@ -27,7 +27,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
-    <!-- Restauración inmediata del scroll antes del primer pintado -->
+    <!-- Restauración instantánea del scroll antes del primer renderizado -->
     <script>
         (function() {
             var savedScrollPos = sessionStorage.getItem("scrollPosForLangChange");
@@ -59,10 +59,10 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="right-align">
-                    <a href="index.html" class="language-switch" aria-label="Switch to Spanish">
+                    <a href="index.html" class="language-switch" id="lang-switch" aria-label="Switch to Spanish">
                         <img id="lang-icon" src="images/uk.svg" alt="English" class="icon">
                     </a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
                         <img id="theme-icon" src="images/moon.svg" alt="Moon Icon" class="icon">
                     </button>
                 </div>
@@ -70,7 +70,6 @@
         </ul>
     </nav>    
 
-    <!-- Sincronización inmediata de la imagen del icono de tema -->
     <script>
         (function() {
             var themeIcon = document.getElementById("theme-icon");
@@ -292,8 +291,6 @@
                             <li><img src="images/sofwares/splogo.svg" alt="Substance Painter Logo" loading="lazy"></li>
                             <li><img src="images/sofwares/unitylogo.png" alt="Unity Logo" loading="lazy"></li>
                             <li><img src="images/sofwares/davincilogo.png" alt="DaVinci Resolve Logo" loading="lazy"></li>
-                            <li><img src="images/sofwares/pslogo.png" alt="Adobe Photoshop Logo" loading="lazy"></li>
-                            <li><img src="images/sofwares/ailogo.png" alt="Adobe Illustrator Logo" loading="lazy"></li>
                             <li><img src="images/sofwares/fcpxlogo.png" alt="Final Cut Pro X Logo" loading="lazy"></li>
                         </ul>
                     </div>
@@ -338,6 +335,6 @@
             <p>n4k3z© 2024</p>
         </footer>
     </div>
-<script src="js/scripts.js?v=7.0"></script>
+<script src="js/scripts.js?v=7.1"></script>
 </body>
 </html>

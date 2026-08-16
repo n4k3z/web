@@ -10,7 +10,7 @@
     <meta property="og:image" content="images/icon.png">
     <meta property="og:url" content="https://nk3z.github.io/web/index.html">
     
-    <!-- Carga del tema e icono de forma instantánea antes de renderizar -->
+    <!-- Aplicar tema e icono instantáneamente para evitar parpadeos -->
     <script>
         (function() {
             if ('scrollRestoration' in history) {
@@ -27,7 +27,7 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
-    <!-- Restauración inmediata del scroll antes del primer pintado -->
+    <!-- Restauración instantánea del scroll antes del primer renderizado -->
     <script>
         (function() {
             var savedScrollPos = sessionStorage.getItem("scrollPosForLangChange");
@@ -59,10 +59,10 @@
                     <a href="#contact">Contacto</a>
                 </div>
                 <div class="right-align">
-                    <a href="index_en.html" class="language-switch" aria-label="Cambiar a Inglés">
+                    <a href="index_en.html" class="language-switch" id="lang-switch" aria-label="Cambiar a Inglés">
                         <img id="lang-icon" src="images/spain.svg" alt="Español" class="icon">
                     </a>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar Tema">
+                    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar Tema">
                         <img id="theme-icon" src="images/moon.svg" alt="Moon Icon" class="icon">
                     </button>
                 </div>
@@ -70,7 +70,6 @@
         </ul>
     </nav>    
     
-    <!-- Sincronización inmediata de la imagen del icono de tema -->
     <script>
         (function() {
             var themeIcon = document.getElementById("theme-icon");
@@ -338,6 +337,6 @@
             <p>n4k3z© 2024</p>
         </footer>
     </div>
-<script src="js/scripts.js?v=7.0"></script>
+<script src="js/scripts.js?v=7.1"></script>
 </body>
 </html>

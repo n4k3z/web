@@ -1,20 +1,21 @@
-// Guardar la posición del scroll continuamente en tiempo real
-window.addEventListener("scroll", function () {
-    sessionStorage.setItem("scrollPosForLangChange", window.scrollY);
-}, { passive: true });
-
 window.addEventListener("DOMContentLoaded", function () {
     const themeToggleBtn = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
+    const langSwitchLink = document.getElementById("lang-switch");
 
-    // Limpiar el scroll almacenado tras completarse la transición
-    setTimeout(() => {
-        sessionStorage.removeItem("scrollPosForLangChange");
-    }, 1000);
+    // Guardar posición exacta del scroll al hacer clic en cambiar idioma
+    if (langSwitchLink) {
+        langSwitchLink.addEventListener("click", function () {
+            sessionStorage.setItem("scrollPosForLangChange", window.scrollY);
+        });
+    }
 
-    // Botón para alternar tema
+    // Botón para alternar tema de forma limpia (evitando conflictos y burbujeo)
     if (themeToggleBtn) {
-        themeToggleBtn.addEventListener("click", function () {
+        themeToggleBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
             const isLight = document.documentElement.classList.toggle("light-theme");
             const theme = isLight ? "light" : "dark";
             localStorage.setItem("theme", theme);
@@ -29,7 +30,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll(".main-nav a");
 
-    document.querySelectorAll('.main-nav a').forEach(link => {
+    navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
