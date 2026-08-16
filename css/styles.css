@@ -163,6 +163,40 @@ body.light-theme footer {
     color: #85ABED !important;
 }
 
+/* Botón de CV destacado en la barra superior */
+.nav-btn-cv {
+    border: 1px solid #85ABED !important;
+    border-radius: 4px;
+    padding: 3px 10px !important;
+    font-size: 0.85rem;
+    color: #85ABED !important;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    margin-right: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.nav-btn-cv:hover {
+    background-color: #85ABED !important;
+    color: #1a1a1a !important;
+    box-shadow: 0 0 8px rgba(133, 171, 237, 0.4);
+}
+
+body.light-theme .nav-btn-cv {
+    border-color: #5c8edc !important;
+    color: #5c8edc !important;
+}
+
+body.light-theme .nav-btn-cv:hover {
+    background-color: #5c8edc !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 8px rgba(92, 142, 220, 0.4);
+}
+
 /* Estilo para el aviso del CV fuera de las secciones */
 .cv-notice {
     max-width: 800px;
@@ -517,6 +551,12 @@ body.light-theme footer {
         border-radius: 0;
     }
 
+    .nav-btn-cv {
+        font-size: 0.75rem;
+        padding: 2px 6px !important;
+        border-radius: 4px;
+    }
+
     .row-center-items {
         display: flex;
         align-items: center;
@@ -530,10 +570,10 @@ body.light-theme footer {
         right: 0;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 4px;
     }
 
-    .right-align a, .right-align button {
+    .right-align button {
         margin: 0;
         padding: 0;
         background: none !important;
