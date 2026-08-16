@@ -1,4 +1,6 @@
-/* Estilos generales */
+/* ==========================================
+   ESTILOS GENERALES Y TEMA
+   ========================================== */
 html.light-theme,
 body.light-theme {
     background-color: #ffffff;
@@ -28,62 +30,10 @@ img, video {
     pointer-events: auto;
 }
 
-.theme-toggle, .language-switch {
-    border: none;
-    background: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    margin-left: 5px;
-    padding: 0;
-}
-
-.icon {
-    width: 24px;
-    height: 24px;
-    vertical-align: middle;
-}
-
-/* Tema claro */
-body.light-theme .main-nav {
-    background-color: #f0f0f0;
-}
-
-body.light-theme .main-nav a {
-    color: #000000;
-}
-
-body.light-theme .main-nav a:hover {
-    color: rgb(0, 0, 0) !important;
-}
-
-body.light-theme a {
-    color: #85ABED;
-}
-
-body.light-theme a:hover,
-body.light-theme a:visited:hover {
-    color: #5c8edc !important;
-}
-
-body.light-theme h1, 
-body.light-theme h2, 
-body.light-theme h3, 
-body.light-theme h4, 
-body.light-theme h5, 
-body.light-theme h6 {
-    color: #000000;
-}
-
-body.light-theme footer {
-    background-color: #f0f0f0;
-    color: #000000;
-}
-
-.header {
+/* ==========================================
+   HEADER Y NAVEGACIÓN
+   ========================================== */
+.main-header {
     width: 100%;
     overflow: hidden;
     position: relative;
@@ -128,15 +78,36 @@ body.light-theme footer {
     align-items: center;
 }
 
-.main-nav ul .right-align {
+.main-nav ul .right-align,
+.controls-container {
     display: flex;
     align-items: center;
     position: absolute;
-    right: 0;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.right-align a, .right-align button {
+.right-align a, 
+.right-align button,
+.controls-container button {
     margin-left: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+}
+
+.controls-container img,
+.icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
 }
 
 .main-nav a {
@@ -163,6 +134,47 @@ body.light-theme footer {
     color: #85ABED !important;
 }
 
+/* ==========================================
+   TEMA CLARO (OVERRIDES)
+   ========================================== */
+body.light-theme .main-nav {
+    background-color: #f0f0f0;
+}
+
+body.light-theme .main-nav a {
+    color: #000000;
+}
+
+body.light-theme .main-nav a:hover {
+    color: rgb(0, 0, 0) !important;
+}
+
+body.light-theme a {
+    color: #85ABED;
+}
+
+body.light-theme a:hover,
+body.light-theme a:visited:hover {
+    color: #5c8edc !important;
+}
+
+body.light-theme h1, 
+body.light-theme h2, 
+body.light-theme h3, 
+body.light-theme h4, 
+body.light-theme h5, 
+body.light-theme h6 {
+    color: #000000;
+}
+
+body.light-theme footer {
+    background-color: #f0f0f0;
+    color: #000000;
+}
+
+/* ==========================================
+   ESTILOS DE CONTENIDO Y ENLACES
+   ========================================== */
 a {
     color: #85ABED;
     text-decoration: none;
@@ -186,6 +198,11 @@ a:active {
     padding: 20px;
 }
 
+.container p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
 main {
     margin-top: 20px;
 }
@@ -202,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================
-   SLIDER DE IMÁGENES (TRANSPARENTE Y 1 A 1)
+   SLIDER DE IMÁGENES
    ========================================== */
 .slider {
     position: relative;
@@ -234,7 +251,6 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-/* Videos independientes en bucle */
 video {
     display: block;
     margin: 20px auto;
@@ -246,7 +262,7 @@ video {
 }
 
 /* ==========================================
-   SLIDER DE VÍDEOS (SIN FRANJAS, TRANSPARENTE)
+   SLIDER DE VÍDEOS
    ========================================== */
 .video-slider-container {
     position: relative;
@@ -276,7 +292,7 @@ video {
 }
 
 /* ==========================================
-   POP-UP (MODAL) PROTEGIDO Y NAVEGABLE
+   POP-UP (MODAL)
    ========================================== */
 .image-modal {
     display: none;
@@ -369,6 +385,9 @@ video {
     right: 0;
 }
 
+/* ==========================================
+   COMPONENTES ESPECÍFICOS
+   ========================================== */
 .softwares-logos {
     list-style-type: none;
     margin: 0;
@@ -418,6 +437,12 @@ video {
     margin: 0 10px;
 }
 
+#contact img {
+    width: 32px;
+    height: auto;
+    margin: 0 10px;
+}
+
 footer {
     text-align: center;
     padding: 20px 0;
@@ -427,31 +452,19 @@ footer {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.light-theme footer {
-    background-color: #f0f0f0;
-    color: #000000;
-}
-
-.container p {
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
-#contact img {
-    width: 32px;
-    height: auto;
-    margin: 0 10px;
-}
-
-/* Responsividad Desktop Media */
+/* ==========================================
+   RESPONSIVIDAD MÓVIL
+   ========================================== */
 @media (max-width: 900px) {
-    .main-nav ul .right-align {
+    .main-nav ul .right-align,
+    .controls-container {
         position: relative;
         margin-left: auto;
+        top: 0;
+        transform: none;
     }
 }
 
-/* Configuración Móvil Ajustada */
 @media (max-width: 768px) {
     .main-nav {
         padding: 5px 8px;
@@ -493,7 +506,8 @@ body.light-theme footer {
         margin: 0 auto;
     }
 
-    .right-align {
+    .right-align,
+    .controls-container {
         position: absolute;
         right: 0;
         display: flex;
@@ -501,20 +515,18 @@ body.light-theme footer {
         gap: 8px;
     }
 
-    .right-align a, .right-align button {
+    .right-align a, 
+    .right-align button,
+    .controls-container button {
         margin: 0;
         padding: 0;
         background: none !important;
     }
 
+    .controls-container img,
     .icon {
         width: 18px;
         height: 18px;
-    }
-
-    .theme-toggle, .language-switch {
-        width: 20px;
-        height: 20px;
     }
 
     .container {
