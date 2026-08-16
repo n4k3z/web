@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="doc_title"></title>
+    <title data-i18n="doc_title">Portafolio Alvaro Perez</title>
     <meta name="description" content="" data-i18n="meta_desc">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/scripts.js" defer></script>
@@ -12,30 +12,33 @@
 
     <!-- Navegación y Toggle de Idioma / Tema -->
     <header class="main-header">
+        <!-- Imagen de cabecera recargada -->
+        <img src="images/cover.jpg" alt="Header Cover" class="cover-image">
+        
         <nav class="main-nav">
             <ul>
-                <li><a href="#resumen" data-i18n="nav_resumen"></a></li>
-                <li><a href="#about" data-i18n="nav_aboutme"></a></li>
-                <li><a href="#professional" data-i18n="nav_professional"></a></li>
-                <li><a href="#personal" data-i18n="nav_personal"></a></li>
-                <li><a href="#skills" data-i18n="nav_skills"></a></li>
-                <li><a href="#softwares" data-i18n="nav_software"></a></li>
-                <li><a href="#education" data-i18n="nav_education"></a></li>
-                <li><a href="#note" data-i18n="nav_note"></a></li>
-                <li><a href="#contact" data-i18n="nav_contact"></a></li>
+                <li><a href="#resumen" data-i18n="nav_resumen">Resumen</a></li>
+                <li><a href="#about" data-i18n="nav_aboutme">Sobre mí</a></li>
+                <li><a href="#professional" data-i18n="nav_professional">Profesional</a></li>
+                <li><a href="#personal" data-i18n="nav_personal">Personal</a></li>
+                <li><a href="#skills" data-i18n="nav_skills">Habilidades</a></li>
+                <li><a href="#softwares" data-i18n="nav_software">Softwares</a></li>
+                <li><a href="#education" data-i18n="nav_education">Estudios</a></li>
+                <li><a href="#note" data-i18n="nav_note">Nota</a></li>
+                <li><a href="#contact" data-i18n="nav_contact">Contacto</a></li>
+                <li class="right-align">
+                    <button id="lang-toggle" aria-label="Cambiar idioma" class="language-switch">
+                        <img id="lang-icon" class="icon" src="images/spain.svg" alt="Español">
+                    </button>
+                    <button id="theme-toggle" aria-label="Cambiar tema" class="theme-toggle">
+                        <img id="theme-icon" class="icon" src="images/moon.svg" alt="Tema">
+                    </button>
+                </li>
             </ul>
         </nav>
-        <div class="controls-container">
-            <button id="lang-toggle" aria-label="Cambiar idioma">
-                <img id="lang-icon" src="images/spain.svg" alt="Español">
-            </button>
-            <button id="theme-toggle" aria-label="Cambiar tema">
-                <img id="theme-icon" src="images/moon.svg" alt="Tema">
-            </button>
-        </div>
     </header>
 
-    <main>
+    <main class="container">
         <!-- Cita Header -->
         <section class="quote-section">
             <blockquote id="quote_text" data-i18n="quote_text"></blockquote>
@@ -43,7 +46,7 @@
 
         <!-- Resumen -->
         <section id="resumen">
-            <h2 data-i18n="resumen_title"></h2>
+            <h2 data-i18n="resumen_title">En resumen</h2>
             <p data-i18n="resumen_intro"></p>
             <ul>
                 <li><strong data-i18n="resumen_hs_label"></strong> <span data-i18n="resumen_hs_text"></span></li>
@@ -56,7 +59,7 @@
 
         <!-- Sobre Mí -->
         <section id="about">
-            <h2 data-i18n="about_title"></h2>
+            <h2 data-i18n="about_title">Sobre mí</h2>
             <p data-i18n="about_p1"></p>
             <p data-i18n="about_p2"></p>
             <p data-i18n="about_p3"></p>
@@ -65,22 +68,33 @@
 
         <!-- Experiencia Profesional -->
         <section id="professional">
-            <h2 data-i18n="exp_prof_title"></h2>
+            <h2 data-i18n="exp_prof_title">Experiencia Profesional</h2>
             
             <article>
-                <h3 data-i18n="exp_prof_mod_title"></h3>
+                <h3 data-i18n="exp_prof_mod_title">Modelado</h3>
                 <p data-i18n="exp_prof_mod_p1"></p>
                 <p data-i18n="exp_prof_mod_p2"></p>
             </article>
 
             <article>
-                <h3 data-i18n="exp_prof_lib_title"></h3>
+                <h3 data-i18n="exp_prof_lib_title">Biblioteca personalizada</h3>
                 <p data-i18n="exp_prof_lib_p1"></p>
                 <p data-i18n="exp_prof_lib_p2"></p>
             </article>
 
+            <!-- Slider de Ejemplos Multimedia / Renders -->
+            <div class="slider">
+                <button class="prev" aria-label="Anterior">&#10094;</button>
+                <div class="slides">
+                    <img src="images/slide1.jpg" alt="Render 1">
+                    <img src="images/slide2.jpg" alt="Render 2">
+                    <img src="images/slide3.jpg" alt="Render 3">
+                </div>
+                <button class="next" aria-label="Siguiente">&#10095;</button>
+            </div>
+
             <article>
-                <h3 data-i18n="exp_prof_gn_title"></h3>
+                <h3 data-i18n="exp_prof_gn_title">Geometry Nodes</h3>
                 <p data-i18n="exp_prof_gn_p1"></p>
                 <p data-i18n="exp_prof_gn_p2"></p>
                 <p data-i18n="exp_prof_gn_p3"></p>
@@ -88,7 +102,7 @@
             </article>
 
             <article>
-                <h3 data-i18n="exp_prof_addons_title"></h3>
+                <h3 data-i18n="exp_prof_addons_title">Addons, Scripts y Apps</h3>
                 <p data-i18n="exp_prof_addons_p1"></p>
                 <p data-i18n="exp_prof_addons_p2"></p>
                 <ul>
@@ -104,27 +118,34 @@
 
         <!-- Experiencia Personal -->
         <section id="personal">
-            <h2 data-i18n="exp_pers_title"></h2>
+            <h2 data-i18n="exp_pers_title">Experiencia Personal</h2>
             <p data-i18n="exp_pers_intro"></p>
             
             <article>
-                <h3 data-i18n="exp_pers_games_title"></h3>
+                <h3 data-i18n="exp_pers_games_title">Geometry Nodes en Videojuegos</h3>
                 <p data-i18n="exp_pers_games_p1"></p>
             </article>
 
+            <!-- Demostración en Vídeo -->
+            <div class="video-slider-container">
+                <div class="video-slider">
+                    <video src="videos/demo.mp4" autoplay loop muted playsinline></video>
+                </div>
+            </div>
+
             <article>
-                <h3 data-i18n="exp_pers_assets_title"></h3>
+                <h3 data-i18n="exp_pers_assets_title">Assets</h3>
                 <p data-i18n="exp_pers_assets_p1"></p>
             </article>
 
             <article>
-                <h3 data-i18n="exp_pers_engines_title"></h3>
+                <h3 data-i18n="exp_pers_engines_title">Motores de videojuegos</h3>
                 <p id="exp_pers_engines_p1"></p>
                 <p data-i18n="exp_pers_engines_p2"></p>
             </article>
 
             <article>
-                <h3 data-i18n="exp_pers_ai_title"></h3>
+                <h3 data-i18n="exp_pers_ai_title">Inteligencia Artificial como herramienta:</h3>
                 <p data-i18n="exp_pers_ai_p1"></p>
                 <p data-i18n="exp_pers_ai_p2"></p>
             </article>
@@ -132,9 +153,9 @@
 
         <!-- Habilidades -->
         <section id="skills">
-            <h2 data-i18n="skills_main_title"></h2>
+            <h2 data-i18n="skills_main_title">Habilidades</h2>
             
-            <h3 data-i18n="skills_prod_title"></h3>
+            <h3 data-i18n="skills_prod_title">En Producción</h3>
             <ul>
                 <li><strong data-i18n="sk_p1_l"></strong> <span data-i18n="sk_p1_t"></span></li>
                 <li><strong data-i18n="sk_p2_l"></strong> <span data-i18n="sk_p2_t"></span></li>
@@ -143,7 +164,7 @@
                 <li><strong data-i18n="sk_p5_l"></strong> <span data-i18n="sk_p5_t"></span></li>
             </ul>
 
-            <h3 data-i18n="skills_tech_title"></h3>
+            <h3 data-i18n="skills_tech_title">En Modelado y Pipeline Técnico</h3>
             <ul>
                 <li><strong data-i18n="sk_t1_l"></strong> <span data-i18n="sk_t1_t"></span></li>
                 <li><strong data-i18n="sk_t2_l"></strong> <span data-i18n="sk_t2_t"></span></li>
@@ -156,18 +177,27 @@
 
         <!-- Softwares -->
         <section id="softwares">
-            <h2 data-i18n="softwares_title"></h2>
+            <h2 data-i18n="softwares_title">Softwares</h2>
+            <ul class="softwares-logos">
+                <li><img src="images/blender.svg" alt="Blender"></li>
+                <li><img src="images/godot.svg" alt="Godot Engine"></li>
+                <li><img src="images/unreal.svg" alt="Unreal Engine"></li>
+                <li><img src="images/substance.svg" alt="Substance Painter"></li>
+                <li><img src="images/photoshop.svg" alt="Photoshop"></li>
+            </ul>
         </section>
 
         <!-- Estudios -->
         <section id="education">
-            <h2 data-i18n="education_title"></h2>
-            <p data-i18n="education_desc"></p>
+            <h2 data-i18n="education_title">Estudios</h2>
+            <div>
+                <p data-i18n="education_desc">Grado en Comunicación Audiovisual (Especialidad Interactivos) | Universitat Pompeu Fabra (2014 - 2018)</p>
+            </div>
         </section>
 
         <!-- Nota final -->
         <section id="note">
-            <h2 data-i18n="note_title"></h2>
+            <h2 data-i18n="note_title">Nota final</h2>
             <p data-i18n="note_p1"></p>
             <p data-i18n="note_p2"></p>
             <p data-i18n="note_p3"></p>
@@ -175,9 +205,13 @@
 
         <!-- Contacto -->
         <section id="contact">
-            <h2 data-i18n="contact_title"></h2>
+            <h2 data-i18n="contact_title">Contacto</h2>
         </section>
     </main>
+
+    <footer>
+        <p>&copy; Alvaro Perez - Portfolio</p>
+    </footer>
 
 </body>
 </html>
