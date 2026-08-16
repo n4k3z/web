@@ -3,12 +3,15 @@ window.addEventListener("load", function () {
     const themeIcon = document.getElementById("theme-icon");
     const langToggleBtn = document.getElementById("lang-toggle");
     const langIcon = document.getElementById("lang-icon");
+    const mainNav = document.querySelector(".main-nav");
+    const sections = document.querySelectorAll("main section");
+    const navLinks = document.querySelectorAll(".main-nav a");
     
-    // 1. Detectar si la URL trae un parámetro de idioma (?lang=en o ?lang=es)
+    // 1. Detectar parámetro de idioma (?lang=en o ?lang=es)
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
 
-    // 2. Determinar el idioma inicial (URL > localStorage > 'es' por defecto)
+    // 2. Determinar idioma inicial (URL > localStorage > 'es')
     let currentLang = 'es';
     if (langParam === 'es' || langParam === 'en') {
         currentLang = langParam;
@@ -19,10 +22,7 @@ window.addEventListener("load", function () {
 
     let currentTheme = localStorage.getItem("theme") || "dark";
 
-    const sections = document.querySelectorAll("main section");
-    const navLinks = document.querySelectorAll(".main-nav a");
-
-    // Bloqueo de Clic Derecho y Arrastre
+    // Bloqueo de Clic Derecho y Arrastre (Opcional)
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("dragstart", e => e.preventDefault());
 
@@ -37,8 +37,6 @@ window.addEventListener("load", function () {
         localStorage.setItem("language", lang);
         document.documentElement.lang = lang;
 
-        // Banderas: Si el idioma actual es Español (es) se muestra la bandera de España (spain.svg).
-        // Si cambia a Inglés (en), se muestra la bandera de Reino Unido (uk.svg).
         if (langIcon) {
             langIcon.src = lang === "es" ? "images/spain.svg" : "images/uk.svg";
             langIcon.alt = lang === "es" ? "Español" : "English";
@@ -56,7 +54,7 @@ window.addEventListener("load", function () {
             }
         });
 
-        // Casos especiales con HTML interno o enlaces embebidos
+        // Casos especiales con HTML interno
         const resumenFooter = document.getElementById("resumen_footer");
         if (resumenFooter) {
             resumenFooter.innerHTML = `${t.resumen_footer_p1}<strong><a href="#skills" data-i18n="skills_link_text">${t.skills_link_text}</a></strong>${t.resumen_footer_p2}`;
@@ -72,7 +70,7 @@ window.addEventListener("load", function () {
             quoteElem.textContent = t.quote_text;
         }
 
-        // Re-asignar target="_blank" a nuevos links cargados
+        // Re-asignar atributos a enlaces externos
         document.querySelectorAll('a[href^="http"]').forEach(link => {
             link.setAttribute("target", "_blank");
             link.setAttribute("rel", "noopener noreferrer");
@@ -82,12 +80,20 @@ window.addEventListener("load", function () {
     // Inicializar idioma guardado / detectado
     applyLanguage(currentLang);
 
+    // Soporte para botones Atrás/Adelante del navegador con parámetros URL
+    window.addEventListener("popstate", () => {
+        const params = new URLSearchParams(window.location.search);
+        const lang = params.get("lang") || localStorage.getItem("language") || "es";
+        if (lang === "es" || lang === "en") {
+            applyLanguage(lang);
+        }
+    });
+
     // Evento cambiar idioma
     if (langToggleBtn) {
         langToggleBtn.addEventListener("click", function () {
             const newLang = currentLang === "es" ? "en" : "es";
             
-            // Actualizar la URL en el navegador dinámicamente sin recargar la página
             const newUrl = new URL(window.location);
             newUrl.searchParams.set('lang', newLang);
             window.history.pushState({}, '', newUrl);
@@ -112,8 +118,8 @@ window.addEventListener("load", function () {
         });
     }
 
-    // Desplazamiento suave para la navegación fija
-    document.querySelectorAll('.main-nav a').forEach(link => {
+    // Desplazamiento suave ajustado al header
+    navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
@@ -121,7 +127,7 @@ window.addEventListener("load", function () {
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    const headerOffset = document.querySelector('.main-nav').offsetHeight;
+                    const headerOffset = mainNav ? mainNav.offsetHeight : 0;
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -138,10 +144,10 @@ window.addEventListener("load", function () {
     const modal = document.createElement("div");
     modal.className = "image-modal";
     modal.innerHTML = `
-        <span class="image-modal-close">&times;</span>
-        <button class="modal-prev">&#10094;</button>
+        <span class="image-modal-close" role="button" aria-label="Cerrar">&times;</span>
+        <button class="modal-prev" aria-label="Anterior">&#10094;</button>
         <img class="image-modal-content" alt="Ampliada">
-        <button class="modal-next">&#10095;</button>
+        <button class="modal-next" aria-label="Siguiente">&#10095;</button>
     `;
     document.body.appendChild(modal);
 
@@ -164,10 +170,12 @@ window.addEventListener("load", function () {
         activeModalIndex = startIndex;
         updateModalImage();
         modal.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Evita el scroll de fondo
     }
 
     function closeModal() {
         modal.style.display = "none";
+        document.body.style.overflow = ""; // Restaura el scroll
     }
 
     modalClose.addEventListener("click", closeModal);
@@ -193,14 +201,13 @@ window.addEventListener("load", function () {
 
     // Control táctil (Swipe)
     let touchStartX = 0;
-    let touchEndX = 0;
 
     modal.addEventListener("touchstart", e => {
         touchStartX = e.changedTouches[0].screenX;
     }, { passive: true });
 
     modal.addEventListener("touchend", e => {
-        touchEndX = e.changedTouches[0].screenX;
+        const touchEndX = e.changedTouches[0].screenX;
         const threshold = 40;
         if (touchEndX < touchStartX - threshold) modalNextBtn.click();
         else if (touchEndX > touchStartX + threshold) modalPrevBtn.click();
@@ -215,9 +222,8 @@ window.addEventListener("load", function () {
         }
     });
 
-    // Configuración de Sliders
-    const sliders = document.querySelectorAll(".slider");
-    sliders.forEach(slider => {
+    // Sliders
+    document.querySelectorAll(".slider").forEach(slider => {
         let currentIndex = 0;
         const slides = slider.querySelector(".slides");
         if (!slides) return;
@@ -255,9 +261,9 @@ window.addEventListener("load", function () {
 
     // Resaltado de sección activa en menú
     function onScroll() {
-        const nav = document.querySelector('.main-nav');
-        if (!nav) return;
-        let scrollPos = window.scrollY + nav.offsetHeight;
+        if (!mainNav) return;
+        const navHeight = mainNav.offsetHeight;
+        let scrollPos = window.scrollY + navHeight;
 
         sections.forEach(section => {
             if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
