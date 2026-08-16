@@ -55,6 +55,11 @@ window.addEventListener("load", function () {
         });
 
         // Casos especiales con HTML interno / Enlaces
+        const cvNoticeElem = document.getElementById("cv-notice-text");
+        if (cvNoticeElem && t.cv_notice) {
+            cvNoticeElem.innerHTML = t.cv_notice;
+        }
+
         const expPersEnginesP1 = document.getElementById("exp_pers_engines_p1");
         if (expPersEnginesP1) {
             expPersEnginesP1.innerHTML = `${t.exp_pers_engines_p1_a}<a href="https://nakez.itch.io/cryptophasia" target="_blank" rel="noopener noreferrer">${t.exp_pers_engines_link}</a>${t.exp_pers_engines_p1_b}`;

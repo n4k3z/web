@@ -163,6 +163,32 @@ body.light-theme footer {
     color: #85ABED !important;
 }
 
+/* Estilo para el aviso del CV fuera de las secciones */
+.cv-notice {
+    max-width: 800px;
+    margin: 10px auto 0 auto;
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #cccccc;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left: 3px solid #85ABED;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.cv-notice a {
+    color: #85ABED;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+body.light-theme .cv-notice {
+    color: #555555;
+    background-color: rgba(0, 0, 0, 0.04);
+    border-left-color: #5c8edc;
+}
+
 a {
     color: #85ABED;
     text-decoration: none;
@@ -453,6 +479,12 @@ body.light-theme footer {
 
 /* Configuración Móvil Ajustada */
 @media (max-width: 768px) {
+    .cv-notice {
+        margin: 8px 10px 0 10px;
+        font-size: 0.80rem;
+        padding: 8px 12px;
+    }
+
     .main-nav {
         padding: 5px 8px;
     }
