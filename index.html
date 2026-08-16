@@ -125,7 +125,7 @@
                     <source src="videos/tools2.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
-                <h3>Addons y Scripts</h3>
+                <h3>Addons, Scripts y Apps</h3>
                 <p>Cuando un problema supera la parametrización estándar de Blender o requiere un acceso más directo al software recurro a la programación. Si el script evoluciona hacia una herramienta recurrente lo convierto en un Addon con su propia interfaz.</p>
                 <p>He desarrollado más scripts de los que puedo enumerar para acelerar tareas largas y repetitivas, como la exportación masiva de colecciones o la organización de la biblioteca de assets. Entre los addons más destacados que he programado están los siguientes:</p>
                 <p><strong>Asset Batch Manager:</strong> Permite mover assets entre catálogos, etiquetarlos y renombrar tanto los assets como sus archivos fuente en lote, evitando el proceso manual de Blender de abrir archivo por archivo.</p>
@@ -145,6 +145,14 @@
                         <p><strong>Compresor de Texturas</strong></p>
                         <img src="images/addon3.png" alt="Compresor de Texturas" loading="lazy" style="width: 100%; height: auto;">
                     </div>
+                </div>
+
+                <p style="margin-top: 25px;">También desarrollé una aplicación en Qt (cuya primera versión fue para web) pensada para que cualquier persona pueda realizar renders sin necesidad de abrir Blender. La app se apoya en Blender en segundo plano, pero ofrece una interfaz propia e independiente.</p>
+                <p>Entre sus opciones más destacables permite generar las imágenes necesarias según el estándar GS1 o en animaciones 360º, elegir el perfil de iluminación, la distancia focal de la lente y seleccionar fondo transparente o blanco. Por detrás cuenta con un estudio paramétrico desarrollado en Geometry Nodes que calcula automáticamente la distancia a cualquier producto y es totalmente modificable para añadir nuevos presets de luz, ángulos de cámara, etc.</p>
+                <p>Admite la importación de archivos .blend y .glb, siendo el .blend el más configurable ya que la app lee sus modificadores de Geometry Nodes. Esto permite cambiar partes del producto, modificar materiales o detectar las etiquetas para subir imágenes nuevas y reemplazarlas al instante. Funciona tanto para el renderizado individual como en lote, aplicando la misma configuración a múltiples archivos a la vez para agilizar el trabajo.</p>
+
+                <div class="app-container" style="text-align: center; margin-top: 20px;">
+                    <img src="images/RenderApp.png" alt="RenderApp Qt" loading="lazy" style="max-width: 100%; height: auto;">
                 </div>
             </section>
 
