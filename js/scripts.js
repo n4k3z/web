@@ -6,13 +6,13 @@ window.addEventListener("load", function () {
         sessionStorage.removeItem("scrollPosForLangChange");
     }
 
-    // Guardar posición de scroll al hacer clic en el botón de idioma
-    const langSwitchLink = document.querySelector(".language-switch");
-    if (langSwitchLink) {
-        langSwitchLink.addEventListener("click", function () {
+    // CORREGIDO: Usar querySelectorAll para capturar todos los enlaces de idioma de forma robusta
+    const langSwitchLinks = document.querySelectorAll(".language-switch");
+    langSwitchLinks.forEach(link => {
+        link.addEventListener("click", function () {
             sessionStorage.setItem("scrollPosForLangChange", window.scrollY);
         });
-    }
+    });
 
     const themeToggleBtn = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
