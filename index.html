@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="meta.title">Portafolio Alvaro Perez</title>
-    <meta name="description" content="Mi portafolio como modelador y productor 3D" data-i18n-attr="content:meta.description">
-    <meta property="og:title" content="Portafolio Álvaro Pérez">
-    <meta property="og:description" content="Mi portafolio como modelador y productor 3D">
+    <title>Portafolio Alvaro Perez</title>
+    <meta name="description" content="Mi portafolio como modelador y productor 3D" id="meta-desc">
+    <meta property="og:title" content="Portafolio Álvaro Pérez" id="og-title">
+    <meta property="og:description" content="Mi portafolio como modelador y productor 3D" id="og-desc">
     <meta property="og:image" content="images/icon.png">
     <meta property="og:url" content="https://nk3z.github.io/web/index.html">
     <link rel="stylesheet" href="css/styles.css">
@@ -15,58 +15,53 @@
 <body>
     <header class="header">
         <img src="images/cover.jpg" class="cover-image" alt="Cover Image">
-        <div class="header-title-container">
-            <h1 class="main-title">Alvaro Pérez</h1>
-        </div>
     </header>
-
     <nav class="main-nav">
         <ul>
+            <!-- Fila 1 -->
             <li class="menu-row">
-                <a href="#resumen" data-i18n="nav.resumen">Resumen</a>
-                <a href="#aboutme" data-i18n="nav.aboutme">Sobre mí</a>
-                <a href="#experience-profesional" data-i18n="nav.professional">Profesional</a>
-                <a href="#experience" data-i18n="nav.personal">Personal</a>
-                <a href="#skills" data-i18n="nav.skills">Habilidades</a>
+                <a href="#resumen" data-i18n="nav.summary"></a>
+                <a href="#aboutme" data-i18n="nav.aboutme"></a>
+                <a href="#experience-profesional" data-i18n="nav.professional"></a>
+                <a href="#experience" data-i18n="nav.personal"></a>
+                <a href="#skills" data-i18n="nav.skills"></a>
             </li>
+            <!-- Fila 2 -->
             <li class="menu-row">
                 <div class="row-center-items">
-                    <a href="#Softwares" data-i18n="nav.software">Softwares</a>
-                    <a href="#education" data-i18n="nav.education">Estudios</a>
-                    <a href="#nota-al-pie" data-i18n="nav.note">Nota</a>
-                    <a href="#contact" data-i18n="nav.contact">Contacto</a>
+                    <a href="#Softwares" data-i18n="nav.software"></a>
+                    <a href="#education" data-i18n="nav.education"></a>
+                    <a href="#nota-al-pie" data-i18n="nav.note"></a>
+                    <a href="#contact" data-i18n="nav.contact"></a>
                 </div>
                 <div class="right-align">
                     <button id="lang-toggle" class="language-switch" aria-label="Cambiar idioma">
-                        <img id="lang-flag" src="images/spain.svg" alt="Idioma" class="icon">
+                        <img id="lang-icon" src="images/spain.svg" alt="Idioma" class="icon">
                     </button>
                     <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-                        <img id="theme-icon" src="images/moon.svg" alt="Moon Icon" class="icon">
+                        <img id="theme-icon" src="images/moon.svg" alt="Tema" class="icon">
                     </button>
                 </div>
             </li>
         </ul>
     </nav>    
-
     <div class="container">
         <main>
             <section id="resumen">
-                <p class="intro-quote" data-i18n="resumen.quote"></p>
-                
-                <h2 data-i18n="resumen.title">En resumen</h2>
-                <p data-i18n="resumen.intro"></p>
-                <p><strong data-i18n="resumen.hard_surface_title"></strong> <span data-i18n="resumen.hard_surface_desc"></span></p>
-                <p><strong data-i18n="resumen.automation_title"></strong> <span data-i18n="resumen.automation_desc"></span></p>
-                <p><strong data-i18n="resumen.renders_title"></strong> <span data-i18n="resumen.renders_desc"></span></p>
-                <p><strong data-i18n="resumen.management_title"></strong> <span data-i18n="resumen.management_desc"></span></p>
-                <p>
-                    <span data-i18n="resumen.outro_p1"></span>
-                    <strong><a href="#skills" data-i18n="resumen.outro_link"></a></strong>
-                    <span data-i18n="resumen.outro_p2"></span>
-                </p>
+                <h1>Alvaro Pérez</h1>
+                <p data-i18n="summary.quote"></p>
 
+                <h2 data-i18n="summary.title"></h2>
+                <p data-i18n="summary.p1"></p>
+                <p data-i18n-html="summary.p2"></p>
+                <p data-i18n-html="summary.p3"></p>
+                <p data-i18n-html="summary.p4"></p>
+                <p data-i18n-html="summary.p5"></p>
+                <p data-i18n-html="summary.p6"></p>
+
+                <!-- Slider 1 -->
                 <div class="slider slider1">
-                    <button class="prev">&#10094;</button>
+                    <button class="prev" aria-label="Anterior">&#10094;</button>
                     <div class="slides">
                         <img src="images/slider1/image01.webp" alt="Imagen 1" loading="lazy">
                         <img src="images/slider1/image02.webp" alt="Imagen 2" loading="lazy">
@@ -93,12 +88,12 @@
                         <img src="images/slider1/image23.webp" alt="Imagen 23" loading="lazy">
                         <img src="images/slider1/image24.webp" alt="Imagen 24" loading="lazy">
                     </div>
-                    <button class="next">&#10095;</button>
+                    <button class="next" aria-label="Siguiente">&#10095;</button>
                 </div>
             </section>
 
             <section id="aboutme">
-                <h2 data-i18n="aboutme.title">Sobre mí</h2>
+                <h2 data-i18n="aboutme.title"></h2>
                 <p data-i18n="aboutme.p1"></p>
                 <p data-i18n="aboutme.p2"></p>
                 <p data-i18n="aboutme.p3"></p>
@@ -106,71 +101,87 @@
             </section>                   
             
             <section id="experience-profesional">
-                <h2 data-i18n="professional.title">Experiencia Profesional</h2>
-                <h3 data-i18n="professional.modeling_title">Modelado</h3>
-                <p data-i18n="professional.modeling_p1"></p>
-                <p data-i18n="professional.modeling_p2"></p>
+                <h2 data-i18n="expProf.title"></h2>
+                <h3 data-i18n="expProf.modelingTitle"></h3>
+                <p data-i18n="expProf.modelingP1"></p>
+                <p data-i18n="expProf.modelingP2"></p>
 
-                <h3 data-i18n="professional.library_title">Biblioteca personalizada</h3>
-                <p data-i18n="professional.library_p1"></p>
-                <p data-i18n="professional.library_p2"></p>
-                <video autoplay loop muted playsinline preload="metadata">
+                <h3 data-i18n="expProf.libTitle"></h3>
+                <p data-i18n="expProf.libP1"></p>
+                <p data-i18n="expProf.libP2"></p>
+                <video autoplay loop muted preload="metadata">
                     <source src="videos/library.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
 
-                <h3 data-i18n="professional.geonodes_title">Geometry Nodes</h3>
-                <p data-i18n="professional.geonodes_p1"></p>
-                <p data-i18n="professional.geonodes_p2"></p>
-                <video autoplay loop muted playsinline preload="metadata">
+                <h3 data-i18n="expProf.geoTitle"></h3>
+                <p data-i18n="expProf.geoP1"></p>
+                <p data-i18n="expProf.geoP2"></p>
+                <video autoplay loop muted preload="metadata">
                     <source src="videos/tools.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
-                <p data-i18n="professional.geonodes_p3"></p>
-                <p data-i18n="professional.geonodes_p4"></p>
+                <p data-i18n="expProf.geoP3"></p>
+                <p data-i18n="expProf.geoP4"></p>
 
-                <h3 data-i18n="professional.addons_title">Addons, Scripts y Apps</h3>
-                <p data-i18n="professional.addons_p1"></p>
-                <p data-i18n="professional.addons_p2"></p>
+                <h3 data-i18n="expProf.addonsTitle"></h3>
+                <p data-i18n="expProf.addonsP1"></p>
+                <p data-i18n="expProf.addonsP2"></p>
+                <p data-i18n-html="expProf.addon1"></p>
+                <p data-i18n-html="expProf.addon2"></p>
+                <p data-i18n-html="expProf.addon3"></p>
 
-                <div class="addons-container">
-                    <div class="addon-item">
-                        <p><strong><a href="https://github.com/n4k3z/AssetBatchManager" target="_blank" rel="noopener noreferrer" data-i18n="professional.addon1_title">Asset Batch Manager</a></strong> <span data-i18n="professional.addon1_desc"></span></p>
-                        <img src="images/addon1.png" alt="Asset Batch Manager" loading="lazy">
+                <div class="addons-container" style="display: flex; gap: 20px; justify-content: space-between; align-items: flex-start; margin-top: 20px; flex-wrap: wrap;">
+                    <div class="addon-item" style="flex: 1; min-width: 200px; text-align: center;">
+                        <p><strong><a href="https://github.com/n4k3z/AssetBatchManager" target="_blank" rel="noopener noreferrer">Asset Batch Manager</a></strong></p>
+                        <img src="images/addon1.png" alt="Asset Batch Manager" loading="lazy" style="width: 100%; height: auto;">
                     </div>
-                    <div class="addon-item">
-                        <p><strong><a href="https://github.com/n4k3z/gltfexport" target="_blank" rel="noopener noreferrer" data-i18n="professional.addon2_title">GLTF Export</a></strong> <span data-i18n="professional.addon2_desc"></span></p>
-                        <img src="images/addon2.png" alt="GLTF Export" loading="lazy">
+                    <div class="addon-item" style="flex: 1; min-width: 200px; text-align: center;">
+                        <p><strong><a href="https://github.com/n4k3z/gltfexport" target="_blank" rel="noopener noreferrer">GLTF Export</a></strong></p>
+                        <img src="images/addon2.png" alt="GLTF Export" loading="lazy" style="width: 100%; height: auto;">
                     </div>
-                    <div class="addon-item">
-                        <p><strong data-i18n="professional.addon3_title">Compresor de Texturas</strong> <span data-i18n="professional.addon3_desc"></span></p>
-                        <img src="images/addon3.png" alt="Compresor de Texturas" loading="lazy">
+                    <div class="addon-item" style="flex: 1; min-width: 200px; text-align: center;">
+                        <p><strong data-i18n="expProf.compressorTitle"></strong></p>
+                        <img src="images/addon3.png" alt="Compresor de Texturas" loading="lazy" style="width: 100%; height: auto;">
                     </div>
                 </div>
 
-                <p class="app-intro-text" data-i18n="professional.app_p1"></p>
-                <p data-i18n="professional.app_p2"></p>
-                <p data-i18n="professional.app_p3"></p>
+                <p style="margin-top: 25px;" data-i18n="expProf.appP1"></p>
+                <p data-i18n="expProf.appP2"></p>
+                <p data-i18n="expProf.appP3"></p>
 
-                <div class="app-container">
-                    <img src="images/RenderApp.png" alt="RenderApp Qt" loading="lazy">
+                <div class="app-container" style="text-align: center; margin-top: 20px;">
+                    <img src="images/RenderApp.png" alt="RenderApp Qt" loading="lazy" style="max-width: 100%; height: auto;">
+                </div>
+
+                <div class="video-slider-container">
+                    <button class="prev" data-index="5" aria-label="Anterior">&#10094;</button>
+                    <div class="video-slider">
+                        <video id="videoPlayer5" autoplay loop muted preload="metadata">
+                            <source src="videos/promo01.webm" type="video/webm">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <button class="next" data-index="5" aria-label="Siguiente">&#10095;</button>
                 </div>
             </section>
 
             <section id="experience">
-                <h2 data-i18n="personal.title">Experiencia Personal</h2>
-                <p data-i18n="personal.intro"></p>
-                <h3 data-i18n="personal.gamedev_title">Geometry Nodes en Videojuegos</h3>
-                <p data-i18n="personal.gamedev_p1"></p>
-                <video autoplay loop muted playsinline preload="metadata">
+                <h2 data-i18n="expPers.title"></h2>
+                <p data-i18n="expPers.intro"></p>
+
+                <h3 data-i18n="expPers.geoTitle"></h3>
+                <p data-i18n="expPers.geoP1"></p>
+                <video autoplay loop muted preload="metadata">
                     <source src="videos/nodes.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
 
-                <h3 data-i18n="personal.assets_title">Assets</h3>
-                <p data-i18n="personal.assets_p1"></p>
+                <h3 data-i18n="expPers.assetsTitle"></h3>
+                <p data-i18n="expPers.assetsP1"></p>
+
                 <div class="slider slider2">
-                    <button class="prev additional-prev">&#10094;</button>
+                    <button class="prev additional-prev" aria-label="Anterior">&#10094;</button>
                     <div class="slides">
                         <img src="images/slider2/image01.webp" alt="Imagen 1" loading="lazy">
                         <img src="images/slider2/image02.webp" alt="Imagen 2" loading="lazy">
@@ -186,47 +197,45 @@
                         <img src="images/slider2/image12.webp" alt="Imagen 12" loading="lazy">
                         <img src="images/slider2/image13.webp" alt="Imagen 13" loading="lazy">
                     </div>
-                    <button class="next additional-next">&#10095;</button>
+                    <button class="next additional-next" aria-label="Siguiente">&#10095;</button>
                 </div>
 
-                <h3 data-i18n="personal.engines_title">Motores de videojuegos</h3>
-                <p>
-                    <span data-i18n="personal.engines_p1"></span>
-                    <a href="https://nakez.itch.io/cryptophasia" target="_blank" rel="noopener noreferrer" data-i18n="personal.tfp_link"></a>
-                    <span data-i18n="personal.engines_p2"></span>
-                </p>
-                <p data-i18n="personal.engines_p3"></p>
-                
-                <h3 data-i18n="personal.ai_title">Inteligencia Artificial como herramienta</h3>
-                <p data-i18n="personal.ai_p1"></p>
-                <p data-i18n="personal.ai_p2"></p>
-                <video autoplay loop muted playsinline preload="metadata">
+                <h3 data-i18n="expPers.enginesTitle"></h3>
+                <p data-i18n-html="expPers.enginesP1"></p>
+                <p data-i18n="expPers.enginesP2"></p>
+
+                <h3 data-i18n="expPers.aiTitle"></h3>
+                <p data-i18n="expPers.aiP1"></p>
+                <p data-i18n="expPers.aiP2"></p>
+                <video autoplay loop muted preload="metadata">
                     <source src="videos/engines.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
             </section>
 
             <section id="skills">
-                <h2 data-i18n="skills.title">Habilidades</h2>
-                <h3 data-i18n="skills.prod_title">En Producción</h3>
-                <p><strong data-i18n="skills.prod_item1_title"></strong> <span data-i18n="skills.prod_item1_desc"></span></p>
-                <p><strong data-i18n="skills.prod_item2_title"></strong> <span data-i18n="skills.prod_item2_desc"></span></p>
-                <p><strong data-i18n="skills.prod_item3_title"></strong> <span data-i18n="skills.prod_item3_desc"></span></p>
-                <p><strong data-i18n="skills.prod_item4_title"></strong> <span data-i18n="skills.prod_item4_desc"></span></p>
-                <p><strong data-i18n="skills.prod_item5_title"></strong> <span data-i18n="skills.prod_item5_desc"></span></p>
+                <h2 data-i18n="skills.title"></h2>
+
+                <h3 data-i18n="skills.prodTitle"></h3>
+                <p data-i18n-html="skills.prodP1"></p>
+                <p data-i18n-html="skills.prodP2"></p>
+                <p data-i18n-html="skills.prodP3"></p>
+                <p data-i18n-html="skills.prodP4"></p>
+                <p data-i18n-html="skills.prodP5"></p>
                 
-                <h3 data-i18n="skills.tech_title">En Modelado y Pipeline Técnico</h3>
-                <p><strong data-i18n="skills.tech_item1_title"></strong> <span data-i18n="skills.tech_item1_desc"></span></p>
-                <p><strong data-i18n="skills.tech_item2_title"></strong> <span data-i18n="skills.tech_item2_desc"></span></p>
-                <p><strong data-i18n="skills.tech_item3_title"></strong> <span data-i18n="skills.tech_item3_desc"></span></p>
-                <p><strong data-i18n="skills.tech_item4_title"></strong> <span data-i18n="skills.tech_item4_desc"></span></p>
-                <p><strong data-i18n="skills.tech_item5_title"></strong> <span data-i18n="skills.tech_item5_desc"></span></p>
-                <p><strong data-i18n="skills.tech_item6_title"></strong> <span data-i18n="skills.tech_item6_desc"></span></p>
+                <h3 data-i18n="skills.modelingTitle"></h3>
+                <p data-i18n-html="skills.modelingP1"></p>
+                <p data-i18n-html="skills.modelingP2"></p>
+                <p data-i18n-html="skills.modelingP3"></p>
+                <p data-i18n-html="skills.modelingP4"></p>
+                <p data-i18n-html="skills.modelingP5"></p>
+                <p data-i18n-html="skills.modelingP6"></p>
             </section>
 
             <section id="Softwares">
-                <h2 data-i18n="software.title">Softwares</h2>
+                <h2 data-i18n="softwares.title"></h2>
                 <div class="software-group">
+                    <!-- Avanzado (★★★) -->
                     <div class="software-stars">
                         <span class="stars">★★★</span>
                         <ul class="softwares-logos">
@@ -236,6 +245,7 @@
                             <li><img src="images/sofwares/gimplogo.png" alt="Gimp Logo" loading="lazy"></li>
                         </ul>
                     </div>
+                    <!-- Intermedio (★★) -->
                     <div class="software-stars">
                         <span class="stars">★★</span>
                         <ul class="softwares-logos">
@@ -250,6 +260,7 @@
                             <li><img src="images/sofwares/fcpxlogo.png" alt="Final Cut Pro X Logo" loading="lazy"></li>
                         </ul>
                     </div>
+                    <!-- Básico (★) -->
                     <div class="software-stars">
                         <span class="stars">★</span>
                         <ul class="softwares-logos">
@@ -262,36 +273,38 @@
             </section>
 
             <section id="education">
-                <h2 data-i18n="education.title">Estudios</h2>
-                <div class="education-item">
+                <h2 data-i18n="education.title"></h2>
+                <div>
                     <img src="images/upflogo.webp" alt="UPF Logo" loading="lazy">
-                    <p data-i18n="education.desc"></p>
+                    <p data-i18n="education.degree"></p>
                 </div>
             </section>
 
             <section id="nota-al-pie">
-                <h3 data-i18n="note.title">Nota final</h3>
+                <h3 data-i18n="note.title"></h3>
                 <p data-i18n="note.p1"></p>
                 <p data-i18n="note.p2"></p>
-                <p data-i18n="note.p3"></p>                
+                <p data-i18n="note.p3"></p>
             </section>
 
             <section id="contact">
-                <h2 data-i18n="contact.title">Contacto</h2>
-                <div class="contact-links">
-                    <a href="https://www.linkedin.com/in/alvaroperez3d/" target="_blank" rel="noopener noreferrer">
-                        <img src="images/sofwares/inlogo.png" alt="LinkedIn" loading="lazy">
-                    </a>
-                    <a href="mailto:nk3z@proton.me">
-                        <img src="images/sofwares/mail.png" alt="Enviar correo" loading="lazy">
-                    </a>
-                </div>
+                <h2 data-i18n="contact.title"></h2>
+                <a href="https://www.linkedin.com/in/alvaroperez3d/">
+                    <img src="images/sofwares/inlogo.png" alt="LinkedIn" loading="lazy">
+                </a>
+                <a href="mailto:nk3z@proton.me">
+                    <img src="images/sofwares/mail.png" alt="Enviar correo" loading="lazy">
+                </a>
             </section>                    
         </main>
         <footer>
-            <p data-i18n="footer.rights">n4k3z© 2024</p>
+            <p>n4k3z© 2024</p>
         </footer>
     </div>
+
+    <!-- Carga de traducciones y lógica script -->
+    <script src="js/lang/es.js"></script>
+    <script src="js/lang/en.js"></script>
     <script src="js/scripts.js?v=4.0"></script>
 </body>
 </html>
