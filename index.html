@@ -10,12 +10,9 @@
     <meta property="og:image" content="images/icon.png">
     <meta property="og:url" content="https://nk3z.github.io/web/index.html">
     
-    <!-- Aplicar tema e icono instantáneamente para evitar parpadeos -->
+    <!-- Evita el parpadeo de tema aplicando la clase antes de renderizar el DOM -->
     <script>
         (function() {
-            if ('scrollRestoration' in history) {
-                history.scrollRestoration = 'manual';
-            }
             var theme = localStorage.getItem("theme") || "dark";
             if (theme === "light") {
                 document.documentElement.classList.add("light-theme");
@@ -27,16 +24,6 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
-    <!-- Restauración instantánea del scroll antes del primer renderizado -->
-    <script>
-        (function() {
-            var savedScrollPos = sessionStorage.getItem("scrollPosForLangChange");
-            if (savedScrollPos !== null) {
-                window.scrollTo(0, parseInt(savedScrollPos, 10));
-            }
-        })();
-    </script>
-
     <header class="header">
         <img src="images/cover.jpg" class="cover-image" alt="Cover Image">
     </header>
@@ -59,27 +46,16 @@
                     <a href="#contact">Contacto</a>
                 </div>
                 <div class="right-align">
-                    <a href="index_en.html" class="language-switch" id="lang-switch" aria-label="Cambiar a Inglés">
+                    <a href="index_en.html" class="language-switch" aria-label="Cambiar a Inglés">
                         <img id="lang-icon" src="images/spain.svg" alt="Español" class="icon">
                     </a>
-                    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar Tema">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar Tema">
                         <img id="theme-icon" src="images/moon.svg" alt="Moon Icon" class="icon">
                     </button>
                 </div>
             </li>
         </ul>
     </nav>    
-    
-    <script>
-        (function() {
-            var themeIcon = document.getElementById("theme-icon");
-            var theme = localStorage.getItem("theme") || "dark";
-            if (themeIcon) {
-                themeIcon.src = theme === "light" ? "images/sun.svg" : "images/moon.svg";
-            }
-        })();
-    </script>
-
     <div class="container">
         <main>
             <section id="resumen">
@@ -337,6 +313,6 @@
             <p>n4k3z© 2024</p>
         </footer>
     </div>
-<script src="js/scripts.js?v=7.1"></script>
+<script src="js/scripts.js?v=5.0"></script>
 </body>
 </html>

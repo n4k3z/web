@@ -1,22 +1,43 @@
-window.addEventListener("DOMContentLoaded", function () {
-    const themeToggleBtn = document.getElementById("theme-toggle");
-    const themeIcon = document.getElementById("theme-icon");
-    const langSwitchLink = document.getElementById("lang-switch");
+window.addEventListener("load", function () {
+    // Restaurar posición de scroll tras cambio de idioma
+    const savedScrollPos = sessionStorage.getItem("scrollPosForLangChange");
+    if (savedScrollPos !== null) {
+        window.scrollTo(0, parseInt(savedScrollPos, 10));
+        sessionStorage.removeItem("scrollPosForLangChange");
+    }
 
-    // Guardar posición exacta del scroll al hacer clic en cambiar idioma
+    // Guardar posición de scroll al hacer clic en el botón de idioma
+    const langSwitchLink = document.querySelector(".language-switch");
     if (langSwitchLink) {
         langSwitchLink.addEventListener("click", function () {
             sessionStorage.setItem("scrollPosForLangChange", window.scrollY);
         });
     }
 
-    // Botón para alternar tema de forma limpia (evitando conflictos y burbujeo)
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+    
+    let currentTheme = localStorage.getItem("theme") || "dark";
 
-            const isLight = document.documentElement.classList.toggle("light-theme");
+    const sections = document.querySelectorAll("main section");
+    const navLinks = document.querySelectorAll(".main-nav a");
+
+    // Bloqueo de Clic Derecho y Arrastre
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("dragstart", e => e.preventDefault());
+
+    // Configurar icono de tema al cargar
+    if (themeIcon) {
+        themeIcon.src = currentTheme === "light" ? "images/sun.svg" : "images/moon.svg";
+    }
+
+    // Alternar tema claro / oscuro
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", function () {
+            document.documentElement.classList.toggle("light-theme");
+            document.body.classList.toggle("light-theme");
+            
+            const isLight = document.body.classList.contains("light-theme");
             const theme = isLight ? "light" : "dark";
             localStorage.setItem("theme", theme);
 
@@ -26,11 +47,8 @@ window.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Navegación suave por anclas
-    const sections = document.querySelectorAll("main section");
-    const navLinks = document.querySelectorAll(".main-nav a");
-
-    navLinks.forEach(link => {
+    // Desplazamiento suave para la navegación fija
+    document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
@@ -50,10 +68,6 @@ window.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-
-    // Bloqueo de Clic Derecho y Arrastre
-    document.addEventListener("contextmenu", e => e.preventDefault());
-    document.addEventListener("dragstart", e => e.preventDefault());
 
     // Modal de Imágenes
     const modal = document.createElement("div");
@@ -136,7 +150,7 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Sliders
+    // Configuración de Sliders
     const sliders = document.querySelectorAll(".slider");
     sliders.forEach(slider => {
         let currentIndex = 0;
@@ -174,7 +188,7 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Resaltado de sección activa en el menú
+    // Resaltado de sección activa en menú
     function onScroll() {
         const nav = document.querySelector('.main-nav');
         if (!nav) return;
