@@ -1,12 +1,8 @@
 window.addEventListener("load", function () {
-    // Restaurar posición de scroll tras cambio de idioma
-    const savedScrollPos = sessionStorage.getItem("scrollPosForLangChange");
-    if (savedScrollPos !== null) {
-        window.scrollTo(0, parseInt(savedScrollPos, 10));
-        sessionStorage.removeItem("scrollPosForLangChange");
-    }
+    // Eliminar la marca del scroll guardado una vez procesada
+    sessionStorage.removeItem("scrollPosForLangChange");
 
-    // Guardar posición de scroll al hacer clic en el botón de idioma
+    // Guardar posición exacta del scroll al hacer clic en cambiar de idioma
     const langSwitchLink = document.querySelector(".language-switch");
     if (langSwitchLink) {
         langSwitchLink.addEventListener("click", function () {
@@ -26,18 +22,17 @@ window.addEventListener("load", function () {
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("dragstart", e => e.preventDefault());
 
-    // Configurar icono de tema al cargar
+    // Sincronizar el icono del tema al cargar según el localStorage
     if (themeIcon) {
         themeIcon.src = currentTheme === "light" ? "images/sun.svg" : "images/moon.svg";
     }
 
-    // Alternar tema claro / oscuro
+    // Alternar tema claro / oscuro de forma global en html y body
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", function () {
-            document.documentElement.classList.toggle("light-theme");
-            document.body.classList.toggle("light-theme");
+            const isLight = document.body.classList.toggle("light-theme");
+            document.documentElement.classList.toggle("light-theme", isLight);
             
-            const isLight = document.body.classList.contains("light-theme");
             const theme = isLight ? "light" : "dark";
             localStorage.setItem("theme", theme);
 

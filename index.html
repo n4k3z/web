@@ -10,7 +10,7 @@
     <meta property="og:image" content="images/icon.png">
     <meta property="og:url" content="https://nk3z.github.io/web/index.html">
     
-    <!-- Evita el parpadeo de tema aplicando la clase antes de renderizar el DOM -->
+    <!-- Mantiene el tema persistente evitando parpadeos de color -->
     <script>
         (function() {
             var theme = localStorage.getItem("theme") || "dark";
@@ -24,6 +24,20 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
+    <!-- Restaura la posición del scroll inmediatamente para evitar saltos visuales -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem("theme") || "dark";
+            if (theme === "light") {
+                document.body.classList.add("light-theme");
+            }
+            var savedScrollPos = sessionStorage.getItem("scrollPosForLangChange");
+            if (savedScrollPos !== null) {
+                window.scrollTo(0, parseInt(savedScrollPos, 10));
+            }
+        })();
+    </script>
+
     <header class="header">
         <img src="images/cover.jpg" class="cover-image" alt="Cover Image">
     </header>
@@ -313,6 +327,6 @@
             <p>n4k3z© 2024</p>
         </footer>
     </div>
-<script src="js/scripts.js?v=5.0"></script>
+<script src="js/scripts.js?v=6.0"></script>
 </body>
 </html>
