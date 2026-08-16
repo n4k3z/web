@@ -5,28 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="doc_title">Portafolio Alvaro Perez</title>
     <meta name="description" content="Mi portafolio como modelador y productor 3D" data-i18n="meta_desc">
-    <link rel="stylesheet" href="css/style.css?v=2.0">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="light-theme">
+<body>
 
     <header class="header">
         <div class="header-container">
             <img src="images/foto.webp" alt="Alvaro Perez" class="profile-photo">
             
             <div class="header-info">
-                <h1 class="header-name">Alvaro Perez</h1>
-                <p class="header-subtitle">3D Modeler & 3D Producer</p>
-                <div class="contact-inline">
-                    <span>📍 Barcelona, Spain</span>
-                    <span>✉️ <a href="mailto:alvaroperez3d@gmail.com">alvaroperez3d@gmail.com</a></span>
-                    <span>🔗 <a href="https://linkedin.com/in/alvaroperez3d" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
-                    <span>🎨 <a href="https://artstation.com/alvaroperez3d" target="_blank" rel="noopener noreferrer">ArtStation</a></span>
-                </div>
+                <h1>Alvaro Perez</h1>
+                <p class="subtitle">3D Modeler & 3D Producer</p>
+                <p class="contact-info">
+                    Barcelona, Spain | 
+                    <a href="mailto:alvaroperez3d@gmail.com">alvaroperez3d@gmail.com</a> | 
+                    <a href="https://www.linkedin.com/in/alvaro-perez-3d/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </p>
             </div>
 
             <div class="header-controls">
                 <button id="theme-toggle" class="icon-button" title="Cambiar Tema">
-                    <img id="theme-icon" src="images/sun.svg" alt="Tema">
+                    <img id="theme-icon" src="images/moon.svg" alt="Tema">
                 </button>
                 <button id="lang-toggle" class="icon-button" title="Cambiar Idioma">
                     <img id="lang-icon" src="images/spain.svg" alt="Idioma">
@@ -116,9 +115,6 @@
                 <p data-i18n="exp_prof_gn_p2">He desarrollado generadores completos de vasos de cartón, cintas de embalar, bolsas, doypacks, pillow bags, latas, botes (canisters), cajas, botellas y tapones a partir de un perfil 2D, además de otras herramientas específicas para clientes.</p>
                 <p data-i18n="exp_prof_gn_p3">Este enfoque transformó nuestro flujo de trabajo, ya que permitió generar cientos de modelos con máxima precisión y un peso de archivo menor. Sustituyó el trabajo manual tedioso y permitió que otros compañeros sin conocimientos de modelado pudieran generar assets. Como resultado, la eficiencia de nuestro equipo aumentó de forma exponencial.</p>
                 <p data-i18n="exp_prof_gn_p4">Además creé herramientas secundarias para agilizar el modelado convencional, como utilidades para automatizar el Unwrap de UVs, centrando y ajustando la malla a formas cuadradas, clave para etiquetas y zonas de personalización, o generadores de roscas y contrarroscas paramétricas entre muchos otros. Siempre que detecto una tarea repetitiva busco la manera de parametrizarla o resolverla mediante un addon o script.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PL3vI_f7S9z1OXX1_VIDEO_PLAYLIST_ID" title="Geometry Nodes Packaging Generators" allowfullscreen loading="lazy"></iframe>
-                </div>
             </article>
 
             <article class="project">
@@ -130,22 +126,10 @@
                     <li><strong data-i18n="addon2_label">GLTF Export:</strong> <span data-i18n="addon2_text">Exporta automáticamente todas las colecciones de un archivo .blend a formato .glb de forma individual, aplicando las configuraciones seleccionadas en el addon.</span></li>
                     <li><strong data-i18n="addon3_label">Compresor de Texturas:</strong> <span data-i18n="addon3_text">Optimiza el tamaño de las texturas generadas tras el bake preservando la calidad visual.</span></li>
                 </ul>
-                <div class="slider">
-                    <div class="slides">
-                        <img src="images/addon_01.webp" alt="Asset Batch Manager Addon" loading="lazy">
-                        <img src="images/addon_02.webp" alt="GLTF Export Addon" loading="lazy">
-                        <img src="images/addon_03.webp" alt="Texture Compressor Addon" loading="lazy">
-                    </div>
-                    <button class="prev">&#10094;</button>
-                    <button class="next">&#10095;</button>
-                </div>
                 
-                <p data-i18n="exp_prof_app_p1">También desarrollé una aplicación en Qt (cuya primera versión fue para web) pensada para que cualquier persona pueda realizar renders sin necesidad de abrir Blender. La app se apoya en Blender en segundo plano, pero ofrece una interfaz propia e independiente.</p>
+                <p data-i18n="exp_prof_app_p1">También desarrollé una aplicación en Qt (cuya primera versión fue para web) pensada para que cualquier persona pueda realizar renders sin necesidad de abrir Blender. La app se apoya en Blender en segundo plano, pero ofrece una interfaz propia e independentiente.</p>
                 <p data-i18n="exp_prof_app_p2">Entre sus opciones más destacables permite generar las imágenes necesarias según el estándar GS1 o en animaciones 360º, elegir el perfil de iluminación, la distancia focal de la lente y seleccionar fondo transparente o blanco. Por detrás cuenta con un estudio paramétrico desarrollado en Geometry Nodes que calcula automáticamente la distancia a cualquier producto y es totalmente modificable para añadir nuevos presets de luz, ángulos de cámara, etc.</p>
                 <p data-i18n="exp_prof_app_p3">Admite la importación de archivos .blend y .glb, siendo el .blend el más configurable ya que la app lee sus modificadores de Geometry Nodes. Esto permite cambiar partes del producto, modificar materiales o detectar las etiquetas para subir imágenes nuevas y reemplazarlas al instante. Funciona tanto para el renderizado individual como en lote, aplicando la misma configuración a múltiples archivos a la vez para agilizar el trabajo.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID_APP" title="Qt Render App Showcase" allowfullscreen loading="lazy"></iframe>
-                </div>
             </article>
         </section>
 
@@ -157,36 +141,17 @@
             <article class="project">
                 <h3 data-i18n="exp_pers_games_title">Geometry Nodes en Videojuegos</h3>
                 <p data-i18n="exp_pers_games_p1">Este proyecto nació cuando estaba recreando mi pueblo de la infancia a escala en Unreal Engine para poder recorrerlo. Lo que me llevó a preguntarme cómo generar poblaciones de forma masiva sin tener que colocar cada casa, carretera, farola o elemento urbano individualmente. Justo en ese momento comencé a estudiar Geometry Nodes, utilizando este proyecto personal para aprender la herramienta y luego ver como podría usarla en el trabajo. Tras un año de aprendizaje desarrollé el principio de un generador de ciudades procedurales, esta vez implementándolo en el motor de Godot. Este proyecto me permitió explorar la herramienta a fondo y, en cuanto aprendí como funcionaba, no dejaron de surgir nuevas ideas para aprovechar Geometry Nodes en la producción.</p>
-                <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID_CITY_GEN" title="Procedural City Generator" allowfullscreen loading="lazy"></iframe>
-                </div>
             </article>
 
             <article class="project">
                 <h3 data-i18n="exp_pers_assets_title">Assets</h3>
                 <p data-i18n="exp_pers_assets_p1">Mi interés por el 3D y el desarrollo de videojuegos me mantiene siempre activo. Principalmente modelando assets para entornos, renders, mobiliario ocasional y para piezas para impresión 3D. Trabajo todos estos modelos con medidas reales, mallas optimizadas y calidad profesional. Además, de vez en cuando hago algo de modelado orgánico para crear personajes y probarlos en motores de videojuegos. Son proyectos que me sirven para reforzar y aprender aspectos que habitualmente no se me exigen en el trabajo diario.</p>
-                <div class="slider">
-                    <div class="slides">
-                        <img src="images/personal_asset_01.webp" alt="Personal Asset 1" loading="lazy">
-                        <img src="images/personal_asset_02.webp" alt="Personal Asset 2" loading="lazy">
-                    </div>
-                    <button class="prev">&#10094;</button>
-                    <button class="next">&#10095;</button>
-                </div>
             </article>
 
             <article class="project">
                 <h3 data-i18n="exp_pers_engines_title">Motores de videojuegos</h3>
                 <p id="exp_pers_engines_p1"><span data-i18n="exp_pers_engines_p1_a">Además del modelado, mi otra pasión son los motores de videojuegos, principalmente por la interactividad que ofrecen. Mi primer contacto fue con Unity para la demo de mi </span><a href="https://nakez.itch.io/cryptophasia" target="_blank" rel="noopener noreferrer" data-i18n="exp_pers_engines_link">Trabajo de Fin de Grado</a><span data-i18n="exp_pers_engines_p1_b">, pero donde he pasado más tiempo ha sido en Unreal Engine, dando vida a personajes y entornos a través de Blueprints.</span></p>
                 <p data-i18n="exp_pers_engines_p2">Sin embargo, cuando comencé a trabajar con Geometry Nodes descubrí Godot y, al igual que me ocurrió con Blender, me enamoré de su potencial y su libertad. Actualmente es el motor donde desarrollo todos mis proyectos personales.</p>
-                <div class="slider">
-                    <div class="slides">
-                        <img src="images/engine_01.webp" alt="Unreal Engine Showcase" loading="lazy">
-                        <img src="images/engine_02.webp" alt="Godot Engine Showcase" loading="lazy">
-                    </div>
-                    <button class="prev">&#10094;</button>
-                    <button class="next">&#10095;</button>
-                </div>
             </article>
 
             <article class="project">
@@ -252,17 +217,12 @@
         <!-- CONTACTO -->
         <section id="contacto">
             <h2 data-i18n="contact_title">Contacto</h2>
-            <div class="contact-card">
-                <p>📍 Barcelona, Spain</p>
-                <p>✉️ <a href="mailto:alvaroperez3d@gmail.com">alvaroperez3d@gmail.com</a></p>
-                <p>🔗 <a href="https://linkedin.com/in/alvaroperez3d" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-                <p>🎨 <a href="https://artstation.com/alvaroperez3d" target="_blank" rel="noopener noreferrer">ArtStation</a></p>
-            </div>
+            <p>Barcelona, Spain | <a href="mailto:alvaroperez3d@gmail.com">alvaroperez3d@gmail.com</a> | <a href="https://www.linkedin.com/in/alvaro-perez-3d/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
         </section>
 
     </main>
 
-    <script src="js/translations.js?v=1.0"></script>
-    <script src="js/scripts.js?v=4.0"></script>
+    <script src="js/translations.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
