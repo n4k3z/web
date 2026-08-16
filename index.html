@@ -10,9 +10,12 @@
     <meta property="og:image" content="images/icon.png">
     <meta property="og:url" content="https://nk3z.github.io/web/index.html">
     
-    <!-- Mantiene el tema persistente evitando parpadeos de color -->
+    <!-- Carga del tema e icono de forma instantánea antes de renderizar -->
     <script>
         (function() {
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
             var theme = localStorage.getItem("theme") || "dark";
             if (theme === "light") {
                 document.documentElement.classList.add("light-theme");
@@ -24,13 +27,9 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
-    <!-- Restaura la posición del scroll inmediatamente para evitar saltos visuales -->
+    <!-- Restauración inmediata del scroll antes del primer pintado -->
     <script>
         (function() {
-            var theme = localStorage.getItem("theme") || "dark";
-            if (theme === "light") {
-                document.body.classList.add("light-theme");
-            }
             var savedScrollPos = sessionStorage.getItem("scrollPosForLangChange");
             if (savedScrollPos !== null) {
                 window.scrollTo(0, parseInt(savedScrollPos, 10));
@@ -70,6 +69,18 @@
             </li>
         </ul>
     </nav>    
+    
+    <!-- Sincronización inmediata de la imagen del icono de tema -->
+    <script>
+        (function() {
+            var themeIcon = document.getElementById("theme-icon");
+            var theme = localStorage.getItem("theme") || "dark";
+            if (themeIcon) {
+                themeIcon.src = theme === "light" ? "images/sun.svg" : "images/moon.svg";
+            }
+        })();
+    </script>
+
     <div class="container">
         <main>
             <section id="resumen">
@@ -327,6 +338,6 @@
             <p>n4k3z© 2024</p>
         </footer>
     </div>
-<script src="js/scripts.js?v=6.0"></script>
+<script src="js/scripts.js?v=7.0"></script>
 </body>
 </html>

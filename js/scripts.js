@@ -1,38 +1,21 @@
-window.addEventListener("load", function () {
-    // Eliminar la marca del scroll guardado una vez procesada
-    sessionStorage.removeItem("scrollPosForLangChange");
+// Guardar la posición del scroll continuamente en tiempo real
+window.addEventListener("scroll", function () {
+    sessionStorage.setItem("scrollPosForLangChange", window.scrollY);
+}, { passive: true });
 
-    // Guardar posición exacta del scroll al hacer clic en cambiar de idioma
-    const langSwitchLink = document.querySelector(".language-switch");
-    if (langSwitchLink) {
-        langSwitchLink.addEventListener("click", function () {
-            sessionStorage.setItem("scrollPosForLangChange", window.scrollY);
-        });
-    }
-
+window.addEventListener("DOMContentLoaded", function () {
     const themeToggleBtn = document.getElementById("theme-toggle");
     const themeIcon = document.getElementById("theme-icon");
-    
-    let currentTheme = localStorage.getItem("theme") || "dark";
 
-    const sections = document.querySelectorAll("main section");
-    const navLinks = document.querySelectorAll(".main-nav a");
+    // Limpiar el scroll almacenado tras completarse la transición
+    setTimeout(() => {
+        sessionStorage.removeItem("scrollPosForLangChange");
+    }, 1000);
 
-    // Bloqueo de Clic Derecho y Arrastre
-    document.addEventListener("contextmenu", e => e.preventDefault());
-    document.addEventListener("dragstart", e => e.preventDefault());
-
-    // Sincronizar el icono del tema al cargar según el localStorage
-    if (themeIcon) {
-        themeIcon.src = currentTheme === "light" ? "images/sun.svg" : "images/moon.svg";
-    }
-
-    // Alternar tema claro / oscuro de forma global en html y body
+    // Botón para alternar tema
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", function () {
-            const isLight = document.body.classList.toggle("light-theme");
-            document.documentElement.classList.toggle("light-theme", isLight);
-            
+            const isLight = document.documentElement.classList.toggle("light-theme");
             const theme = isLight ? "light" : "dark";
             localStorage.setItem("theme", theme);
 
@@ -42,7 +25,10 @@ window.addEventListener("load", function () {
         });
     }
 
-    // Desplazamiento suave para la navegación fija
+    // Navegación suave por anclas
+    const sections = document.querySelectorAll("main section");
+    const navLinks = document.querySelectorAll(".main-nav a");
+
     document.querySelectorAll('.main-nav a').forEach(link => {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -63,6 +49,10 @@ window.addEventListener("load", function () {
             }
         });
     });
+
+    // Bloqueo de Clic Derecho y Arrastre
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("dragstart", e => e.preventDefault());
 
     // Modal de Imágenes
     const modal = document.createElement("div");
@@ -145,7 +135,7 @@ window.addEventListener("load", function () {
         }
     });
 
-    // Configuración de Sliders
+    // Sliders
     const sliders = document.querySelectorAll(".slider");
     sliders.forEach(slider => {
         let currentIndex = 0;
@@ -183,7 +173,7 @@ window.addEventListener("load", function () {
         }
     });
 
-    // Resaltado de sección activa en menú
+    // Resaltado de sección activa en el menú
     function onScroll() {
         const nav = document.querySelector('.main-nav');
         if (!nav) return;
