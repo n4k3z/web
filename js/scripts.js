@@ -238,8 +238,8 @@ window.addEventListener("load", function () {
 
         // Actualizar Bandera (Si es ES muestra bandera UK para cambiar a EN y viceversa)
         if (langIcon) {
-            langIcon.src = lang === "es" ? "images/spain.svg" : "images/uk.svg";
-            langIcon.alt = lang === "es" ? "Español" : "English";
+            langIcon.src = lang === "es" ? "images/uk.svg" : "images/spain.svg";
+            langIcon.alt = lang === "es" ? "English" : "Español";
         }
 
         const t = translations[lang];
