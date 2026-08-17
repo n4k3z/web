@@ -42,6 +42,19 @@ window.addEventListener("load", function () {
             langIcon.alt = lang === "es" ? "Español" : "English";
         }
 
+        // --- ACTUALIZACIÓN DINÁMICA DEL CV SEGÚN EL IDIOMA ---
+        const cvPath = lang === "en" ? "docs/CV_Alvaro_Perez_3D_en.pdf" : "docs/CV_Alvaro_Perez_3D_es.pdf";
+        
+        const cvBtnNav = document.getElementById("cv-btn-nav");
+        if (cvBtnNav) {
+            cvBtnNav.href = cvPath;
+        }
+
+        const cvBtnNotice = document.getElementById("cv-btn-notice");
+        if (cvBtnNotice) {
+            cvBtnNotice.href = cvPath;
+        }
+
         if (typeof translations === "undefined") return;
         const t = translations[lang];
         if (!t) return;
