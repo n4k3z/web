@@ -256,7 +256,7 @@ main {
 
 section {
     margin-bottom: 20px;
-    scroll-margin-top: 60px;
+    scroll-margin-top: 70px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -517,6 +517,10 @@ body.light-theme footer {
 
 /* Configuración Móvil Ajustada */
 @media (max-width: 768px) {
+    section {
+        scroll-margin-top: 110px;
+    }
+
     .cv-notice {
         margin: 8px 10px 0 10px;
         font-size: 0.80rem;

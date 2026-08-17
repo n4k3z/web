@@ -131,7 +131,7 @@ window.addEventListener("load", function () {
         });
     }
 
-    // Desplazamiento suave ajustado al nav
+    // Desplazamiento suave ajustado al nav con corrección dinámica
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -140,14 +140,21 @@ window.addEventListener("load", function () {
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    const headerOffset = mainNav ? mainNav.offsetHeight : 0;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    const scrollToTarget = () => {
+                        const headerOffset = mainNav ? mainNav.offsetHeight : 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - headerOffset - 5;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    };
+
+                    scrollToTarget();
+
+                    // Segundo ajuste tras 300ms para corregir si el layout cambió al hacer scroll
+                    setTimeout(scrollToTarget, 300);
                 }
             }
         });
