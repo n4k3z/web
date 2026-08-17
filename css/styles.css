@@ -163,8 +163,8 @@ body.light-theme footer {
     color: #85ABED !important;
 }
 
-/* Botón de CV destacado en la barra superior */
-.nav-btn-cv {
+/* Botón de CV destacado en la barra superior (Especificidad aumentada) */
+.main-nav a.nav-btn-cv {
     border: 1px solid #85ABED !important;
     border-radius: 4px;
     padding: 3px 10px !important;
@@ -172,7 +172,7 @@ body.light-theme footer {
     color: #85ABED !important;
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.2s ease-in-out;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
     margin-right: 5px;
     display: inline-flex;
     align-items: center;
@@ -180,18 +180,22 @@ body.light-theme footer {
     line-height: 1;
 }
 
-.nav-btn-cv:hover {
+.main-nav a.nav-btn-cv:hover,
+.main-nav a.nav-btn-cv:focus,
+.main-nav a.nav-btn-cv:active {
     background-color: #85ABED !important;
     color: #1a1a1a !important;
     box-shadow: 0 0 8px rgba(133, 171, 237, 0.4);
 }
 
-body.light-theme .nav-btn-cv {
+body.light-theme .main-nav a.nav-btn-cv {
     border-color: #5c8edc !important;
     color: #5c8edc !important;
 }
 
-body.light-theme .nav-btn-cv:hover {
+body.light-theme .main-nav a.nav-btn-cv:hover,
+body.light-theme .main-nav a.nav-btn-cv:focus,
+body.light-theme .main-nav a.nav-btn-cv:active {
     background-color: #5c8edc !important;
     color: #ffffff !important;
     box-shadow: 0 0 8px rgba(92, 142, 220, 0.4);
@@ -551,7 +555,7 @@ body.light-theme footer {
         border-radius: 0;
     }
 
-    .nav-btn-cv {
+    .main-nav a.nav-btn-cv {
         font-size: 0.75rem;
         padding: 2px 6px !important;
         border-radius: 4px;
@@ -620,7 +624,7 @@ body.light-theme footer {
         right: 5px;
     }
 
-    .main-nav a:hover {
+    .main-nav a:not(.nav-btn-cv):hover {
         color: inherit !important;
     }
 }
